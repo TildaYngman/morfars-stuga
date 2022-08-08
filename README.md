@@ -1,3 +1,24 @@
+A personal project produced by,
+Felix Odenhall and Matilda Yngman 
+
+This is Our combined personal end project through Hyper Island (HI).
+The brief we got from HI:
+
+"FRONTEND DEVELOPER
+The students will drive a project of their 
+own choosing, and turn their ideas into 
+reality. During this project, the students 
+will use the abilities they have learned so 
+far to practice, deepen, and show their 
+understanding of the digital industry and 
+a Frontend Developer role."
+
+Personal Brief for project
+"A pair project with individual responsibility. 
+Creating a booking/information web application for a Family business cabin rental. The application needs to be deliverable with a booking request system and Q&A component, as well as information about the cabin."
+
+....
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

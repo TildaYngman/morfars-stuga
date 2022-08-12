@@ -1,4 +1,5 @@
 import QuestionsAndAnswersComponent from "../components/questionsAndAnswersComponent";
+import Link from "next/link";
 
 export default function QuestionsAndAnswers({ users }) {
   return (
@@ -11,6 +12,7 @@ export default function QuestionsAndAnswers({ users }) {
           </div>
         );
       })}
+      <Link href="/">Home</Link>
     </>
   );
 }

@@ -4,15 +4,19 @@ import Link from "next/link";
 export default function QuestionsAndAnswers({ items }) {
   return (
     <>
-      <h1>Questions and Answers</h1>
-      {items.map((temp) => {
-        return (
-          <div key={temp._id}>
-            <QuestionsAndAnswersComponent temp={temp} />
-          </div>
-        );
-      })}
       <Link href="/">Home</Link>
+      <main className="p-2 flex justify-center items-center flex-col">
+        <h1 className="flex justify-center text-2xl font-medium my-6">
+          Questions and Answers
+        </h1>
+        {items.map((temp) => {
+          return (
+            <div key={temp._id}>
+              <QuestionsAndAnswersComponent temp={temp} />
+            </div>
+          );
+        })}
+      </main>
     </>
   );
 }

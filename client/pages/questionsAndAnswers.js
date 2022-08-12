@@ -1,13 +1,13 @@
 import QuestionsAndAnswersComponent from "../components/questionsAndAnswersComponent";
 import Link from "next/link";
 
-export default function QuestionsAndAnswers({ users }) {
+export default function QuestionsAndAnswers({ items }) {
   return (
     <>
       <h1>Questions and Answers</h1>
-      {users.map((temp) => {
+      {items.map((temp) => {
         return (
-          <div key={temp.id}>
+          <div key={temp._id}>
             <QuestionsAndAnswersComponent temp={temp} />
           </div>
         );
@@ -18,12 +18,12 @@ export default function QuestionsAndAnswers({ users }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const res = await fetch("http://localhost:28017/test");
   const data = await res.json();
 
   return {
     props: {
-      users: data,
+      items: data,
     },
   };
 }

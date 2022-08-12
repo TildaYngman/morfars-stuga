@@ -2,15 +2,12 @@ import QuestionsAndAnswersComponent from "../components/questionsAndAnswersCompo
 import Link from "next/link";
 
 export default function QuestionsAndAnswers({ items }) {
-  let questionNumber = 1;
-
   return (
     <>
       <h1>Questions and Answers</h1>
       {items.map((temp) => {
         return (
           <div key={temp._id}>
-            <h3>Question number {questionNumber++}</h3>
             <QuestionsAndAnswersComponent temp={temp} />
           </div>
         );

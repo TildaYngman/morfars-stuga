@@ -1,4 +1,4 @@
-GET http://localhost:28017/test
+GET http://localhost:28017/QandA
 Content-Type: application/json
 
 # ###

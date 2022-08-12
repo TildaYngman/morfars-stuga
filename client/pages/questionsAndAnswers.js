@@ -1,5 +1,11 @@
+import QuestionsAndAnswersComponent from "../components/questionsAndAnswersComponent";
+
 export default function QuestionsAndAnswers() {
-  return <h1>Questions and Answers</h1>;
+  return (
+    <>
+      <h1>Questions and Answers</h1>;
+    </>
+  );
 }
 
 export async function getStaticProps() {

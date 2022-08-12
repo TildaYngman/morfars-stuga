@@ -20,4 +20,13 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-
+//get item collection
+app.get("/test", async (request, response) => {
+    const products = await itemsCollection.find({}).toArray();
+    response.json(products);
+  });
+  
+  //Keep server running
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}.`);
+  });

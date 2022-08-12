@@ -12,3 +12,12 @@ const mongoClient = new mongodb.MongoClient(MONGODB_URL);
 mongoClient.connect();
 
 const db = mongoClient.db("cabin");
+const itemsCollection = db.collection("test");
+
+const PORT = process.env.PORT || 28017;
+const app = express();
+
+app.use(cors({ origin: "*" }));
+app.use(express.json());
+
+

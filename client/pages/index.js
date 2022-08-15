@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <h1 className="text-3xl font-bold underline text-cyan-300">Project</h1>
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
+      <Link href="/about">About The Cabin</Link>
     </>
   );
 }

@@ -7,7 +7,8 @@ export default function BookingForm() {
     const data = {
       firstName: event.target.firstName.value,
       lastName: event.target.lastName.value,
-      requestDate: event.target.requestDate.value,
+      arrive: event.target.arrive.value,
+      leave: event.target.leave.value,
       message: event.target.message.value,
       email: event.target.email.value,
     };
@@ -44,14 +45,23 @@ export default function BookingForm() {
           id="lastName"
           name="lastName"
         />
-        <label className=" mb-2" htmlFor="requestDate">
-          When would you like to book:
+        <label className=" mb-2" htmlFor="arrive">
+          When would you like to arrive?
         </label>
         <input
           className=" border-solid border-2 border-slate-500"
           type="date"
-          id="requestDate"
-          name="requestDate"
+          id="arrive"
+          name="arrive"
+        ></input>
+        <label className=" mb-2" htmlFor="leave">
+          When would you like to leave?
+        </label>
+        <input
+          className=" border-solid border-2 border-slate-500"
+          type="date"
+          id="leave"
+          name="leave"
         ></input>
         <label className=" mb-2" htmlFor="message">
           Message:

@@ -1,4 +1,4 @@
-import QuestionsAndAnswersComponent from "../components/questionsAndAnswersComponent";
+import QuestionsAndAnswersComponent from "../components/QuestionsAndAnswersComponent";
 import Link from "next/link";
 
 export default function QuestionsAndAnswers({ items }) {

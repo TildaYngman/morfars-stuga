@@ -15,7 +15,7 @@ a Frontend Developer role."
 
 Personal Brief for project
 "A pair project with individual responsibility. 
-Creating a booking/information web application for a Family business cabin rental. The application needs to be deliverable with a booking request system and Q&A component, as well as information about the cabin."
+Creating a booking/information web application for a Family business cabin rental. The application needs to be deliverable with a booking request system and a Q&A component, as well as information about the cabin."
 
 ....
 

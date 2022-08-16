@@ -3,8 +3,9 @@ import { AiOutlineDown } from "react-icons/ai";
 export default function QuestionsAndAnswersComponent({ temp }) {
   return (
     <>
-      <button className=" mb-4 w-full bg-slate-300 flex items-center justify-between">
-        <p className="text-left">{temp.question}</p> <AiOutlineDown />
+      <button className=" p-2 mb-4 w-full bg-slate-300 flex items-center justify-between">
+        <p className="text-left">{temp.question}</p>
+        <AiOutlineDown className="ml-2" />
       </button>
     </>
   );

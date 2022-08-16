@@ -1,20 +1,31 @@
+import { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
 export default function QuestionsAndAnswersComponent({ temp }) {
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = (event) => {
+    // 👇️ toggle shown state
+    setIsShown((current) => !current);
+
+    // 👇️ or simply set it to true
+    // setIsShown(true);
+  };
+
   return (
     <>
-      <button className=" p-2 mb-4 w-full bg-slate-300 flex items-center justify-between">
+      <button
+        className=" p-2 mb-4 w-full bg-slate-300 flex items-center justify-between"
+        onClick={handleClick}
+      >
         <p className="text-left">{temp.question}</p>
         <AiOutlineDown className="ml-2" />
       </button>
+      {isShown && (
+        <div>
+          <p>{temp.answer}</p>
+        </div>
+      )}
     </>
   );
-}
-
-{
-  /* <section className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200 flex flex-col max-w-md">
-<button className=" mb-4 w-full">{temp.question}</button>
-<p className=" text-lg font-medium">Answer</p>
-<p className=" mb-2">{temp.answer}</p>
-</section> */
 }

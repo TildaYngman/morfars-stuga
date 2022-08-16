@@ -15,15 +15,15 @@ export default function QuestionsAndAnswersComponent({ temp }) {
   return (
     <>
       <button
-        className=" p-2 mb-4 w-full bg-slate-300 flex items-center justify-between"
+        className=" p-2 mb-3 w-full bg-slate-300 flex items-center justify-between"
         onClick={handleClick}
       >
         <p className="text-left">{temp.question}</p>
         <AiOutlineDown className="ml-2" />
       </button>
       {isShown && (
-        <div>
-          <p>{temp.answer}</p>
+        <div className="mb-3">
+          <p className="text-left">{temp.answer}</p>
         </div>
       )}
     </>

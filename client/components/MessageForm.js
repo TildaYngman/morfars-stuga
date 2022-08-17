@@ -1,14 +1,51 @@
 export default function MessageForm() {
+  function handleSubmit() {
+    alert("The Form has been Submitted.");
+  }
+
   return (
     <div className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200  flex justify-center flex-col">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <br />
-        <input type="email" id="first" name="email" required />
+        <input
+          type="email"
+          id="first"
+          placeholder="Enter email"
+          name="email"
+          required
+        />
+        <br />
+        <label htmlFor="phone">Phonenumber</label>
+        <br />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Enter phonenumber"
+          pattern="^([+]46)\s*(7[0236])\s*(\d{4})\s*(\d{3})$"
+          required
+        ></input>
+        <br />
+        <label htmlFor="title">Title</label>
+        <br />
+        <input
+          type="text"
+          id="title"
+          placeholder="Write a title"
+          name="title"
+          required
+        />
         <br />
         <label htmlFor="message">Message</label>
         <br />
-        <input type="text" id="message" name="message" required />
+        <input
+          type="text"
+          id="message"
+          placeholder="Write a message"
+          name="message"
+          required
+        />
         <br />
         <button type="submit">Submit</button>
       </form>

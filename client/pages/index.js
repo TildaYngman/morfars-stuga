@@ -9,7 +9,7 @@ export default function Home() {
   const [guestName, setGuestName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [phone, setPhone] = useState("");
+  const [guestPhone, setGuestPhone] = useState("");
   const [title, setTitle] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,9 +22,14 @@ export default function Home() {
         setGuestName={setGuestName}
         setEmail={setEmail}
         setMessage={setMessage}
-        setPhone={setPhone}
+        setGuestPhone={setGuestPhone}
         setTitle={setTitle}
         setSubmitted={setSubmitted}
+        guestName={guestName}
+        email={email}
+        message={message}
+        guestPhone={guestPhone}
+        title={title}
       />
     </>
   );

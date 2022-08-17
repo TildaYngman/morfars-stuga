@@ -1,19 +1,26 @@
 export default function MessageForm({
   setGuestName,
   setEmail,
-  setPhone,
+  setGuestPhone,
   setTitle,
   setMessage,
   setSubmit,
+  guestName,
+  email,
+  message,
+  guestPhone,
+  title,
 }) {
-  const handleSubmit = () => {
-    let message = {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let guestEmail = {
       guestName,
+      guestPhone,
       email,
-      message,
-      phone,
       title,
+      message,
     };
+    console.log(guestEmail);
   };
 
   return (
@@ -55,7 +62,7 @@ export default function MessageForm({
           pattern="^([+]46)\s*(7[0236])\s*(\d{4})\s*(\d{3})$"
           required
           onChange={(e) => {
-            setPhone(e.target.value);
+            setGuestPhone(e.target.value);
           }}
         ></input>
         <br />

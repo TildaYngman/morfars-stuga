@@ -1,7 +1,20 @@
-export default function MessageForm({ setName, setEmail, setPhone, setTitl, setMessage, setSubmit }) {
-  function handleSubmit() {
-    alert("The Form has been Submitted.");
-  }
+export default function MessageForm({
+  setGuestName,
+  setEmail,
+  setPhone,
+  setTitle,
+  setMessage,
+  setSubmit,
+}) {
+  const handleSubmit = () => {
+    let message = {
+      guestName,
+      email,
+      message,
+      phone,
+      title,
+    };
+  };
 
   return (
     <div className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200  flex justify-center flex-col">
@@ -10,12 +23,12 @@ export default function MessageForm({ setName, setEmail, setPhone, setTitl, setM
         <br />
         <input
           type="text"
-          id="name"
+          id="gusetName"
           placeholder="Full name"
-          name="text"
+          name="guestName"
           required
           onChange={(e) => {
-            setName(e.target.value);
+            setGuestName(e.target.value);
           }}
         />
         <br />
@@ -23,7 +36,7 @@ export default function MessageForm({ setName, setEmail, setPhone, setTitl, setM
         <br />
         <input
           type="email"
-          id="first"
+          id="email"
           placeholder="Enter email"
           name="email"
           required
@@ -42,7 +55,7 @@ export default function MessageForm({ setName, setEmail, setPhone, setTitl, setM
           pattern="^([+]46)\s*(7[0236])\s*(\d{4})\s*(\d{3})$"
           required
           onChange={(e) => {
-            setName(e.target.value);
+            setPhone(e.target.value);
           }}
         ></input>
         <br />
@@ -55,7 +68,7 @@ export default function MessageForm({ setName, setEmail, setPhone, setTitl, setM
           name="title"
           required
           onChange={(e) => {
-            setName(e.target.value);
+            setTitle(e.target.value);
           }}
         />
         <br />
@@ -68,7 +81,7 @@ export default function MessageForm({ setName, setEmail, setPhone, setTitl, setM
           name="message"
           required
           onChange={(e) => {
-            setName(e.target.value);
+            setMessage(e.target.value);
           }}
         />
         <br />

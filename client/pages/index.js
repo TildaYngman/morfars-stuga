@@ -6,7 +6,7 @@ import { Greeting, MessageForm } from "../components/index";
 import { useState } from "react";
 
 export default function Home() {
-  const [name, setName] = useState("");
+  const [guestName, setGuestName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [phone, setPhone] = useState("");
@@ -19,7 +19,7 @@ export default function Home() {
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
       <Link href="/about">About The Cabin</Link>
       <MessageForm
-        setName={setName}
+        setGuestName={setGuestName}
         setEmail={setEmail}
         setMessage={setMessage}
         setPhone={setPhone}

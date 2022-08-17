@@ -1,4 +1,5 @@
 import QuestionsAndAnswersComponent from "../components/QuestionsAndAnswersComponent";
+import QueststionCategory from "../components/QuestionCategory";
 import Link from "next/link";
 
 export default function QuestionsAndAnswers({ items }) {
@@ -9,6 +10,7 @@ export default function QuestionsAndAnswers({ items }) {
         <h1 className="flex justify-center text-2xl font-medium my-6">
           Questions and Answers
         </h1>
+        <QueststionCategory temp={items} />
         <section className="flex flex-col items-start">
           {items.map((temp) => {
             return <QuestionsAndAnswersComponent key={temp._id} temp={temp} />;

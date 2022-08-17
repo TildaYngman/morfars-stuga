@@ -17,7 +17,11 @@ export default function Home() {
     <>
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
+      <br />
       <Link href="/about">About The Cabin</Link>
+      <br />
+      <Link href="/bookingRequest">booking</Link>
+      <br />
       <MessageForm
         setGuestName={setGuestName}
         setEmail={setEmail}

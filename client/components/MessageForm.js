@@ -6,7 +6,7 @@ export default function MessageForm() {
   return (
     <div className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200  flex justify-center flex-col">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="text">Name</label>
+        <label htmlFor="name">Name</label>
         <br />
         <input
           type="text"

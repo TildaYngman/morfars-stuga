@@ -18,7 +18,14 @@ export default function Home() {
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
       <Link href="/about">About The Cabin</Link>
-      <MessageForm />
+      <MessageForm
+        setName={setName}
+        setEmail={setEmail}
+        setMessage={setMessage}
+        setPhone={setPhone}
+        setTitle={setTitle}
+        setSubmitted={setSubmitted}
+      />
     </>
   );
 }

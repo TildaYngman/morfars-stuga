@@ -14,6 +14,7 @@ export default function MessageForm() {
           placeholder="Full name"
           name="text"
           required
+          onChange={(e)=>{setName(e.target.value)}}
         />
         <br />
         <label htmlFor="email">Email</label>
@@ -24,6 +25,7 @@ export default function MessageForm() {
           placeholder="Enter email"
           name="email"
           required
+          onChange={(e)=>{setName(e.target.value)}}
         />
         <br />
         <label htmlFor="phone">Phonenumber</label>
@@ -35,6 +37,7 @@ export default function MessageForm() {
           placeholder="Enter phonenumber"
           pattern="^([+]46)\s*(7[0236])\s*(\d{4})\s*(\d{3})$"
           required
+          onChange={(e)=>{setName(e.target.value)}}
         ></input>
         <br />
         <label htmlFor="title">Title</label>
@@ -45,6 +48,7 @@ export default function MessageForm() {
           placeholder="Write a title"
           name="title"
           required
+          onChange={(e)=>{setName(e.target.value)}}
         />
         <br />
         <label htmlFor="message">Message</label>
@@ -55,6 +59,7 @@ export default function MessageForm() {
           placeholder="Write a message"
           name="message"
           required
+          onChange={(e)=>{setName(e.target.value)}}
         />
         <br />
         <button type="submit">Submit</button>

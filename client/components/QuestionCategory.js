@@ -15,33 +15,11 @@ export default function QuestionsCategory({ temp }) {
     }
   });
 
-  // function handleClick(e) {
-  //   temp.forEach((element) => {
-  //     if (e.target.id === element.category) {
-  //       console.log(element.question);
-  //       setQuestionArr(questionArr.push(element));
-  //     }
-  //     console.log("Question ARR: ", questionArr);
-  //   });
-  //
-
-  const handleClickQuestion = (event) => {
-    // 👇️ toggle shown state
-    setIsShown((current) => !current);
-
-    // 👇️ or simply set it to true
-    // setIsShown(true);
-  };
-
-  function handleClickCategory(e) {
+  function handleClick(e) {
     const newArray = [];
     temp.forEach((element) => {
       if (e.target.id === element.category) {
-        newArray.push(element); //add element to new array
-        // setQuestionArr(questionArr); //overwrite state with new array with element pushed in
-        // console.log(element.question);
-        // console.log(newArray);
-        // renderCategoryQuestions(newArray);
+        newArray.push(element);
       }
     });
     setQuestionArr([...newArray]);
@@ -67,7 +45,7 @@ export default function QuestionsCategory({ temp }) {
     <>
       {firstObjectOfCategories.map((e) => {
         return (
-          <button onClick={handleClickCategory} id={e.category} key={e._id}>
+          <button onClick={handleClick} id={e.category} key={e._id}>
             {e.category}
           </button>
         );

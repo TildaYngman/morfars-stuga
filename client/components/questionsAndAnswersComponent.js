@@ -5,11 +5,7 @@ export default function QuestionsAndAnswersComponent({ item }) {
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event) => {
-    // 👇️ toggle shown state
     setIsShown((current) => !current);
-
-    // 👇️ or simply set it to true
-    // setIsShown(true);
   };
 
   return (

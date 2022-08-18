@@ -11,11 +11,11 @@ export default function QuestionsAndAnswers({ items }) {
           Questions and Answers
         </h1>
         <QueststionCategory temp={items} />
-        <section className="flex flex-col items-start">
+        {/* <section className="flex flex-col items-start">
           {items.map((temp) => {
             return <QuestionsAndAnswersComponent key={temp._id} temp={temp} />;
           })}
-        </section>
+        </section> */}
       </main>
     </>
   );

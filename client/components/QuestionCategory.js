@@ -43,13 +43,20 @@ export default function QuestionsCategory({ temp }) {
   let rows = [];
   return (
     <>
-      {firstObjectOfCategories.map((e) => {
-        return (
-          <button onClick={handleClick} id={e.category} key={e._id}>
-            {e.category}
-          </button>
-        );
-      })}
+      <section className="flex flex-row ">
+        {firstObjectOfCategories.map((e) => {
+          return (
+            <button
+              className=" bg-primary-green-800 text-primary-green-100 text-lg w-72 m-1 p-2"
+              onClick={handleClick}
+              id={e.category}
+              key={e._id}
+            >
+              {e.category}
+            </button>
+          );
+        })}
+      </section>
       {renderCategoryQuestions(questionArr)}
     </>
   );

@@ -3,7 +3,6 @@ import QuestionsAndAnswersComponent from "./QuestionsAndAnswersComponent";
 
 export default function QuestionsCategory({ temp }) {
   const [questionArr, setQuestionArr] = useState([]);
-  const [isShown, setIsShown] = useState(false);
 
   const categoryArray = [];
   const firstObjectOfCategories = [];

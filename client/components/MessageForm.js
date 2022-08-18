@@ -4,7 +4,7 @@ export default function MessageForm({
   setGuestPhone,
   setTitle,
   setMessage,
-  setSubmit,
+  setSubmitted,
   guestName,
   email,
   message,
@@ -13,6 +13,7 @@ export default function MessageForm({
 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
+
     let guestEmail = {
       guestName,
       guestPhone,
@@ -20,7 +21,13 @@ export default function MessageForm({
       title,
       message,
     };
-    console.log(guestEmail);
+
+    fetch("/api/guestMessage", {
+      method: "post",
+      body: JSON.stringify(guestEmail),
+    });
+
+    console.log("Sending", { guestEmail });
   };
 
   return (

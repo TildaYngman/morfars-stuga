@@ -1,22 +1,20 @@
 export default function MessageForm({
   setGuestName,
   setEmail,
-  setGuestPhone,
   setTitle,
   setMessage,
   setSubmitted,
   guestName,
   email,
   message,
-  guestPhone,
   title,
+  submitted
 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
     let guestEmail = {
       guestName,
-      guestPhone,
       email,
       title,
       message,
@@ -58,20 +56,6 @@ export default function MessageForm({
             setEmail(e.target.value);
           }}
         />
-        <br />
-        <label htmlFor="phone">Phonenumber</label>
-        <br />
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="Enter phonenumber"
-          pattern="^([+]46)\s*(7[0236])\s*(\d{4})\s*(\d{3})$"
-          required
-          onChange={(e) => {
-            setGuestPhone(e.target.value);
-          }}
-        ></input>
         <br />
         <label htmlFor="title">Title</label>
         <br />

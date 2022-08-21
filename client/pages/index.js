@@ -10,7 +10,6 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   return (
     <>
@@ -26,12 +25,10 @@ export default function Home() {
         setEmail={setEmail}
         setMessage={setMessage}
         setTitle={setTitle}
-        setSubmitted={setSubmitted}
         guestName={guestName}
         email={email}
         message={message}
         title={title}
-        submitted={submitted}
       />
     </>
   );

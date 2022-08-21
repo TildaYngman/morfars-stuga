@@ -3,29 +3,33 @@ export default function MessageForm({
   setEmail,
   setTitle,
   setMessage,
-  setSubmitted,
   guestName,
   email,
   message,
   title,
-  submitted
 }) {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let guestEmail = {
-      guestName,
-      email,
-      title,
-      message,
-    };
-
-    fetch("/api/guestMessage", {
-      method: "post",
-      body: JSON.stringify(guestEmail),
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        email: email,
+        guestName: guestName,
+        title: title,
+        message: message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
     });
 
-    console.log("Sending", { guestEmail });
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(guestName, email, title, message);
   };
 
   return (
@@ -72,7 +76,7 @@ export default function MessageForm({
         <br />
         <label htmlFor="message">Message</label>
         <br />
-        <input
+        <textarea
           type="text"
           id="message"
           placeholder="Write a message"

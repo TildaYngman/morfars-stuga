@@ -13,14 +13,13 @@ export default function Home({ items }) {
 
   return (
     <>
+    <PopUpQandA temp={items}/>
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
       <br />
       <Link href="/about">About The Cabin</Link>
       <br />
       <Link href="/bookingRequest">booking</Link>
-      <br />
-      <PopUpQandA items={items} />
       <br />
       <MessageForm
         setGuestName={setGuestName}
@@ -35,4 +34,13 @@ export default function Home({ items }) {
     </>
   );
 }
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:28017/QandA");
+  const data = await res.json();
 
+  return {
+    props: {
+      items: data,
+    },
+  };
+}

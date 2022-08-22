@@ -1,4 +1,3 @@
-import QuestionsAndAnswersComponent from "../components/QuestionsAndAnswersComponent";
 import QueststionCategory from "../components/QuestionCategory";
 import Link from "next/link";
 

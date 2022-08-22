@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { Greeting, MessageForm } from "../components/index";
+import { Greeting, MessageForm, PopUpQandA } from "../components/index";
 import { useState } from "react";
 
 export default function Home() {
@@ -19,6 +19,8 @@ export default function Home() {
       <Link href="/about">About The Cabin</Link>
       <br />
       <Link href="/bookingRequest">booking</Link>
+      <br />
+      <PopUpQandA />
       <br />
       <MessageForm
         setGuestName={setGuestName}

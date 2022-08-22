@@ -1,4 +1,3 @@
-import QuestionsAndAnswersComponent from "../components/QuestionsAndAnswersComponent";
 import QueststionCategory from "../components/QuestionCategory";
 import Link from "next/link";
 
@@ -15,7 +14,6 @@ export default function QuestionsAndAnswers({ items }) {
     </>
   );
 }
-
 export async function getStaticProps() {
   const res = await fetch("http://localhost:28017/QandA");
   const data = await res.json();

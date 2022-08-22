@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Greeting, MessageForm, PopUpQandA } from "../components/index";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home({ items }) {
   const [guestName, setGuestName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +20,7 @@ export default function Home() {
       <br />
       <Link href="/bookingRequest">booking</Link>
       <br />
-      <PopUpQandA />
+      <PopUpQandA items={items} />
       <br />
       <MessageForm
         setGuestName={setGuestName}
@@ -35,3 +35,4 @@ export default function Home() {
     </>
   );
 }
+

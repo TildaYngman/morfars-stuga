@@ -2,10 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { Greeting, MessageForm } from "../components/index";
+import { Greeting, MessageForm, PopUpQandA } from "../components/index";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home({ items }) {
   const [guestName, setGuestName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -13,6 +13,7 @@ export default function Home() {
 
   return (
     <>
+    <PopUpQandA temp={items}/>
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
       <br />
@@ -32,4 +33,14 @@ export default function Home() {
       />
     </>
   );
+}
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:28017/QandA");
+  const data = await res.json();
+
+  return {
+    props: {
+      items: data,
+    },
+  };
 }

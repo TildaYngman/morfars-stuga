@@ -23,7 +23,14 @@ export default function BookingInformationComponent({ temp }) {
   return (
     <>
       <h1>Bokningsinformation</h1>
-      <p>{BookingInformationArr[0].question}</p>
+      {BookingInformationArr.map((item) => {
+        return (
+          <div key={item._id}>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        );
+      })}
     </>
   );
 }

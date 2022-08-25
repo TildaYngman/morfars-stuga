@@ -1,10 +1,11 @@
-import { Bookingform, PopUpQandA } from "../components/index";
+import { Bookingform, PopUpQandA, AvailableWeeks } from "../components/index";
 
 export default function BookingRequest({ items }) {
   return (
     <>
       <PopUpQandA temp={items} />
       <h1>Booking Request</h1>
+      <AvailableWeeks />
       <Bookingform />
     </>
   );

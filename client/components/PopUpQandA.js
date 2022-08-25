@@ -6,8 +6,8 @@ export default function PopUpQandA({ temp }) {
   function handleClick() {
     setDisplayContent((current) => !current);
   }
-  console.log(displayContent);
-  console.log(temp);
+  // console.log(displayContent);
+  // console.log(temp);
   return (
     <>
       <button onClick={handleClick}>PopUpQandA</button>

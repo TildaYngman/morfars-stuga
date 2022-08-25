@@ -39,6 +39,12 @@ export default function BookingInformationComponent({ temp, setShowInfo }) {
               </div>
             );
           })}
+          <button
+            className="mt-52 w-24 p-2 flex justify-center items-center m-auto text-xl bg-primary-orange-800 text-primary-white rounded-lg shadow-md"
+            onClick={() => setShowInfo(false)}
+          >
+            Stäng
+          </button>
         </div>
       </div>
     </>

@@ -22,16 +22,25 @@ export default function BookingInformationComponent({ temp, setShowInfo }) {
 
   return (
     <>
-      <h1>Bokningsinformation</h1>
-      <button onClick={() => setShowInfo(false)}>X</button>
-      {BookingInformationArr.map((item) => {
-        return (
-          <div className="my-2 mx-1" key={item._id}>
-            <h3 className="mb-2 text-lg font-semibold">{item.question}</h3>
-            <p>{item.answer}</p>
-          </div>
-        );
-      })}
+      <div className="absolute top-0 left-0 backdrop-blur-sm bg-white/30 h-screen z-10">
+        <div className=" bg-slate-200 m-4 p-4 flex flex-col shadow-lg rounded-md h-5/6">
+          <button
+            className=" flex justify-end text-xl font-extrabold"
+            onClick={() => setShowInfo(false)}
+          >
+            X
+          </button>
+          <h1 className="text-2xl font-bold mb-5">Bokningsinformation</h1>
+          {BookingInformationArr.map((item) => {
+            return (
+              <div className="my-2 " key={item._id}>
+                <h3 className="mb-2 text-lg font-semibold">{item.question}</h3>
+                <p>{item.answer}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }

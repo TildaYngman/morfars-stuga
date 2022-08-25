@@ -1,3 +1,7 @@
 export default function BookingInformationComponent() {
-  return <></>;
+  return (
+    <>
+      <h1>Booking Information</h1>
+    </>
+  );
 }

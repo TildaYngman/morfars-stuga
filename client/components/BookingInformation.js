@@ -1,4 +1,4 @@
-export default function BookingInformationComponent({ temp }) {
+export default function BookingInformationComponent({ temp, setShowInfo }) {
   console.log(temp);
 
   const BookingInformationArr = [];
@@ -23,6 +23,7 @@ export default function BookingInformationComponent({ temp }) {
   return (
     <>
       <h1>Bokningsinformation</h1>
+      <button onClick={() => setShowInfo(false)}>X</button>
       {BookingInformationArr.map((item) => {
         return (
           <div className="my-2 mx-1" key={item._id}>

@@ -13,7 +13,6 @@ export default function BookingRequest({ items }) {
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
-      <Bookingform />
       <BookingInformation temp={items} />
     </>
   );

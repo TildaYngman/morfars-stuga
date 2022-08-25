@@ -10,7 +10,7 @@ export default function BookingRequest({ items }) {
       <PopUpQandA temp={items} />
       <h1>Booking Request</h1>
       <Bookingform />
-      <BookingInformation />
+      <BookingInformation temp={items} />
     </>
   );
 }

@@ -1,7 +1,7 @@
-export default function BookingInformationComponent() {
+export default function BookingInformationComponent({ temp }) {
   return (
     <>
-      <h1>Booking Information</h1>
+      <h1>Bokningsinformation</h1>
     </>
   );
 }

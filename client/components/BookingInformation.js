@@ -25,8 +25,8 @@ export default function BookingInformationComponent({ temp }) {
       <h1>Bokningsinformation</h1>
       {BookingInformationArr.map((item) => {
         return (
-          <div key={item._id}>
-            <h3>{item.question}</h3>
+          <div className="my-2 mx-1" key={item._id}>
+            <h3 className="mb-2 text-lg font-semibold">{item.question}</h3>
             <p>{item.answer}</p>
           </div>
         );

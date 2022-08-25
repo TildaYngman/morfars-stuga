@@ -1,6 +1,7 @@
 import { Bookingform, PopUpQandA, AvailableWeeks } from "../components/index";
 
-export default function BookingRequest({ items }) {
+export default function BookingRequest({ items, weeks }) {
+  console.log(weeks);
   return (
     <>
       <PopUpQandA temp={items} />
@@ -11,17 +12,22 @@ export default function BookingRequest({ items }) {
   );
 }
 
+  //Added the revaidate: 1  
+  //Next.js will attempt to re-generate the page:
+  // - When a request comes in
+  // - At most once every 10 seconds
 export async function getStaticProps() {
   const res = await fetch("http://localhost:28017/QandA");
   const data = await res.json();
 
-  const re = await fetch("http://localhost:28017/bookableWeeks");
-  const weeks = await re.json();
+  const resTwo = await fetch("http://localhost:28017/bookableWeeks");
+  const weeks = await resTwo.json();
 
   return {
     props: {
       items: data,
       weeks: weeks,
     },
+    revalidate: 1,
   };
 }

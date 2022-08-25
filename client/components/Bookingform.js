@@ -1,4 +1,4 @@
-export default function BookingForm() {
+export default function BookingForm(weeks) {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
@@ -13,7 +13,6 @@ export default function BookingForm() {
       email: event.target.email.value,
     };
 
-    console.log(data);
     alert(
       `Thank you ${data.firstName} ${data.lastName}, your booking request has been successfully submited.`
     );

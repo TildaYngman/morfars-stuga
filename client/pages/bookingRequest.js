@@ -8,7 +8,7 @@ export default function BookingRequest({ items }) {
   return (
     <>
       <PopUpQandA temp={items} />
-      <h1>Booking Request</h1>
+      <h1>Bokningförfrågan</h1>
       <Bookingform />
       <BookingInformation temp={items} />
     </>

@@ -23,8 +23,7 @@ export default function BookingRequest({ items }) {
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
       {showInfo ? (
         <div>
-          <button onClick={() => setShowInfo(false)}>X</button>
-          <BookingInformation temp={items} />
+          <BookingInformation temp={items} setShowInfo={setShowInfo} />
         </div>
       ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">

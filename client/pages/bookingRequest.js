@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Bookingform,
   PopUpQandA,
@@ -5,6 +6,13 @@ import {
 } from "../components/index";
 
 export default function BookingRequest({ items }) {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleClick = () => {
+    setShowInfo(true);
+    console.log(showInfo);
+  };
+
   return (
     <>
       <PopUpQandA temp={items} />
@@ -13,12 +21,20 @@ export default function BookingRequest({ items }) {
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
-      <BookingInformation temp={items} />
+      {showInfo ? (
+        <div>
+          <button onClick={() => setShowInfo(false)}>X</button>
+          <BookingInformation temp={items} />
+        </div>
+      ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
         <button className="p-4 bg-slate-50 text-slate-900">
           Skapa Bokningförfrågan
         </button>
-        <button className="p-4 bg-primary-orange-700 text-primary-white">
+        <button
+          className="p-4 bg-primary-orange-700 text-primary-white"
+          onClick={handleClick}
+        >
           Info
         </button>
       </div>

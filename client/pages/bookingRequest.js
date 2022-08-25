@@ -14,7 +14,11 @@ export default function BookingRequest({ items }) {
       </p>
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
       <BookingInformation temp={items} />
-      <div className="fixed bottom-0 h-40 w-full bg-slate-500"></div>
+      <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-center items-center">
+        <button className="p-4 bg-slate-50 text-slate-900">
+          Skapa Bokningförfrågan
+        </button>
+      </div>
     </>
   );
 }

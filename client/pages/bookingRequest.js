@@ -8,10 +8,11 @@ export default function BookingRequest({ items }) {
   return (
     <>
       <PopUpQandA temp={items} />
-      <h1 className=" text-xl font-bold">Bokningförfrågan</h1>
+      <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
+      <h2 className=" text-xl font-bold">Lediga veckor</h2>
       <Bookingform />
       <BookingInformation temp={items} />
     </>

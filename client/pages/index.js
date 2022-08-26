@@ -13,7 +13,7 @@ export default function Home({ items }) {
 
   return (
     <>
-    <PopUpQandA temp={items}/>
+      <PopUpQandA temp={items} />
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>
       <br />

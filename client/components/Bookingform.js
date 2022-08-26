@@ -5,16 +5,14 @@ export default function BookingForm(weeks) {
 
     // Get data from the form.
     const data = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      arrive: event.target.arrive.value,
-      leave: event.target.leave.value,
+      name: event.target.name.value,
+      phoneNumber: event.target.phoneNumber.value,
       message: event.target.message.value,
       email: event.target.email.value,
     };
 
     alert(
-      `Thank you ${data.firstName} ${data.lastName}, your booking request has been successfully submited.`
+      `Thank you ${data.name}, your booking request has been successfully submited.`
     );
   };
 
@@ -26,32 +24,32 @@ export default function BookingForm(weeks) {
         method="post"
         onSubmit={handleSubmit}
       >
-        <label className=" mb-2" htmlFor="firstName">
-          First name:
+        <label className=" mb-2" htmlFor="name">
+          Namn*
         </label>
         <input
           className=" border-solid border-2 border-slate-500"
           type="text"
-          id="firstName"
-          name="firstName"
+          id="name"
+          name="name"
         />
-        <label className=" mb-2" htmlFor="lastName">
-          Last name:
+        <label className=" mb-2" htmlFor="email">
+          E-postadress*
         </label>
         <input
           className=" border-solid border-2 border-slate-500"
           type="text"
-          id="lastName"
-          name="lastName"
+          id="email"
+          name="email"
         />
-        <label className=" mb-2" htmlFor="arrive">
-          When would you like to arrive?
+        <label className=" mb-2" htmlFor="phoneNumber">
+          Telefonnummer*
         </label>
         <input
           className=" border-solid border-2 border-slate-500"
-          type="date"
-          id="arrive"
-          name="arrive"
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
         ></input>
         <label className=" mb-2" htmlFor="leave">
           When would you like to leave?
@@ -63,7 +61,7 @@ export default function BookingForm(weeks) {
           name="leave"
         ></input>
         <label className=" mb-2" htmlFor="message">
-          Message:
+          Meddelande
         </label>
         <input
           className=" border-solid border-2 border-slate-500"
@@ -71,15 +69,7 @@ export default function BookingForm(weeks) {
           id="message"
           name="message"
         />
-        <label className=" mb-2" htmlFor="email">
-          Your Email:
-        </label>
-        <input
-          className=" border-solid border-2 border-slate-500"
-          type="text"
-          id="email"
-          name="email"
-        />
+
         <button type="submit">Submit</button>
       </form>
     </>

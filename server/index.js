@@ -12,7 +12,8 @@ const mongoClient = new mongodb.MongoClient(MONGODB_URL);
 mongoClient.connect();
 
 const db = mongoClient.db("cabin");
-const itemsCollection = db.collection("QandA");
+const QandAcollection = db.collection("QandA");
+const weeksCollection = db.collection("bookableWeeks");
 
 const PORT = process.env.PORT || 28017;
 const app = express();
@@ -20,9 +21,14 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-//get test collection
+//get collections
 app.get("/QandA", async (request, response) => {
-  const products = await itemsCollection.find({}).toArray();
+  const products = await QandAcollection.find({}).toArray();
+  response.json(products);
+});
+
+app.get("/bookableWeeks", async (request, response) => {
+  const products = await weeksCollection.find({}).toArray();
   response.json(products);
 });
 

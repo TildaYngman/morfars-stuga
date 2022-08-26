@@ -32,6 +32,8 @@ export default function BookingForm(weeks) {
           type="text"
           id="name"
           name="name"
+          placeholder="Förnamn och Efternamn"
+          required
         />
         <label className=" mb-2" htmlFor="email">
           E-postadress*
@@ -41,6 +43,8 @@ export default function BookingForm(weeks) {
           type="text"
           id="email"
           name="email"
+          placeholder="exempel@exempel.se"
+          required
         />
         <label className=" mb-2" htmlFor="phoneNumber">
           Telefonnummer*
@@ -50,24 +54,18 @@ export default function BookingForm(weeks) {
           type="text"
           id="phoneNumber"
           name="phoneNumber"
-        ></input>
-        <label className=" mb-2" htmlFor="leave">
-          When would you like to leave?
-        </label>
-        <input
-          className=" border-solid border-2 border-slate-500"
-          type="date"
-          id="leave"
-          name="leave"
+          placeholder="0701234567"
+          required
         ></input>
         <label className=" mb-2" htmlFor="message">
           Meddelande
         </label>
-        <input
+        <textarea
           className=" border-solid border-2 border-slate-500"
           type="text"
           id="message"
           name="message"
+          placeholder="Övrig information till oss"
         />
 
         <button type="submit">Submit</button>

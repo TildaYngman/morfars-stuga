@@ -1,5 +1,4 @@
 export default function BookingInformationComponent({ temp, setShowInfo }) {
-  console.log(temp);
 
   const BookingInformationArr = [];
 
@@ -7,18 +6,6 @@ export default function BookingInformationComponent({ temp, setShowInfo }) {
     if (item.category === "Bokningsinformation")
       BookingInformationArr.push(item);
   });
-
-  console.log(BookingInformationArr);
-
-  //   function filterByCategory(temp) {
-  //     if (temp.category === "Bokningsinformation") {
-  //       return temp;
-  //     }
-  //   }
-
-  //   const newArr = temp.filter(filterByCategory);
-
-  //   console.log(newArr);
 
   return (
     <>

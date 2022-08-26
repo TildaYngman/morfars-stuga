@@ -9,6 +9,7 @@ export default function BookingForm(weeks) {
       phoneNumber: event.target.phoneNumber.value,
       message: event.target.message.value,
       email: event.target.email.value,
+      people: event.target.people.value,
     };
 
     alert(
@@ -57,6 +58,17 @@ export default function BookingForm(weeks) {
           placeholder="0701234567"
           required
         ></input>
+        <label htmlFor="cars">Antal personer</label>
+        <div className="mb-3 flex">
+          <select className="flex" id="people" name="people">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
         <label className=" mb-2" htmlFor="message">
           Meddelande
         </label>

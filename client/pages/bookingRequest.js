@@ -37,14 +37,15 @@ export default function BookingRequest({ items, weeks }) {
           Info
         </button>
       </div>
+      <Bookingform />
     </>
   );
 }
 
-  //Added the revaidate: 1  
-  //Next.js will attempt to re-generate the page:
-  // - When a request comes in
-  // - At most once every 10 seconds
+//Added the revaidate: 1
+//Next.js will attempt to re-generate the page:
+// - When a request comes in
+// - At most once every 10 seconds
 export async function getStaticProps() {
   const res = await fetch("http://localhost:28017/QandA");
   const data = await res.json();

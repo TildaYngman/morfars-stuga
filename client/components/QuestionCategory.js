@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import QuestionsAndAnswersComponent from "./QuestionsAndAnswersComponent";
+import Link from "next/link";
 
 export default function QuestionsCategory({ temp }) {
   const [questionArr, setQuestionArr] = useState([]);
@@ -56,7 +57,7 @@ export default function QuestionsCategory({ temp }) {
           );
         })}
       </section>
-      {renderCategoryQuestions(questionArr)}
+      {renderCategoryQuestions(questionArr)} 
     </>
   );
 }

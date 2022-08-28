@@ -14,7 +14,6 @@ export default function BookingRequest({ items, weeks }) {
   };
 
   const rows = weeks.map((week) => {
-    console.log(weeks);
 
     if (week.isAvailable === true) {
       return (
@@ -30,7 +29,6 @@ export default function BookingRequest({ items, weeks }) {
           <br />
           <p>Avresa</p>
           {week.Avresa}
-          <br />
           <br />
         </button>
       );

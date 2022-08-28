@@ -7,7 +7,7 @@ import {
 
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
-  const [showWeeks, setShowWeeks] = useState([]);
+  const [clickedWeek, setClickedWeek] = useState([]);
 
   const handleClick = () => {
     setShowInfo(true);

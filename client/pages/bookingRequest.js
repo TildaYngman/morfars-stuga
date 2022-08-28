@@ -16,16 +16,19 @@ export default function BookingRequest({ items, weeks }) {
   const rows = weeks.map((week) => {
     console.log(weeks);
 
-    if ((week.isAvailable = true)) {
+    if (week.isAvailable === true) {
       return (
         <button
-          className=" bg-primary-green-600 text-primary-green-100 text-lg w-72 m-1 p-2"
+          className=" bg-primary-green-600 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
           key={week._id}
         >
+          <p>Vecka</p>
           {week.Vecka}
           <br />
+          <p>Ankomst</p>
           {week.Ankomst}
           <br />
+          <p>Avresa</p>
           {week.Avresa}
           <br />
           <br />

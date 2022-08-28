@@ -18,13 +18,18 @@ export default function BookingRequest({ items, weeks }) {
 
     if ((week.isAvailable = true)) {
       return (
-        <p key={week._id}>
+        <button
+          className=" bg-primary-green-600 text-primary-green-100 text-lg w-72 m-1 p-2"
+          key={week._id}
+        >
           {week.Vecka}
           <br />
           {week.Ankomst}
           <br />
           {week.Avresa}
-        </p>
+          <br />
+          <br />
+        </button>
       );
     }
   });

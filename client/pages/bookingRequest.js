@@ -7,11 +7,13 @@ import {
 
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
+  const [showWeeks, setShowWeeks] = useState([]);
 
   const handleClick = () => {
     setShowInfo(true);
-    console.log(showInfo);
   };
+  
+
 
   return (
     <>
@@ -41,10 +43,10 @@ export default function BookingRequest({ items, weeks }) {
   );
 }
 
-  //Added the revaidate: 1  
-  //Next.js will attempt to re-generate the page:
-  // - When a request comes in
-  // - At most once every 10 seconds
+//Added the revaidate: 1
+//Next.js will attempt to re-generate the page:
+// - When a request comes in
+// - At most once every 10 seconds
 export async function getStaticProps() {
   const res = await fetch("http://localhost:28017/QandA");
   const data = await res.json();

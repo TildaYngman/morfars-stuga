@@ -12,8 +12,22 @@ export default function BookingRequest({ items, weeks }) {
   const handleClick = () => {
     setShowInfo(true);
   };
-  
 
+  const rows = weeks.map((week) => {
+    console.log(weeks);
+
+    if ((week.isAvailable = true)) {
+      return (
+        <p key={week._id}>
+          {week.Vecka}
+          <br />
+          {week.Ankomst}
+          <br />
+          {week.Avresa}
+        </p>
+      );
+    }
+  });
 
   return (
     <>
@@ -23,6 +37,7 @@ export default function BookingRequest({ items, weeks }) {
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
+      {rows}
       {showInfo ? (
         <div>
           <BookingInformation temp={items} setShowInfo={setShowInfo} />

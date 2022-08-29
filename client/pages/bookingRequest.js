@@ -7,11 +7,32 @@ import {
 
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
+  const [clickedWeek, setClickedWeek] = useState([]);
 
   const handleClick = () => {
     setShowInfo(true);
-    console.log(showInfo);
   };
+
+  const rows = weeks.map((week) => {
+    if (week.isAvailable === true) {
+      return (
+        <button
+          className=" bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
+          key={week._id}
+        >
+          <p>Vecka</p>
+          {week.Vecka}
+          <br />
+          <p>Ankomst</p>
+          {week.Ankomst}
+          <br />
+          <p>Avresa</p>
+          {week.Avresa}
+          <br />
+        </button>
+      );
+    }
+  });
 
   return (
     <>
@@ -21,6 +42,7 @@ export default function BookingRequest({ items, weeks }) {
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
       <h2 className=" text-xl font-bold">Lediga veckor</h2>
+      {rows}
       {showInfo ? (
         <div>
           <BookingInformation temp={items} setShowInfo={setShowInfo} />
@@ -41,10 +63,10 @@ export default function BookingRequest({ items, weeks }) {
   );
 }
 
-  //Added the revaidate: 1  
-  //Next.js will attempt to re-generate the page:
-  // - When a request comes in
-  // - At most once every 10 seconds
+//Added the revaidate: 1
+//Next.js will attempt to re-generate the page:
+// - When a request comes in
+// - At most once every 10 seconds
 export async function getStaticProps() {
   const res = await fetch("http://localhost:28017/QandA");
   const data = await res.json();

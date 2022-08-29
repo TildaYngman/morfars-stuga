@@ -41,8 +41,10 @@ export default function BookingRequest({ items, weeks }) {
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
-      <h2 className=" text-xl font-bold">Lediga veckor</h2>
-      {rows}
+      <div className="mb-48">
+        <h2 className=" text-xl font-bold">Lediga veckor</h2>
+        {rows}
+      </div>
       {showInfo ? (
         <div>
           <BookingInformation temp={items} setShowInfo={setShowInfo} />
@@ -59,7 +61,7 @@ export default function BookingRequest({ items, weeks }) {
           Info
         </button>
       </div>
-      <Bookingform />
+      {/* <Bookingform /> */}
     </>
   );
 }

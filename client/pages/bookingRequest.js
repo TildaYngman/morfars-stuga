@@ -7,16 +7,23 @@ import {
 
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
-  const [clickedWeek, setClickedWeek] = useState([]);
+  const [selectedWeeks, setSelectedWeeks] = useState([]);
 
   const handleClick = () => {
     setShowInfo(true);
   };
 
+  function handleClickedWeek(week) {
+    const clickedWeek = [];
+    clickedWeek.push(week);
+    setSelectedWeeks(...clickedWeek);
+  }
+
   const rows = weeks.map((week) => {
     if (week.isAvailable === true) {
       return (
         <button
+          onClick={() => handleClickedWeek(week)}
           className=" bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
           key={week._id}
         >

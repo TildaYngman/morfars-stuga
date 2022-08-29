@@ -13,10 +13,13 @@ export default function BookingRequest({ items, weeks }) {
     setShowInfo(true);
   };
 
+  //the three dots is making the the state update when adding something to the new array
+  //... means copy all of the content of the new array
   function handleClickedWeek(week) {
-    const clickedWeek = [];
+    const clickedWeek = selectedWeeks;
     clickedWeek.push(week);
-    setSelectedWeeks(...clickedWeek);
+    setSelectedWeeks([...clickedWeek]);
+    console.log(selectedWeeks);
   }
 
   const rows = weeks.map((week) => {

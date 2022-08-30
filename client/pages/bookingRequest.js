@@ -14,13 +14,25 @@ export default function BookingRequest({ items, weeks }) {
   };
 
   //the three dots is making the the state update when adding something to the new array
-  //... means copy all of the content of the new array
+  //... means copy all of the content to a new array
   function handleClickedWeek(week) {
     const clickedWeek = selectedWeeks;
-    clickedWeek.push(week);
+
+    if (!clickedWeek.includes(week)) {
+      clickedWeek.push(week);
+    } else {
+      clickedWeek.splice(clickedWeek.indexOf(week), 1);
+    }
+
     setSelectedWeeks([...clickedWeek]);
     console.log(selectedWeeks);
   }
+  // clickedWeek.push(week);
+  //setSelectedWeeks([...clickedWeek]);
+  //console.log(selectedWeeks);
+  // if (clickedWeek.indexOf(week) === -1) {
+  //   clickedWeek.push(week);
+  // }
 
   const rows = weeks.map((week) => {
     if (week.isAvailable === true) {
@@ -29,6 +41,7 @@ export default function BookingRequest({ items, weeks }) {
           onClick={() => handleClickedWeek(week)}
           className=" bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
           key={week._id}
+          id={week._id}
         >
           <p>Vecka</p>
           {week.Vecka}

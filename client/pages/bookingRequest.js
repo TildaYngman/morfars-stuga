@@ -41,7 +41,6 @@ export default function BookingRequest({ items, weeks }) {
           onClick={() => handleClickedWeek(week)}
           className=" bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
           key={week._id}
-          id={week._id}
         >
           <p>Vecka</p>
           {week.Vecka}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import {
   Bookingform,
   PopUpQandA,
@@ -8,6 +8,15 @@ import {
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
   const [clickedWeek, setClickedWeek] = useState([]);
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   const handleClick = () => {
     setShowInfo(true);
@@ -37,6 +46,13 @@ export default function BookingRequest({ items, weeks }) {
   return (
     <>
       <PopUpQandA temp={items} />
+      <Bookingform
+        openModal={openModal}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        closeModal={closeModal}
+      />
+
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
@@ -51,7 +67,7 @@ export default function BookingRequest({ items, weeks }) {
         </div>
       ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
-        <button className="p-4 bg-slate-50 text-slate-900">
+        <button className="p-4 bg-slate-50 text-slate-900" onClick={openModal}>
           Skapa Bokningförfrågan
         </button>
         <button

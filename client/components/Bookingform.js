@@ -59,6 +59,14 @@ export default function BookingForm({ weeks, closeModal, isOpenCreate }) {
               leaveTo="opacity-0 scale-95"
             >
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <div className="flex justify-end">
+                  <button
+                    className=" flex justify-center text-xl font-extrabold w-10"
+                    onClick={() => closeModal()}
+                  >
+                    X
+                  </button>
+                </div>
                 <h2>Din Bokningsförfrågan</h2>
                 <h2>Valda veckor:</h2>
                 <form

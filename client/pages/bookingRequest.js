@@ -7,7 +7,7 @@ import {
 
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
-  const [clickedWeek, setClickedWeek] = useState([]);
+  const [selectedWeeks, setSelectedWeeks] = useState([]);
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -22,12 +22,33 @@ export default function BookingRequest({ items, weeks }) {
     setShowInfo(true);
   };
 
+  //the three dots is making the the state update when adding something to the new array
+  //... means copy all of the content to a new array
+  function handleClickedWeek(week) {
+    const clickedWeek = selectedWeeks;
+
+    if (!clickedWeek.includes(week)) {
+      clickedWeek.push(week);
+      document.getElementById(`${week._id}`).className =
+        "bg-primary-orange-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
+    } else {
+      clickedWeek.splice(clickedWeek.indexOf(week), 1);
+      document.getElementById(`${week._id}`).className =
+        "bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
+    }
+
+    setSelectedWeeks([...clickedWeek]);
+    console.log(selectedWeeks);
+  }
+
   const rows = weeks.map((week) => {
     if (week.isAvailable === true) {
       return (
         <button
-          className=" bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold"
+          onClick={() => handleClickedWeek(week)}
+          className={`bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold`}
           key={week._id}
+          id={week._id}
         >
           <p>Vecka</p>
           {week.Vecka}

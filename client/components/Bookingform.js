@@ -23,7 +23,7 @@ export default function BookingForm({ selectedWeeks, closeModal, isOpen }) {
   const rows = selectedWeeks.map((week) => {
     return (
       <div
-        className={`bg-primary-orange-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold`}
+        className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold`}
         key={week._id}
       >
         <p>Vecka</p>

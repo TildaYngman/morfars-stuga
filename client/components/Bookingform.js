@@ -40,6 +40,7 @@ export default function BookingForm({
         message: message,
         phoneNumber: phoneNumber,
         people: people,
+        vecka: newArr,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -54,6 +55,16 @@ export default function BookingForm({
     }
     console.log(guestName, email, title, message, phoneNumber, people);
   };
+
+  const newArr = [];
+
+  selectedWeeks.forEach((object) => {
+    newArr.push(
+      `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} - ${object.Avresa}`
+    );
+  });
+
+  console.log(newArr);
 
   const rows = selectedWeeks.map((week) => {
     return (

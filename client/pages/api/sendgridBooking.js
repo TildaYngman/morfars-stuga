@@ -24,6 +24,9 @@ async function sendBookingRequest(req, res) {
               <p>Amount of people:</p>
               <p>${req.body.people}</p>
               <br>
+              <p>Vecka:</p>
+              <p>${req.body.vecka}</p>
+              <br>
               </div>
       </body>
       </html>`,

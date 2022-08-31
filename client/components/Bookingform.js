@@ -5,6 +5,16 @@ export default function BookingForm({
   selectedWeeks,
   closeModal,
   isOpenCreate,
+  setGuestName,
+  setEmail,
+  setMessage,
+  setPhoneNumber,
+  setTitle,
+  guestName,
+  email,
+  message,
+  title,
+  phoneNumber,
 }) {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
@@ -109,6 +119,9 @@ export default function BookingForm({
                     name="name"
                     placeholder="Förnamn och Efternamn"
                     required
+                    onChange={(e) => {
+                      setGuestName(e.target.value);
+                    }}
                   />
                   <label className=" mb-2" htmlFor="email">
                     E-postadress*
@@ -120,6 +133,9 @@ export default function BookingForm({
                     name="email"
                     placeholder="exempel@exempel.se"
                     required
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                   />
                   <label className=" mb-2" htmlFor="phoneNumber">
                     Telefonnummer*
@@ -131,6 +147,9 @@ export default function BookingForm({
                     name="phoneNumber"
                     placeholder="0701234567"
                     required
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
+                    }}
                   ></input>
                   <label htmlFor="cars">Antal personer</label>
                   <div className="mb-3 flex">
@@ -152,6 +171,9 @@ export default function BookingForm({
                     id="message"
                     name="message"
                     placeholder="Övrig information till oss"
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
                   />
                   <button type="submit">Submit</button>
                   <button type="button" onClick={closeModal}>

@@ -175,15 +175,6 @@ export default function BookingForm({
                         </option>
                       ))}
                     </select>
-
-                    {/* <select className="flex" id="people" name="people">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select> */}
                   </div>
                   <label className=" mb-2" htmlFor="message">
                     Meddelande

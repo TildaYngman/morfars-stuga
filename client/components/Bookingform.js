@@ -60,7 +60,7 @@ export default function BookingForm({
 
   selectedWeeks.forEach((object) => {
     newArr.push(
-      `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} - ${object.Avresa}`
+      `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
   });
 

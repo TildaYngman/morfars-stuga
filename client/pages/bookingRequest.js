@@ -17,12 +17,7 @@ export default function BookingRequest({ items, weeks }) {
   }
 
   function openModal(e) {
-    if (e.target.id === "create") {
-      setIsOpenCreate(true);
-    } else {
-      setIsOpenInfo(true);
-    }
-    console.log(e.target.id);
+    e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
   }
 
   const handleClick = () => {

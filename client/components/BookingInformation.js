@@ -1,3 +1,6 @@
+import { useState, Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+
 export default function BookingInformationComponent({ temp, setShowInfo }) {
   const BookingInformationArr = [];
 

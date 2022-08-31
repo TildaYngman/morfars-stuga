@@ -5,6 +5,16 @@ export default function BookingForm({
   selectedWeeks,
   closeModal,
   isOpenCreate,
+  setGuestName,
+  setEmail,
+  setMessage,
+  setPhoneNumber,
+  setTitle,
+  guestName,
+  email,
+  message,
+  title,
+  phoneNumber,
 }) {
   const options = [
     { value: 1, amount: 1 },
@@ -15,29 +25,46 @@ export default function BookingForm({
     { value: 6, amount: 6 },
   ];
 
-  const [selected, setSelected] = useState(options[0].value);
-  const handleSubmit = async (event) => {
+  const [people, setPeople] = useState(options[0].value);
+
+  const handleSubmit = async (e) => {
     // Stop the form from submitting and refreshing the page.
-    event.preventDefault();
+    e.preventDefault();
 
     // Get data from the form.
-    const data = {
-      name: event.target.name.value,
-      phoneNumber: event.target.phoneNumber.value,
-      message: event.target.message.value,
-      email: event.target.email.value,
-      people: event.target.people.value,
-    };
+    const res = await fetch("/api/sendgridBooking", {
+      body: JSON.stringify({
+        email: email,
+        guestName: guestName,
+        title: title,
+        message: message,
+        phoneNumber: phoneNumber,
+        people: people,
+        vecka: newArr,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
 
-    alert(
-      `Thank you ${data.name}, your booking request has been successfully submited.`
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(guestName, email, title, message, phoneNumber, people);
+  };
+
+  const newArr = [];
+
+  selectedWeeks.forEach((object) => {
+    newArr.push(
+      `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
-  };
+  });
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    setSelected(event.target.value);
-  };
+  console.log(newArr);
 
   const rows = selectedWeeks.map((week) => {
     return (
@@ -124,6 +151,9 @@ export default function BookingForm({
                     name="name"
                     placeholder="Förnamn och Efternamn"
                     required
+                    onChange={(e) => {
+                      setGuestName(e.target.value);
+                    }}
                   />
                   <label className=" mb-2" htmlFor="email">
                     E-postadress*
@@ -135,6 +165,9 @@ export default function BookingForm({
                     name="email"
                     placeholder="exempel@exempel.se"
                     required
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                   />
                   <label className=" mb-2" htmlFor="phoneNumber">
                     Telefonnummer*
@@ -146,25 +179,24 @@ export default function BookingForm({
                     name="phoneNumber"
                     placeholder="0701234567"
                     required
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
+                    }}
                   ></input>
                   <label htmlFor="cars">Antal personer</label>
                   <div className="mb-3 flex">
-                    <select value={selected} onChange={handleChange}>
+                    <select
+                      value={people}
+                      onChange={(e) => {
+                        setPeople(e.target.value);
+                      }}
+                    >
                       {options.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.amount}
                         </option>
                       ))}
                     </select>
-
-                    {/* <select className="flex" id="people" name="people">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select> */}
                   </div>
                   <label className=" mb-2" htmlFor="message">
                     Meddelande
@@ -175,6 +207,9 @@ export default function BookingForm({
                     id="message"
                     name="message"
                     placeholder="Övrig information till oss"
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
                   />
                   <button type="submit">Submit</button>
                   <button type="button" onClick={closeModal}>

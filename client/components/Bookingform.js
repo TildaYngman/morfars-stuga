@@ -64,8 +64,6 @@ export default function BookingForm({
     );
   });
 
-  console.log(newArr);
-
   const rows = selectedWeeks.map((week) => {
     return (
       <div

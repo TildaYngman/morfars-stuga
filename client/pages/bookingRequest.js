@@ -81,6 +81,16 @@ export default function BookingRequest({
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
         selectedWeeks={selectedWeeks}
+        setGuestName={setGuestName}
+        setEmail={setEmail}
+        setMessage={setMessage}
+        setTitle={setTitle}
+        setPhoneNumber={setPhoneNumber}
+        guestName={guestName}
+        email={email}
+        message={message}
+        title={title}
+        phoneNumber={phoneNumber}
       />
       <BookingInformation
         temp={items}

@@ -55,11 +55,6 @@ export default function BookingForm({
     console.log(guestName, email, title, message, phoneNumber, people);
   };
 
-  // const handleChange = (event) => {
-  //   console.log(event.target.value);
-  //   setSelected(event.target.value);
-  // };
-
   const rows = selectedWeeks.map((week) => {
     return (
       <div

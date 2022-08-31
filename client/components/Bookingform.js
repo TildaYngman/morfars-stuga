@@ -25,7 +25,7 @@ export default function BookingForm({
     { value: 6, amount: 6 },
   ];
 
-  const [selected, setSelected] = useState(options[0].value);
+  const [people, setPeople] = useState(options[0].value);
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
@@ -44,10 +44,10 @@ export default function BookingForm({
     );
   };
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    setSelected(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   console.log(event.target.value);
+  //   setSelected(event.target.value);
+  // };
 
   const rows = selectedWeeks.map((week) => {
     return (
@@ -168,7 +168,12 @@ export default function BookingForm({
                   ></input>
                   <label htmlFor="cars">Antal personer</label>
                   <div className="mb-3 flex">
-                    <select value={selected} onChange={handleChange}>
+                    <select
+                      value={people}
+                      onChange={(e) => {
+                        setPeople(e.target.value);
+                      }}
+                    >
                       {options.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.amount}

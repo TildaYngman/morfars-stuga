@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import {
   Bookingform,
   PopUpQandA,
@@ -6,10 +6,9 @@ import {
 } from "../components/index";
 
 export default function BookingRequest({ items, weeks }) {
-  const [showInfo, setShowInfo] = useState(false);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
-  let [isOpenCreate, setIsOpenCreate] = useState(false);
-  let [isOpenInfo, setIsOpenInfo] = useState(false);
+  const [isOpenCreate, setIsOpenCreate] = useState(false);
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
 
   function closeModal() {
     setIsOpenCreate(false);
@@ -19,10 +18,6 @@ export default function BookingRequest({ items, weeks }) {
   function openModal(e) {
     e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
   }
-
-  const handleClick = () => {
-    setShowInfo(true);
-  };
 
   //the three dots is making the the state update when adding something to the new array
   //... means copy all of the content to a new array
@@ -69,18 +64,11 @@ export default function BookingRequest({ items, weeks }) {
   return (
     <>
       <PopUpQandA temp={items} />
-      <Bookingform
-        openModal={openModal}
-        isOpenCreate={isOpenCreate}
-        setIsOpenCreate={setIsOpenCreate}
-        closeModal={closeModal}
-      />
+      <Bookingform isOpenCreate={isOpenCreate} closeModal={closeModal} />
       <BookingInformation
         temp={items}
         isOpenInfo={isOpenInfo}
-        setIsOpenInfo={setIsOpenInfo}
         closeModal={closeModal}
-        openModal={openModal}
       />
 
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>

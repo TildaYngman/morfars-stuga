@@ -9,14 +9,20 @@ export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
   let [isOpenCreate, setIsOpenCreate] = useState(false);
-  let [isOpen, setIsOpen] = useState(false);
+  let [isOpenInfo, setIsOpenInfo] = useState(false);
 
   function closeModal() {
     setIsOpenCreate(false);
+    setIsOpenInfo(false);
   }
 
-  function openModal() {
-    setIsOpenCreate(true);
+  function openModal(e) {
+    if (e.target.id === "create") {
+      setIsOpenCreate(true);
+    } else {
+      setIsOpenInfo(true);
+    }
+    console.log(e.target.id);
   }
 
   const handleClick = () => {
@@ -74,6 +80,13 @@ export default function BookingRequest({ items, weeks }) {
         setIsOpenCreate={setIsOpenCreate}
         closeModal={closeModal}
       />
+      <BookingInformation
+        temp={items}
+        isOpenInfo={isOpenInfo}
+        setIsOpenInfo={setIsOpenInfo}
+        closeModal={closeModal}
+        openModal={openModal}
+      />
 
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
       <p className=" italic">
@@ -83,11 +96,6 @@ export default function BookingRequest({ items, weeks }) {
         <h2 className=" text-xl font-bold">Lediga veckor</h2>
         {rows}
       </div>
-      {showInfo ? (
-        <div>
-          <BookingInformation temp={items} setShowInfo={setShowInfo} />
-        </div>
-      ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
         <button
           className="p-4 bg-slate-50 text-slate-900"
@@ -98,7 +106,7 @@ export default function BookingRequest({ items, weeks }) {
         </button>
         <button
           className="p-4 bg-primary-orange-700 text-primary-white"
-          onClick={handleClick}
+          onClick={openModal}
           id="info"
         >
           Info

@@ -88,12 +88,17 @@ export default function BookingRequest({ items, weeks }) {
         </div>
       ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
-        <button className="p-4 bg-slate-50 text-slate-900" onClick={openModal}>
+        <button
+          className="p-4 bg-slate-50 text-slate-900"
+          onClick={openModal}
+          id="create"
+        >
           Skapa Bokningförfrågan
         </button>
         <button
           className="p-4 bg-primary-orange-700 text-primary-white"
           onClick={handleClick}
+          id="info"
         >
           Info
         </button>

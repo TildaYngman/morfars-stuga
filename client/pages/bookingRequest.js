@@ -72,6 +72,7 @@ export default function BookingRequest({ items, weeks }) {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         closeModal={closeModal}
+        selectedWeeks={selectedWeeks}
       />
 
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>

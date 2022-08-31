@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function BookingForm({ weeks, closeModal, isOpen }) {
+export default function BookingForm({ selectedWeeks, closeModal, isOpen }) {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
@@ -19,6 +19,25 @@ export default function BookingForm({ weeks, closeModal, isOpen }) {
       `Thank you ${data.name}, your booking request has been successfully submited.`
     );
   };
+
+  const rows = selectedWeeks.map((week) => {
+    return (
+      <div
+        className={`bg-primary-orange-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold`}
+        key={week._id}
+      >
+        <p>Vecka</p>
+        {week.Vecka}
+        <br />
+        <p>Ankomst</p>
+        {week.Ankomst}
+        <br />
+        <p>Avresa</p>
+        {week.Avresa}
+        <br />
+      </div>
+    );
+  });
 
   return (
     <>
@@ -61,6 +80,7 @@ export default function BookingForm({ weeks, closeModal, isOpen }) {
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <h2>Din Bokningsförfrågan</h2>
                 <h2>Valda veckor:</h2>
+                {rows}
                 <form
                   className=" flex flex-col py-20"
                   action="/send-data-here"

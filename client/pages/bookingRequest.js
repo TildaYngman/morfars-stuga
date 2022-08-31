@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import {
   Bookingform,
   PopUpQandA,
@@ -6,21 +6,18 @@ import {
 } from "../components/index";
 
 export default function BookingRequest({ items, weeks }) {
-  const [showInfo, setShowInfo] = useState(false);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpenCreate, setIsOpenCreate] = useState(false);
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpenCreate(false);
+    setIsOpenInfo(false);
   }
 
-  function openModal() {
-    setIsOpen(true);
+  function openModal(e) {
+    e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
   }
-
-  const handleClick = () => {
-    setShowInfo(true);
-  };
 
   //the three dots is making the the state update when adding something to the new array
   //... means copy all of the content to a new array
@@ -67,10 +64,10 @@ export default function BookingRequest({ items, weeks }) {
   return (
     <>
       <PopUpQandA temp={items} />
-      <Bookingform
-        openModal={openModal}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+      <Bookingform isOpenCreate={isOpenCreate} closeModal={closeModal} />
+      <BookingInformation
+        temp={items}
+        isOpenInfo={isOpenInfo}
         closeModal={closeModal}
       />
 
@@ -82,18 +79,18 @@ export default function BookingRequest({ items, weeks }) {
         <h2 className=" text-xl font-bold">Lediga veckor</h2>
         {rows}
       </div>
-      {showInfo ? (
-        <div>
-          <BookingInformation temp={items} setShowInfo={setShowInfo} />
-        </div>
-      ) : null}
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
-        <button className="p-4 bg-slate-50 text-slate-900" onClick={openModal}>
+        <button
+          className="p-4 bg-slate-50 text-slate-900"
+          onClick={openModal}
+          id="create"
+        >
           Skapa Bokningförfrågan
         </button>
         <button
           className="p-4 bg-primary-orange-700 text-primary-white"
-          onClick={handleClick}
+          onClick={openModal}
+          id="info"
         >
           Info
         </button>

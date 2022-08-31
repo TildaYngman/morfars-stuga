@@ -26,22 +26,33 @@ export default function BookingForm({
   ];
 
   const [people, setPeople] = useState(options[0].value);
-  const handleSubmit = async (event) => {
+
+  const handleSubmit = async (e) => {
     // Stop the form from submitting and refreshing the page.
-    event.preventDefault();
+    e.preventDefault();
 
     // Get data from the form.
-    const data = {
-      name: event.target.name.value,
-      phoneNumber: event.target.phoneNumber.value,
-      message: event.target.message.value,
-      email: event.target.email.value,
-      people: event.target.people.value,
-    };
+    const res = await fetch("/api/sendgridBooking", {
+      body: JSON.stringify({
+        email: email,
+        guestName: guestName,
+        title: title,
+        message: message,
+        phoneNumber: phoneNumber,
+        people: people,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
 
-    alert(
-      `Thank you ${data.name}, your booking request has been successfully submited.`
-    );
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(guestName, email, title, message, phoneNumber, people);
   };
 
   // const handleChange = (event) => {

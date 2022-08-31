@@ -14,18 +14,18 @@ async function sendEmail(req, res) {
       <html lang="en">
       <head>
         <meta charset="utf-8">
-      
+
         <title>The HTML5 Herald</title>
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
       <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-      
+
         <link rel="stylesheet" href="css/styles.css?v=1.0">
-      
+
       </head>
-      
+
       <body>
-        <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              
+        <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">
               </div>
               <div class="container" style="margin-left: 20px;margin-right: 20px;">
               <h3>You've got a new mail from ${req.body.guestName}, their email is: ✉️${req.body.email} </h3>

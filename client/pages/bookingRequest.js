@@ -8,14 +8,15 @@ import {
 export default function BookingRequest({ items, weeks }) {
   const [showInfo, setShowInfo] = useState(false);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
+  let [isOpenCreate, setIsOpenCreate] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpenCreate(false);
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpenCreate(true);
   }
 
   const handleClick = () => {
@@ -69,8 +70,8 @@ export default function BookingRequest({ items, weeks }) {
       <PopUpQandA temp={items} />
       <Bookingform
         openModal={openModal}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        isOpenCreate={isOpenCreate}
+        setIsOpenCreate={setIsOpenCreate}
         closeModal={closeModal}
       />
 

@@ -5,12 +5,19 @@ import Link from "next/link";
 import { Greeting, MessageForm, PopUpQandA } from "../components/index";
 import { useState } from "react";
 
-export default function Home({ items }) {
-  const [guestName, setGuestName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [title, setTitle] = useState("");
-
+export default function Home({
+  Component,
+  pageProps,
+  setGuestName,
+  setEmail,
+  setMessage,
+  setTitle,
+  guestName,
+  email,
+  message,
+  title,
+  items,
+}) {
   return (
     <>
       <PopUpQandA temp={items} />

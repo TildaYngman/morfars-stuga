@@ -5,7 +5,20 @@ import {
   BookingInformation,
 } from "../components/index";
 
-export default function BookingRequest({ items, weeks }) {
+export default function BookingRequest({
+  items,
+  weeks,
+  setGuestName,
+  setEmail,
+  setMessage,
+  setTitle,
+  guestName,
+  email,
+  message,
+  title,
+  phoneNumber,
+  setPhoneNumber,
+}) {
   const [selectedWeeks, setSelectedWeeks] = useState([]);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
@@ -68,6 +81,16 @@ export default function BookingRequest({ items, weeks }) {
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
         selectedWeeks={selectedWeeks}
+        setGuestName={setGuestName}
+        setEmail={setEmail}
+        setMessage={setMessage}
+        setTitle={setTitle}
+        setPhoneNumber={setPhoneNumber}
+        guestName={guestName}
+        email={email}
+        message={message}
+        title={title}
+        phoneNumber={phoneNumber}
       />
       <BookingInformation
         temp={items}

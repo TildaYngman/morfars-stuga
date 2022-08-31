@@ -1,8 +1,11 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function BookingForm({ selectedWeeks, closeModal, isOpenCreate}) {
-
+export default function BookingForm({
+  selectedWeeks,
+  closeModal,
+  isOpenCreate,
+}) {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();

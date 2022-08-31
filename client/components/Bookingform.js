@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 export default function BookingForm({
@@ -16,6 +16,16 @@ export default function BookingForm({
   title,
   phoneNumber,
 }) {
+  const options = [
+    { value: 1, amount: 1 },
+    { value: 2, amount: 2 },
+    { value: 3, amount: 3 },
+    { value: 4, amount: 4 },
+    { value: 5, amount: 5 },
+    { value: 6, amount: 6 },
+  ];
+
+  const [selected, setSelected] = useState(options[0].value);
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
@@ -32,6 +42,11 @@ export default function BookingForm({
     alert(
       `Thank you ${data.name}, your booking request has been successfully submited.`
     );
+  };
+
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setSelected(event.target.value);
   };
 
   const rows = selectedWeeks.map((week) => {
@@ -153,14 +168,22 @@ export default function BookingForm({
                   ></input>
                   <label htmlFor="cars">Antal personer</label>
                   <div className="mb-3 flex">
-                    <select className="flex" id="people" name="people">
+                    <select value={selected} onChange={handleChange}>
+                      {options.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.amount}
+                        </option>
+                      ))}
+                    </select>
+
+                    {/* <select className="flex" id="people" name="people">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>
                       <option value="6">6</option>
-                    </select>
+                    </select> */}
                   </div>
                   <label className=" mb-2" htmlFor="message">
                     Meddelande

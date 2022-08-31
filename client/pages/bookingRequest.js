@@ -20,14 +20,12 @@ export default function BookingRequest({ items, weeks }) {
 
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
-      document
-        .getElementById(`${week._id}`)
-        .classList.add("bg-primary-orange-400");
+      document.getElementById(`${week._id}`).className =
+        "bg-primary-orange-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
-      document
-        .getElementById(`${week._id}`)
-        .classList.remove("bg-primary-orange-400");
+      document.getElementById(`${week._id}`).className =
+        "bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
     }
 
     setSelectedWeeks([...clickedWeek]);

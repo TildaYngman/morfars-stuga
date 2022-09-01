@@ -4,4 +4,3 @@ export { default as QuestionsAndAnswersComponent } from "./QuestionsAndAnswersCo
 export { default as PopUpQandA } from "./PopUpQandA";
 export { default as QuestionCategory } from "./QuestionCategory";
 export { default as BookingInformation } from "./BookingInformation";
-

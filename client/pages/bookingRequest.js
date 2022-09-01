@@ -32,6 +32,23 @@ export default function BookingRequest({
     e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
   }
 
+  function checkIfEmpty() {
+    if (selectedWeeks.length === 0) return;
+    else {
+      return (
+        <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
+          <button
+            className="p-4 bg-slate-50 text-slate-900"
+            onClick={openModal}
+            id="create"
+          >
+            Skapa Bokningförfrågan
+          </button>
+        </div>
+      );
+    }
+  }
+
   //the three dots is making the the state update when adding something to the new array
   //... means copy all of the content to a new array
   function handleClickedWeek(week) {
@@ -113,15 +130,7 @@ export default function BookingRequest({
         <h2 className=" text-xl font-bold">Lediga veckor</h2>
         {rows}
       </div>
-      <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
-        <button
-          className="p-4 bg-slate-50 text-slate-900"
-          onClick={openModal}
-          id="create"
-        >
-          Skapa Bokningförfrågan
-        </button>
-      </div>
+      {checkIfEmpty()}
       {/* <Bookingform /> */}
     </>
   );

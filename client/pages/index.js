@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { Greeting, MessageForm, PopUpQandA } from "../components/index";
+import { Greeting, MessageForm, PopUpQandA, Navbar } from "../components/index";
 import { useState } from "react";
 
 export default function Home({
@@ -20,6 +20,7 @@ export default function Home({
 }) {
   return (
     <>
+      <Navbar />
       <PopUpQandA temp={items} />
       <Greeting />
       <Link href="/questionsAndAnswers">Questions and Answers</Link>

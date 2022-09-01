@@ -40,11 +40,11 @@ export default function BookingRequest({
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
       document.getElementById(`${week._id}`).className =
-        "bg-primary-orange-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
+        "bg-gradient-to-b from-lime-100 to-lime-200 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg";
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
       document.getElementById(`${week._id}`).className =
-        "bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold";
+        "bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md";
     }
 
     setSelectedWeeks([...clickedWeek]);
@@ -56,19 +56,13 @@ export default function BookingRequest({
       return (
         <button
           onClick={() => handleClickedWeek(week)}
-          className={`bg-primary-green-400 text-primary-black text-lg w-72 m-1 p-2 text-left font-semibold`}
+          className="bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md"
           key={week._id}
           id={week._id}
         >
-          <p>Vecka</p>
-          {week.Vecka}
-          <br />
-          <p>Ankomst</p>
-          {week.Ankomst}
-          <br />
-          <p>Avresa</p>
-          {week.Avresa}
-          <br />
+          <p className="text-lg mb-2 font-semibold">Vecka {week.Vecka}</p>
+          <p className=" mb-1 font-medium">Ankomst: {week.Ankomst}</p>
+          <p className=" font-medium">Avresa: {week.Avresa}</p>
         </button>
       );
     }
@@ -102,8 +96,8 @@ export default function BookingRequest({
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
-      <div className="mb-48 flex flex-col justify-center items-center">
-        <h2 className=" text-xl font-bold">Lediga veckor</h2>
+      <div className="mb-48 flex flex-col justify-center items-center px-2">
+        <h2 className=" text-xl font-bold m-4">Lediga veckor</h2>
         {rows}
       </div>
       <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">

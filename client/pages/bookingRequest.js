@@ -99,6 +99,13 @@ export default function BookingRequest({
       />
 
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
+      <button
+        className="p-4 bg-primary-orange-700 text-primary-white"
+        onClick={openModal}
+        id="info"
+      >
+        Info
+      </button>
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
@@ -113,13 +120,6 @@ export default function BookingRequest({
           id="create"
         >
           Skapa Bokningförfrågan
-        </button>
-        <button
-          className="p-4 bg-primary-orange-700 text-primary-white"
-          onClick={openModal}
-          id="info"
-        >
-          Info
         </button>
       </div>
       {/* <Bookingform /> */}

@@ -1,7 +1,9 @@
 export default function Navbar() {
   return (
     <>
-      <div></div>
+      <Nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+        <h1>Logo</h1>
+      </Nav>
     </>
   );
 }

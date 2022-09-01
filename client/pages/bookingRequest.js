@@ -102,7 +102,7 @@ export default function BookingRequest({
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
-      <div className="mb-48">
+      <div className="mb-48 flex flex-col justify-center items-center">
         <h2 className=" text-xl font-bold">Lediga veckor</h2>
         {rows}
       </div>

@@ -15,6 +15,7 @@ export default function BookingForm({
   message,
   title,
   phoneNumber,
+  setSelectedWeeks,
 }) {
   const options = [
     { value: 1, amount: 1 },
@@ -56,6 +57,14 @@ export default function BookingForm({
     console.log(guestName, email, title, message, phoneNumber, people);
   };
 
+  function removeWeek(week) {
+    const clickedWeek = selectedWeeks;
+    clickedWeek.splice(clickedWeek.indexOf(week), 1);
+
+    setSelectedWeeks([...clickedWeek]);
+    console.log(selectedWeeks);
+  }
+
   const newArr = [];
 
   selectedWeeks.forEach((object) => {
@@ -74,13 +83,13 @@ export default function BookingForm({
       //   <p>{week.Ankomst}</p>
       //   <p>{week.Avresa}</p>
       // </div>
-      <tbody className="border-spacing-2">
+      <tbody key={week._id} className="border-spacing-2">
         <tr className=" border-b-4 border-white bg-primary-green text-black my-2">
           <td className="p-2">{week.Vecka}</td>
           <td className="p-2">{week.Ankomst}</td>
           <td className="p-2">{week.Avresa}</td>
           <td className="pl-2">
-            <button>X</button>
+            <button onClick={() => removeWeek(week)}>X</button>
           </td>
         </tr>
       </tbody>

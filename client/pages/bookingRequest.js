@@ -32,6 +32,23 @@ export default function BookingRequest({
     e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
   }
 
+  function checkIfEmpty() {
+    if (selectedWeeks.length === 0) return;
+    else {
+      return (
+        <div className="fixed bottom-0 h-24 w-full bg-slate-400 flex justify-around items-center bg-opacity-80">
+          <button
+            className="disable-btn bg-slate-100 text-black m-4 py-2 px-3 rounded-lg shadow-lg "
+            onClick={openModal}
+            id="create"
+          >
+            Skapa Bokningförfrågan
+          </button>
+        </div>
+      );
+    }
+  }
+
   //the three dots is making the the state update when adding something to the new array
   //... means copy all of the content to a new array
   function handleClickedWeek(week) {
@@ -99,6 +116,13 @@ export default function BookingRequest({
       />
 
       <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
+      <button
+        className="p-4 bg-primary-orange-700 text-primary-white"
+        onClick={openModal}
+        id="info"
+      >
+        Info
+      </button>
       <p className=" italic">
         Obs. detta är en förfrågan och inte en bekräftad bokning
       </p>
@@ -106,22 +130,7 @@ export default function BookingRequest({
         <h2 className=" text-xl font-bold">Lediga veckor</h2>
         {rows}
       </div>
-      <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
-        <button
-          className="p-4 bg-slate-50 text-slate-900"
-          onClick={openModal}
-          id="create"
-        >
-          Skapa Bokningförfrågan
-        </button>
-        <button
-          className="p-4 bg-primary-orange-700 text-primary-white"
-          onClick={openModal}
-          id="info"
-        >
-          Info
-        </button>
-      </div>
+      {checkIfEmpty()}
       {/* <Bookingform /> */}
     </>
   );

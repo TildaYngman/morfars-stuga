@@ -36,9 +36,9 @@ export default function BookingRequest({
     if (selectedWeeks.length === 0) return;
     else {
       return (
-        <div className="fixed bottom-0 h-40 w-full bg-slate-500 flex justify-around items-center">
+        <div className="fixed bottom-0 h-24 w-full bg-slate-400 flex justify-around items-center bg-opacity-80">
           <button
-            className="p-4 bg-slate-50 text-slate-900"
+            className="disable-btn bg-slate-100 text-black m-4 py-2 px-3 rounded-lg shadow-lg "
             onClick={openModal}
             id="create"
           >

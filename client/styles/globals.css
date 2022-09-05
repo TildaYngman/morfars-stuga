@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .disable-btn {
+    @apply disabled:bg-slate-200;
+    @apply disabled:text-slate-400;
+    @apply disabled:shadow-md;
+    @apply disabled:cursor-not-allowed;
+  }
+}

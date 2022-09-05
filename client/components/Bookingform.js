@@ -143,7 +143,7 @@ export default function BookingForm({
                     Namn*
                   </label>
                   <input
-                    className=" border-solid border-2 border-slate-500"
+                    className=" border border-slate-400 p-1 rounded-md"
                     type="text"
                     id="name"
                     name="name"
@@ -157,7 +157,7 @@ export default function BookingForm({
                     E-postadress*
                   </label>
                   <input
-                    className=" border-solid border-2 border-slate-500"
+                    className=" border border-slate-400 p-1 rounded-md"
                     type="text"
                     id="email"
                     name="email"
@@ -171,7 +171,7 @@ export default function BookingForm({
                     Telefonnummer*
                   </label>
                   <input
-                    className=" border-solid border-2 border-slate-500"
+                    className=" border border-slate-400 p-1 rounded-md"
                     type="text"
                     id="phoneNumber"
                     name="phoneNumber"
@@ -181,9 +181,12 @@ export default function BookingForm({
                       setPhoneNumber(e.target.value);
                     }}
                   ></input>
-                  <label htmlFor="cars">Antal personer</label>
+                  <label htmlFor="people">Antal personer</label>
                   <div className="mb-3 flex">
                     <select
+                      className=" border border-slate-400 p-1 rounded-md"
+                      id="people"
+                      name="people"
                       value={people}
                       onChange={(e) => {
                         setPeople(e.target.value);
@@ -200,7 +203,7 @@ export default function BookingForm({
                     Meddelande
                   </label>
                   <textarea
-                    className=" border-solid border-2 border-slate-500"
+                    className=" border border-slate-400 p-1 rounded-md"
                     type="text"
                     id="message"
                     name="message"
@@ -209,10 +212,18 @@ export default function BookingForm({
                       setMessage(e.target.value);
                     }}
                   />
-                  <button type="submit">Submit</button>
-                  <button type="button" onClick={closeModal}>
-                    Avbryt
-                  </button>
+                  <div className="flex flex-col justify-center items-center">
+                    <button
+                      className="disable-btn bg-green-900 text-white  m-4 py-2 px-3 rounded-lg shadow-lg"
+                      type="submit"
+                      disabled={!guestName || !phoneNumber || !email}
+                    >
+                      Skicka Bokningsförfrågan
+                    </button>
+                    <button type="button" onClick={closeModal}>
+                      Avbryt
+                    </button>
+                  </div>
                 </form>
               </div>
             </Transition.Child>

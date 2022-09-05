@@ -57,7 +57,7 @@ export default function Navbar() {
                 navbar ? "block" : "hidden"
               }`}
             >
-              <ul className="md:flex md:justify-end flex-row">
+              <ul className="flex flex-col text-right md:flex-row">
                 <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
                   <a href="/about">Om stugan</a>
                 </li>

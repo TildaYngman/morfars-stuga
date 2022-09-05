@@ -1,11 +1,12 @@
+import { BsHouse } from "react-icons/bs";
 import { useState } from "react";
 
 export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="flex items-center px-6 justify-between bg-primary-green-100 border-b border-primary-green-200 py-5 ">
-      <h1 className="text-2xl font-semibold">logo</h1>
+    <div className="flex items-center px-6 justify-between py-1">
+      <BsHouse size={40} color="#64748b" />
       <nav>
         <section className="flex lg:hidden">
           <div
@@ -35,7 +36,7 @@ export default function Navbar() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="flex flex-col items-center justify-between min-h-[250px]">
+            <ul className="flex flex-col items-center justify-between h-6">
               <li className="border-b border-primary-green-300 my-6 uppercase">
                 <a href="/about">Om stugan</a>
               </li>
@@ -48,18 +49,19 @@ export default function Navbar() {
             </ul>
           </div>
         </section>
-
-        <ul className="hidden space-x-8 lg:flex">
-          <li>
-            <a href="/about">Om stugan</a>
-          </li>
-          <li>
-            <a href="/portfolio">Portfolio</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
+        <div>
+          <ul className="hidden space-x-8 lg:flex">
+            <li className="text-slate-800 hover:border-x-2 duration-150">
+              <a href="/about">Om stugan</a>
+            </li>
+            <li className="text-slate-800 hover:border-x-2 duration-150">
+              <a href="/portfolio">Bokningsförfrågan</a>
+            </li>
+            <li className="text-slate-800 hover:border-x-2 duration-150">
+              <a href="/contact">Kontakt</a>
+            </li>
+          </ul>
+        </div>
       </nav>
       <style>{`
       .hideMenuNav {

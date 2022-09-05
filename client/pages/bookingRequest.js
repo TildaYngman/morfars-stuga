@@ -70,15 +70,6 @@ export default function BookingRequest({
 
     setSelectedWeeks([...clickedWeek]);
     console.log(selectedWeeks);
-    checkifEmptyArr(week);
-  }
-
-  function checkifEmptyArr(week) {
-    if (selectedWeeks === []) {
-      document
-        .getElementById(`${week._id}`)
-        .classList.remove("card-btn-color-orange");
-    }
   }
 
   const rows = weeks.map((week) => {

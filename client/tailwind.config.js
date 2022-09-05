@@ -13,7 +13,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        "primary-green-900": "#083529",
+        "primary-green": "#A3D08E",
+        "primary-green-t": "#B1D6A0",
+        "primary-green-b": "#A2D08D",
         "primary-green-800": "#20493E",
         "primary-green-700": "#395D53",
         "primary-green-600": "#527169",

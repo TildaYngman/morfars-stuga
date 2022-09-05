@@ -102,6 +102,8 @@ export default function BookingRequest({
         message={message}
         title={title}
         phoneNumber={phoneNumber}
+        weeks={weeks}
+        setSelectedWeeks={setSelectedWeeks}
       />
       <BookingInformation
         temp={items}

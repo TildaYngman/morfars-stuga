@@ -57,14 +57,6 @@ export default function BookingForm({
     console.log(guestName, email, title, message, phoneNumber, people);
   };
 
-  function removeWeek(week) {
-    const clickedWeek = selectedWeeks;
-    clickedWeek.splice(clickedWeek.indexOf(week), 1);
-
-    setSelectedWeeks([...clickedWeek]);
-    console.log(selectedWeeks);
-  }
-
   const newArr = [];
 
   selectedWeeks.forEach((object) => {
@@ -73,16 +65,34 @@ export default function BookingForm({
     );
   });
 
+  function removeWeek(week) {
+    const clickedWeek = selectedWeeks;
+    clickedWeek.splice(clickedWeek.indexOf(week), 1);
+
+    document
+      .getElementById(`${week._id}`)
+      .classList.remove("card-btn-color-orange");
+
+    setSelectedWeeks([...clickedWeek]);
+    console.log(selectedWeeks);
+  }
+
+  function removeAllWeeks() {
+    setSelectedWeeks([]);
+    console.log(selectedWeeks);
+    const orangeColor = document.querySelectorAll(".card-btn-color-orange");
+
+    orangeColor.forEach((cardColor) => {
+      // ✅ Remove class from each element
+      cardColor.classList.remove("card-btn-color-orange");
+
+      // ✅ Add class to each element
+      // box.classList.add('small');
+    });
+  }
+
   const rows = selectedWeeks.map((week) => {
     return (
-      // <div
-      //   className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold flex flex-row justify-between`}
-      //   key={week._id}
-      // >
-      //   <p>{week.Vecka}</p>
-      //   <p>{week.Ankomst}</p>
-      //   <p>{week.Avresa}</p>
-      // </div>
       <tbody key={week._id} className="border-spacing-2">
         <tr className=" border-b-4 border-white bg-primary-green text-black my-2">
           <td className="p-2">{week.Vecka}</td>
@@ -157,7 +167,7 @@ export default function BookingForm({
                         Avresa
                       </th>
                       <th scope="col" className="py-3 px-2">
-                        <button>X</button>
+                        <button onClick={() => removeAllWeeks()}>X</button>
                       </th>
                     </tr>
                   </thead>
@@ -263,3 +273,12 @@ export default function BookingForm({
     </>
   );
 }
+
+// <div
+//   className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold flex flex-row justify-between`}
+//   key={week._id}
+// >
+//   <p>{week.Vecka}</p>
+//   <p>{week.Ankomst}</p>
+//   <p>{week.Avresa}</p>
+// </div>

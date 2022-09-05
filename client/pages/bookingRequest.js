@@ -56,16 +56,29 @@ export default function BookingRequest({
 
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
-      document.getElementById(`${week._id}`).className =
-        "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
+      // document.getElementById(`${week._id}`).className =
+      //   "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
+      document
+        .getElementById(`${week._id}`)
+        .classList.add("card-btn-color-orange");
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
-      document.getElementById(`${week._id}`).className =
-        "bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md";
+      document
+        .getElementById(`${week._id}`)
+        .classList.remove("card-btn-color-orange");
     }
 
     setSelectedWeeks([...clickedWeek]);
     console.log(selectedWeeks);
+    checkifEmptyArr(week);
+  }
+
+  function checkifEmptyArr(week) {
+    if (selectedWeeks === []) {
+      document
+        .getElementById(`${week._id}`)
+        .classList.remove("card-btn-color-orange");
+    }
   }
 
   const rows = weeks.map((week) => {
@@ -73,7 +86,7 @@ export default function BookingRequest({
       return (
         <button
           onClick={() => handleClickedWeek(week)}
-          className="bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md"
+          className="card-btn-color-grey text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md"
           key={week._id}
           id={week._id}
         >

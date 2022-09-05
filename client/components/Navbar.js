@@ -5,9 +5,11 @@ export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="flex items-center px-6 justify-between py-1">
-      <BsHouse size={40} color="#64748b" />
-      <nav>
+    <nav className="flex justify-between bg-opacity-80 h-14 px-10">
+      <div className="px-3 pt-2">
+        <BsHouse size={40} color="#64748b" />
+      </div>
+      <div>
         <section className="flex lg:hidden">
           <div
             className="space-y-2"
@@ -36,8 +38,8 @@ export default function Navbar() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="flex flex-col items-center justify-between h-6">
-              <li className="border-b border-primary-green-300 my-6 uppercase">
+            <ul className="flex flex-col items-center justify-between">
+              <li className=" pr-4 border-b border-primary-green-300 my-6 uppercase ">
                 <a href="/about">Om stugan</a>
               </li>
               <li className="border-b border-primary-green-300 my-6 uppercase">
@@ -50,19 +52,19 @@ export default function Navbar() {
           </div>
         </section>
         <div>
-          <ul className="hidden space-x-8 lg:flex">
-            <li className="text-slate-800 hover:border-x-2 duration-150">
+          <ul className="lg:flex">
+            <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
               <a href="/about">Om stugan</a>
             </li>
-            <li className="text-slate-800 hover:border-x-2 duration-150">
-              <a href="/portfolio">Bokningsförfrågan</a>
+            <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
+              <a href="/bookingRequest">Bokningsförfrågan</a>
             </li>
-            <li className="text-slate-800 hover:border-x-2 duration-150">
-              <a href="/contact">Kontakt</a>
+            <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
+              <a href="/">Kontakt</a>
             </li>
           </ul>
         </div>
-      </nav>
+      </div>
       <style>{`
       .hideMenuNav {
         display: none;
@@ -82,6 +84,6 @@ export default function Navbar() {
         align-items: center;
       }
     `}</style>
-    </div>
+    </nav>
   );
 }

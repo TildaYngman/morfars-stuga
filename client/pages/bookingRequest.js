@@ -36,9 +36,9 @@ export default function BookingRequest({
     if (selectedWeeks.length === 0) return;
     else {
       return (
-        <div className="fixed bottom-0 h-24 w-full bg-slate-400 flex justify-around items-center bg-opacity-80">
+        <div className="fixed bottom-0 h-28 w-full bg-slate-400 flex justify-around items-center bg-opacity-90">
           <button
-            className="disable-btn bg-slate-100 text-black m-4 py-2 px-3 rounded-lg shadow-lg "
+            className="disable-btn bg-slate-100 text-black m-4 p-3 rounded-lg shadow-lg text-lg"
             onClick={openModal}
             id="create"
           >
@@ -57,7 +57,7 @@ export default function BookingRequest({
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
       document.getElementById(`${week._id}`).className =
-        "bg-gradient-to-b from-lime-100 to-lime-200 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg";
+        "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
       document.getElementById(`${week._id}`).className =
@@ -77,7 +77,7 @@ export default function BookingRequest({
           key={week._id}
           id={week._id}
         >
-          <p className="text-lg mb-2 font-semibold">Vecka {week.Vecka}</p>
+          <p className="text-lg mb-2 font-semibold ">Vecka {week.Vecka}</p>
           <p className=" mb-1 font-medium">Ankomst: {week.Ankomst}</p>
           <p className=" font-medium">Avresa: {week.Avresa}</p>
         </button>

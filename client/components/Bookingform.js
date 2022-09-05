@@ -66,20 +66,24 @@ export default function BookingForm({
 
   const rows = selectedWeeks.map((week) => {
     return (
-      <div
-        className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold`}
-        key={week._id}
-      >
-        <p>Vecka</p>
-        {week.Vecka}
-        <br />
-        <p>Ankomst</p>
-        {week.Ankomst}
-        <br />
-        <p>Avresa</p>
-        {week.Avresa}
-        <br />
-      </div>
+      // <div
+      //   className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold flex flex-row justify-between`}
+      //   key={week._id}
+      // >
+      //   <p>{week.Vecka}</p>
+      //   <p>{week.Ankomst}</p>
+      //   <p>{week.Avresa}</p>
+      // </div>
+      <tbody className="border-spacing-2">
+        <tr className=" border-b-4 border-white bg-primary-green text-black my-2">
+          <td className="p-2">{week.Vecka}</td>
+          <td className="p-2">{week.Ankomst}</td>
+          <td className="p-2">{week.Avresa}</td>
+          <td className="pl-2">
+            <button>X</button>
+          </td>
+        </tr>
+      </tbody>
     );
   });
 
@@ -91,7 +95,7 @@ export default function BookingForm({
           className="fixed inset-0 z-10 overflow-y-auto"
           onClose={closeModal}
         >
-          <div className="min-h-screen px-4 text-center">
+          <div className="min-h-screen px-2 text-center">
             {/* This makes it close when clicking outside of the Modal */}
             <Transition.Child
               as={Fragment}
@@ -121,7 +125,7 @@ export default function BookingForm({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-md px-4 py-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <div className="flex justify-end">
                   <button
                     className=" flex justify-center text-xl font-extrabold w-10"
@@ -131,10 +135,27 @@ export default function BookingForm({
                   </button>
                 </div>
                 <h2>Din Bokningsförfrågan</h2>
-                <h2>Valda veckor:</h2>
-                {rows}
+                <table className="w-full text-sm text-left text-black mt-4 mb-6">
+                  <thead className="text-xs uppercase bg-gray-100">
+                    <tr>
+                      <th scope="col" className="py-3 px-2">
+                        Vecka
+                      </th>
+                      <th scope="col" className="py-3 px-2">
+                        Ankomst
+                      </th>
+                      <th scope="col" className="py-3 px-2">
+                        Avresa
+                      </th>
+                      <th scope="col" className="py-3 px-2">
+                        <button>X</button>
+                      </th>
+                    </tr>
+                  </thead>
+                  {rows}
+                </table>
                 <form
-                  className=" flex flex-col py-20"
+                  className=" flex flex-col"
                   action="/send-data-here"
                   method="post"
                   onSubmit={handleSubmit}

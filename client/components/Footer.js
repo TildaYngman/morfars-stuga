@@ -12,16 +12,18 @@ export default function Footer({
 }) {
   return (
     <>
-      <MessageForm
-        setGuestName={setGuestName}
-        setEmail={setEmail}
-        setMessage={setMessage}
-        setTitle={setTitle}
-        guestName={guestName}
-        email={email}
-        message={message}
-        title={title}
-      />
+      <div className="flex justify-center w-screen bg-primary-green shadow-xl rounded-2xl">
+        <MessageForm
+          setGuestName={setGuestName}
+          setEmail={setEmail}
+          setMessage={setMessage}
+          setTitle={setTitle}
+          guestName={guestName}
+          email={email}
+          message={message}
+          title={title}
+        />
+      </div>
     </>
   );
 }

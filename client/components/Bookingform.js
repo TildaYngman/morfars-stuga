@@ -117,7 +117,7 @@ export default function BookingForm({
       <Transition appear show={isOpenCreate} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto"
+          className="fixed inset-0 z-10 overflow-y-auto bg-black-opacity-400 h-full w-full"
           onClose={closeModal}
         >
           <div className="min-h-screen px-2 text-center">

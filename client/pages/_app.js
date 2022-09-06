@@ -25,16 +25,7 @@ function MyApp({ Component, pageProps }) {
         title={title}
         phoneNumber={phoneNumber}
       />
-      <Footer
-        setGuestName={setGuestName}
-        setEmail={setEmail}
-        setMessage={setMessage}
-        setTitle={setTitle}
-        guestName={guestName}
-        email={email}
-        message={message}
-        title={title}
-      />
+      <Footer />
     </>
   );
 }

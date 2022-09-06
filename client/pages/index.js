@@ -42,16 +42,6 @@ export default function Home({
       <br />
       <Link href="/bookingRequest">booking</Link>
       <br />
-      <MessageForm
-        setGuestName={setGuestName}
-        setEmail={setEmail}
-        setMessage={setMessage}
-        setTitle={setTitle}
-        guestName={guestName}
-        email={email}
-        message={message}
-        title={title}
-      />
     </>
   );
 }

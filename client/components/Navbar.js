@@ -62,10 +62,10 @@ export default function Navbar() {
                   <a href="/about">Om stugan</a>
                 </li>
                 <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
-                  <a href="/about">Bokingsföfrågan</a>
+                  <a href="/bookingRequest">Bokingsföfrågan</a>
                 </li>
                 <li className="text-slate-500 border-x-2 border-white hover:border-x-2 hover:border-slate-400 hover:p-3 p-3 duration-150 text-xl font-semibold">
-                  <a href="/about">Kontakt</a>
+                  <a href="/">Kontakt</a>
                 </li>
               </ul>
             </div>

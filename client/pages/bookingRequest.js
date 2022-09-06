@@ -19,6 +19,17 @@ export default function BookingRequest({
   phoneNumber,
   setPhoneNumber,
 }) {
+  const options = [
+    { value: "", amount: "-" },
+    { value: 1, amount: 1 },
+    { value: 2, amount: 2 },
+    { value: 3, amount: 3 },
+    { value: 4, amount: 4 },
+    { value: 5, amount: 5 },
+    { value: 6, amount: 6 },
+  ];
+
+  const [people, setPeople] = useState(options[0].value);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
@@ -26,6 +37,12 @@ export default function BookingRequest({
   function closeModal() {
     setIsOpenCreate(false);
     setIsOpenInfo(false);
+    setGuestName("");
+    setEmail("");
+    setMessage("");
+    setPhoneNumber("");
+    setMessage("");
+    setPeople(options[0].value);
   }
 
   function openModal(e) {
@@ -109,6 +126,9 @@ export default function BookingRequest({
         phoneNumber={phoneNumber}
         weeks={weeks}
         setSelectedWeeks={setSelectedWeeks}
+        people={people}
+        setPeople={setPeople}
+        options={options}
       />
 
       <BookingInformation

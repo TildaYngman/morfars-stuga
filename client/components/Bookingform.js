@@ -16,22 +16,45 @@ export default function BookingForm({
   title,
   phoneNumber,
   setSelectedWeeks,
+  people,
+  setPeople,
+  options,
 }) {
-  const options = [
-    { value: "", amount: "-" },
-    { value: 1, amount: 1 },
-    { value: 2, amount: 2 },
-    { value: 3, amount: 3 },
-    { value: 4, amount: 4 },
-    { value: 5, amount: 5 },
-    { value: 6, amount: 6 },
-  ];
+  // const options = [
+  //   { value: "", amount: "-" },
+  //   { value: 1, amount: 1 },
+  //   { value: 2, amount: 2 },
+  //   { value: 3, amount: 3 },
+  //   { value: 4, amount: 4 },
+  //   { value: 5, amount: 5 },
+  //   { value: 6, amount: 6 },
+  // ];
 
-  const [people, setPeople] = useState(options[0].value);
+  // const [people, setPeople] = useState(options[0].value);
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  function openShowConfirm() {
+    setShowConfirm(true);
+  }
+  function closeShowConfirm() {
+    setShowConfirm(false);
+  }
+
+  function removeClasses() {
+    console.log(selectedWeeks);
+    const orangeColor = document.querySelectorAll(".card-btn-color-green");
+
+    orangeColor.forEach((cardColor) => {
+      cardColor.classList.remove("card-btn-color-green");
+    });
+    closeModal();
+  }
 
   const handleSubmit = async (e) => {
     // Stop the form from submitting and refreshing the page.
     e.preventDefault();
+    closeModal();
+    removeClasses();
 
     // Get data from the form.
     const res = await fetch("/api/sendgridBooking", {
@@ -56,6 +79,8 @@ export default function BookingForm({
       return;
     }
     console.log(guestName, email, title, message, phoneNumber, people);
+    setSelectedWeeks([]);
+    openShowConfirm();
   };
 
   const newArr = [];
@@ -88,13 +113,7 @@ export default function BookingForm({
 
   function removeAllWeeks() {
     setSelectedWeeks([]);
-    console.log(selectedWeeks);
-    const orangeColor = document.querySelectorAll(".card-btn-color-green");
-
-    orangeColor.forEach((cardColor) => {
-      cardColor.classList.remove("card-btn-color-green");
-    });
-    closeModal();
+    removeClasses();
   }
 
   const rows = selectedWeeks.map((week) => {
@@ -114,6 +133,58 @@ export default function BookingForm({
 
   return (
     <>
+      <Transition appear show={showConfirm} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-20 h-full w-full bg-black-opacity-400"
+          onClose={closeShowConfirm}
+        >
+          <div className="min-h-screen px-4 text-center">
+            {/* This makes it close when clicking outside of the Modal */}
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0" />
+            </Transition.Child>
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            {/* This makes adds transition when open/close*/}
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block w-full max-w-md p-4 my-8 overflow-hidden align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <p className=" text-lg font-medium m-4">
+                  Tack, din bokningsförfrågan är nu skickad!
+                </p>
+                <button
+                  type="button"
+                  className="inline-block px-6 py-2.5 mb-4 bg-primary-green text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-primary-green hover:shadow-lg focus:bg-primary-green focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-green active:shadow-lg transition duration-150 ease-in-out"
+                  onClick={() => closeShowConfirm()}
+                >
+                  Stäng
+                </button>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
       <Transition appear show={isOpenCreate} as={Fragment}>
         <Dialog
           as="div"
@@ -159,7 +230,7 @@ export default function BookingForm({
                     X
                   </button>
                 </div>
-                <h2>Din Bokningsförfrågan</h2>
+                <h2 className="text-xl font-semibold">Din Bokningsförfrågan</h2>
                 <table className="w-full text-sm text-left text-black mt-4 mb-6">
                   <thead className="text-xs uppercase bg-gray-100">
                     <tr>
@@ -262,13 +333,17 @@ export default function BookingForm({
                   />
                   <div className="flex flex-col justify-center items-center">
                     <button
-                      className=" disable-btn inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md"
+                      className=" disable-btn inline-block mt-2 mb-4 px-6 py-3 bg-green-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
                       type="submit"
                       disabled={!guestName || !phoneNumber || !email || !people}
                     >
                       Skicka Bokningsförfrågan
                     </button>
-                    <button type="button" onClick={closeModal}>
+                    <button
+                      className="text-slate-500"
+                      type="button"
+                      onClick={closeModal}
+                    >
                       Avbryt
                     </button>
                   </div>

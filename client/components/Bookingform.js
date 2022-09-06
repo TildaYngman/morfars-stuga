@@ -189,7 +189,7 @@ export default function BookingForm({
                     Namn*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md mb-2"
+                    className=" border border-slate-400 py-1 px-2 rounded-md mb-2"
                     type="text"
                     id="name"
                     name="name"
@@ -203,8 +203,8 @@ export default function BookingForm({
                     E-postadress*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md mb-2"
-                    type="text"
+                    className=" border border-slate-400 py-1 px-2 rounded-md mb-2"
+                    type="email"
                     id="email"
                     name="email"
                     placeholder="exempel@exempel.se"
@@ -217,8 +217,8 @@ export default function BookingForm({
                     Telefonnummer*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md mb-2"
-                    type="text"
+                    className=" border border-slate-400 py-1 px-2 rounded-md mb-2"
+                    type="number"
                     id="phoneNumber"
                     name="phoneNumber"
                     placeholder="0701234567"
@@ -232,7 +232,7 @@ export default function BookingForm({
                   </label>
                   <div className="mb-2 flex">
                     <select
-                      className=" border border-slate-400 p-1 rounded-md"
+                      className=" border border-slate-400 py-1 px-2 rounded-md"
                       id="people"
                       name="people"
                       value={people}
@@ -251,7 +251,7 @@ export default function BookingForm({
                     Meddelande
                   </label>
                   <textarea
-                    className=" border border-slate-400 p-1 rounded-md mb-4"
+                    className=" border border-slate-400 py-1 px-2  rounded-md mb-4"
                     type="text"
                     id="message"
                     name="message"

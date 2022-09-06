@@ -1,6 +1,9 @@
-export default function Footer () {
+import { MessageForm } from "./MessageForm";
 
+export default function Footer() {
   return (
-    alert("code")
+    <>
+      <MessageForm />
+    </>
   );
 }

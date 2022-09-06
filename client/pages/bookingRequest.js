@@ -38,7 +38,8 @@ export default function BookingRequest({
       return (
         <div className="fixed bottom-0 h-28 w-full bg-slate-400 flex justify-around items-center bg-opacity-90">
           <button
-            className="disable-btn bg-slate-100 text-black m-4 p-3 rounded-lg shadow-lg text-lg"
+            type="button"
+            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-md leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             onClick={openModal}
             id="create"
           >
@@ -60,12 +61,12 @@ export default function BookingRequest({
       //   "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
       document
         .getElementById(`${week._id}`)
-        .classList.add("card-btn-color-orange");
+        .classList.add("card-btn-color-green");
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
       document
         .getElementById(`${week._id}`)
-        .classList.remove("card-btn-color-orange");
+        .classList.remove("card-btn-color-green");
     }
 
     setSelectedWeeks([...clickedWeek]);
@@ -115,17 +116,20 @@ export default function BookingRequest({
         closeModal={closeModal}
       />
 
-      <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
-      <button
-        className="p-4 bg-primary-orange-700 text-primary-white"
-        onClick={openModal}
-        id="info"
-      >
-        Info
-      </button>
-      <p className=" italic">
-        Obs. detta är en förfrågan och inte en bekräftad bokning
-      </p>
+      <div className=" flex flex-row justify-between items-center px-2 mt-4 mb-3">
+        <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
+        <button
+          type="button"
+          className="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
+          onClick={openModal}
+          id="info"
+        >
+          Info
+        </button>
+      </div>
+      <div className="px-2">
+        <em>Obs. detta är en förfrågan och inte en bekräftad bokning</em>
+      </div>
       <div className="mb-48 flex flex-col justify-center items-center px-2">
         <h2 className=" text-xl font-bold m-4">Lediga veckor</h2>
         {rows}

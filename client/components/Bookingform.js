@@ -71,7 +71,7 @@ export default function BookingForm({
 
     document
       .getElementById(`${week._id}`)
-      .classList.remove("card-btn-color-orange");
+      .classList.remove("card-btn-color-green");
 
     setSelectedWeeks([...clickedWeek]);
     console.log(selectedWeeks);
@@ -80,10 +80,10 @@ export default function BookingForm({
   function removeAllWeeks() {
     setSelectedWeeks([]);
     console.log(selectedWeeks);
-    const orangeColor = document.querySelectorAll(".card-btn-color-orange");
+    const orangeColor = document.querySelectorAll(".card-btn-color-green");
 
     orangeColor.forEach((cardColor) => {
-      cardColor.classList.remove("card-btn-color-orange");
+      cardColor.classList.remove("card-btn-color-green");
     });
     closeModal();
   }
@@ -180,7 +180,7 @@ export default function BookingForm({
                     Namn*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md"
+                    className=" border border-slate-400 p-1 rounded-md mb-2"
                     type="text"
                     id="name"
                     name="name"
@@ -194,7 +194,7 @@ export default function BookingForm({
                     E-postadress*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md"
+                    className=" border border-slate-400 p-1 rounded-md mb-2"
                     type="text"
                     id="email"
                     name="email"
@@ -208,7 +208,7 @@ export default function BookingForm({
                     Telefonnummer*
                   </label>
                   <input
-                    className=" border border-slate-400 p-1 rounded-md"
+                    className=" border border-slate-400 p-1 rounded-md mb-2"
                     type="text"
                     id="phoneNumber"
                     name="phoneNumber"
@@ -218,8 +218,10 @@ export default function BookingForm({
                       setPhoneNumber(e.target.value);
                     }}
                   ></input>
-                  <label htmlFor="people">Antal personer</label>
-                  <div className="mb-3 flex">
+                  <label className="mb-2" htmlFor="people">
+                    Antal personer
+                  </label>
+                  <div className="mb-2 flex">
                     <select
                       className=" border border-slate-400 p-1 rounded-md"
                       id="people"
@@ -240,7 +242,7 @@ export default function BookingForm({
                     Meddelande
                   </label>
                   <textarea
-                    className=" border border-slate-400 p-1 rounded-md"
+                    className=" border border-slate-400 p-1 rounded-md mb-4"
                     type="text"
                     id="message"
                     name="message"
@@ -251,7 +253,7 @@ export default function BookingForm({
                   />
                   <div className="flex flex-col justify-center items-center">
                     <button
-                      className="disable-btn bg-green-900 text-white  m-4 py-2 px-3 rounded-lg shadow-lg"
+                      className=" disable-btn inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md"
                       type="submit"
                       disabled={!guestName || !phoneNumber || !email}
                     >

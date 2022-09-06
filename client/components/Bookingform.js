@@ -18,6 +18,7 @@ export default function BookingForm({
   setSelectedWeeks,
 }) {
   const options = [
+    { value: "", amount: "-" },
     { value: 1, amount: 1 },
     { value: 2, amount: 2 },
     { value: 3, amount: 3 },
@@ -64,6 +65,14 @@ export default function BookingForm({
       `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
   });
+
+  function checkPeople(e) {
+    if (isNaN(e.target.value)) {
+      return;
+    } else {
+      setPeople(e.target.value);
+    }
+  }
 
   function removeWeek(week) {
     const clickedWeek = selectedWeeks;
@@ -219,7 +228,7 @@ export default function BookingForm({
                     }}
                   ></input>
                   <label className="mb-2" htmlFor="people">
-                    Antal personer
+                    Antal personer*
                   </label>
                   <div className="mb-2 flex">
                     <select
@@ -228,7 +237,7 @@ export default function BookingForm({
                       name="people"
                       value={people}
                       onChange={(e) => {
-                        setPeople(e.target.value);
+                        checkPeople(e);
                       }}
                     >
                       {options.map((option) => (
@@ -255,7 +264,7 @@ export default function BookingForm({
                     <button
                       className=" disable-btn inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md"
                       type="submit"
-                      disabled={!guestName || !phoneNumber || !email}
+                      disabled={!guestName || !phoneNumber || !email || !people}
                     >
                       Skicka Bokningsförfrågan
                     </button>

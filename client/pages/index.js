@@ -35,13 +35,6 @@ export default function Home({
           Välkommen till vår fjällstuga i vackra Tänndalen
         </h2>
       </div>
-      <PopUpQandA temp={items} />
-      <Link href="/questionsAndAnswers">Questions and Answers</Link>
-      <br />
-      <Link href="/about">About The Cabin</Link>
-      <br />
-      <Link href="/bookingRequest">booking</Link>
-      <br />
     </>
   );
 }

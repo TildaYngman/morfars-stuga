@@ -83,12 +83,9 @@ export default function BookingForm({
     const orangeColor = document.querySelectorAll(".card-btn-color-orange");
 
     orangeColor.forEach((cardColor) => {
-      // ✅ Remove class from each element
       cardColor.classList.remove("card-btn-color-orange");
-
-      // ✅ Add class to each element
-      // box.classList.add('small');
     });
+    closeModal();
   }
 
   const rows = selectedWeeks.map((week) => {

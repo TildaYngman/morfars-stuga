@@ -110,6 +110,7 @@ export default function BookingRequest({
         weeks={weeks}
         setSelectedWeeks={setSelectedWeeks}
       />
+
       <BookingInformation
         temp={items}
         isOpenInfo={isOpenInfo}

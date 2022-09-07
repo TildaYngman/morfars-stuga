@@ -86,7 +86,7 @@ export default function BookingRequest({
   });
 
   return (
-    <>
+    <main className="mt-16">
       <PopUpQandA temp={items} />
       <Bookingform
         isOpenCreate={isOpenCreate}
@@ -126,7 +126,7 @@ export default function BookingRequest({
       </div>
       {checkIfEmpty()}
       {/* <Bookingform /> */}
-    </>
+    </main>
   );
 }
 

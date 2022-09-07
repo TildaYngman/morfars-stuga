@@ -36,7 +36,7 @@ export default function MessageForm({
 
   return (
     <>
-      <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+      <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
         <form
           className=" flex flex-col py-20"
           action="/send-data-here"

@@ -100,7 +100,7 @@ export default function MessageForm({
           />
           <div className="flex flex-col justify-center items-center">
             <button
-              className="disable-btn bg-primary-green text-black m-4 py-2 px-3 rounded-lg shadow-lg text-xs"
+              className="disable-btn inline-block mt-2 mb-4 px-6 py-3 bg-green-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
               type="submit"
               disabled={!guestName || !email}
             >

@@ -100,9 +100,9 @@ export default function MessageForm({
           />
           <div className="flex flex-col justify-center items-center">
             <button
-              className="disable-btn inline-block mt-2 mb-4 px-6 py-3 bg-green-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
+              className="disable-btn-purple inline-block mt-2 mb-4 px-6 py-3 bg-purple-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
               type="submit"
-              disabled={!guestName || !email}
+              disabled={!guestName || !email || !title || !message}
             >
               Skicka
             </button>

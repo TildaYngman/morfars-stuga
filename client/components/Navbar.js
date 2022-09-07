@@ -11,7 +11,7 @@ export default function Navbar() {
           <div>
             <div className="flex items-center justify-between md:block">
               <div className="px-3">
-                <BsHouse size={40} color="#64748b" />
+                <BsHouse size={40} color="#334155" />
               </div>
               <div className="md:hidden">
                 <button

@@ -36,14 +36,14 @@ export default function MessageForm({
 
   return (
     <>
-      <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+      <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-lg rounded-2xl">
         <form
-          className=" flex flex-col py-20"
+          className=" flex flex-col pt-5 pb-1"
           action="/send-data-here"
           method="post"
           onSubmit={handleSubmit}
         >
-          <label className=" mb-2" htmlFor="name">
+          <label className=" mb-1" htmlFor="name">
             Namn*
           </label>
           <input
@@ -57,7 +57,7 @@ export default function MessageForm({
               setGuestName(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="email">
+          <label className=" mb-1" htmlFor="email">
             E-postadress*
           </label>
           <input
@@ -71,7 +71,7 @@ export default function MessageForm({
               setEmail(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="title">
+          <label className=" mb-1" htmlFor="title">
             Title*
           </label>
           <input
@@ -85,7 +85,7 @@ export default function MessageForm({
               setTitle(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="message">
+          <label className=" mb-1" htmlFor="message">
             Meddelande
           </label>
           <textarea
@@ -100,7 +100,7 @@ export default function MessageForm({
           />
           <div className="flex flex-col justify-center items-center">
             <button
-              className="disable-btn bg-primary-green text-black m-4 py-2 px-3 rounded-lg shadow-lg"
+              className="disable-btn bg-primary-green text-black m-4 py-2 px-3 rounded-lg shadow-lg text-xs"
               type="submit"
               disabled={!guestName || !email}
             >

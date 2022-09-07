@@ -42,9 +42,9 @@ export default function BookingForm({
 
   function removeClasses() {
     console.log(selectedWeeks);
-    const orangeColor = document.querySelectorAll(".card-btn-color-green");
+    const classColor = document.querySelectorAll(".card-btn-color-green");
 
-    orangeColor.forEach((cardColor) => {
+    classColor.forEach((cardColor) => {
       cardColor.classList.remove("card-btn-color-green");
     });
     closeModal();

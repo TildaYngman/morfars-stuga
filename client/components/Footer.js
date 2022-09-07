@@ -12,20 +12,18 @@ export default function Footer({
 }) {
   return (
     <>
-      <div className="flex bg-slate-100 border-2 border-slate-200 justify-center w-screen shadow-lg rounded-t-lg">
-        <div>
-          <MessageForm
-            setGuestName={setGuestName}
-            setEmail={setEmail}
-            setMessage={setMessage}
-            setTitle={setTitle}
-            guestName={guestName}
-            email={email}
-            message={message}
-            title={title}
-          />
-        </div>
-      </div>
+      <footer className="flex relative bottom-0 bg-slate-100 justify-center w-full rounded-t-3xl">
+        <MessageForm
+          setGuestName={setGuestName}
+          setEmail={setEmail}
+          setMessage={setMessage}
+          setTitle={setTitle}
+          guestName={guestName}
+          email={email}
+          message={message}
+          title={title}
+        />
+      </footer>
     </>
   );
 }

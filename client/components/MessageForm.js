@@ -100,7 +100,7 @@ export default function MessageForm({
           />
           <div className="flex flex-col justify-center items-center">
             <button
-              className="disable-btn-purple inline-block mt-2 mb-4 px-6 py-3 bg-purple-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
+              className="disable-btn-purple inline-block px-6 py-2.5 m-4 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
               type="submit"
               disabled={!guestName || !email || !title || !message}
             >

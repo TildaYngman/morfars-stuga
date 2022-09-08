@@ -5,22 +5,22 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full absolute top-0 left-0 bg-black-opacity-300 z-10 md:px-8">
-      <div className="w-full height-full justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex">
+    <nav className="w-full absolute top-0 left-0 bg-black-opacity-300 z-10">
+      <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
-          <div className="flex items-center justify-between md:block">
-            <div className="px-3">
-              <BsHouse size={40} color="#e2e8f0" />
+          <div className="flex items-center justify-between md:block px-8">
+            <div>
+              <BsHouse size={30} color="#e2e8f0" />
             </div>
-            <div className="md:hidden">
+            <div className="md:hidden pt-1">
               <button
-                className="p-2 text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-slate-500"
+                    className="w-8 h-8 text-slate-100"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -33,7 +33,7 @@ export default function Navbar() {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 slate-500"
+                    className="w-8 h-8 slate-100"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -52,7 +52,7 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+            className={`flex-1 justify-self-center mt-8 md:block md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >

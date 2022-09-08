@@ -5,16 +5,16 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full absolute top-0 left-0 bg-black-opacity-200 z-10">
-      <div className="w-full height-full justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+    <nav className="w-full absolute top-0 left-0 bg-black-opacity-300 z-10 md:px-8">
+      <div className="w-full height-full justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between md:block">
             <div className="px-3">
-              <BsHouse size={40} color="#48576b" />
+              <BsHouse size={40} color="#e2e8f0" />
             </div>
             <div className="md:hidden">
               <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2 text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -57,13 +57,13 @@ export default function Navbar() {
             }`}
           >
             <ul className="flex flex-col text-right md:flex-row">
-              <li className="text-slate-600 border-x-2 border-transparent hover:border-x-2 hover:border-slate-400 hover:p-5 p-5 duration-150 text-xl font-semibold">
+              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
                 <a href="/about">Om stugan</a>
               </li>
-              <li className="text-slate-600 border-x-2 border-transparent hover:border-x-2 hover:border-slate-400 hover:p-5 p-5 duration-150 text-xl font-semibold">
+              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
                 <a href="/bookingRequest">Bokingsföfrågan</a>
               </li>
-              <li className="text-slate-600 border-x-2 border-transparent hover:border-x-2 hover:border-slate-400 hover:p-5 p-5 duration-150 text-xl font-semibold">
+              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
                 <a href="/questionsAndAnswers">Kontakt</a>
               </li>
             </ul>

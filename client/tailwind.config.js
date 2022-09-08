@@ -72,9 +72,6 @@ module.exports = {
         "black-opacity-200": "rgba(0, 0, 0, 0.2)",
         "black-opacity-100": "rgba(0, 0, 0, 0.1)",
       },
-      backgroundImage: {
-        "footer-texture": "url('/public/cabinsky.jpg')",
-      },
     },
   },
   plugins: [],

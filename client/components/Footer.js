@@ -12,7 +12,7 @@ export default function Footer({
 }) {
   return (
     <>
-      <footer className="flex flex-col bg-slate-700 px-4 justify-center m-auto items-center w-full shadow-lg rounded-t-lg">
+      <footer className="flex flex-col bg-slate-700 px-4 justify-center m-auto items-center w-full shadow-lg">
         <MessageForm
           setGuestName={setGuestName}
           setEmail={setEmail}

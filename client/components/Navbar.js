@@ -54,23 +54,23 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`fixed w-full flex-1 justify-self-center bg-slate-50 md:block md:pb-0 md:mt-0 ${
+            className={`flex-1 justify-self-center bg-slate-50 md:bg-slate-100 md:block md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col w-full md:flex-row md:justify-end bg-transparent">
+            <ul className="flex fixed  flex-col w-full bg-slate-50 shadow-xl md:shadow-none md:flex-row md:justify-end md:bg-transparent md:relative">
               <a href="/about">
-                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Om stugan
                 </li>
               </a>
               <a href="/bookingRequest">
-                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Bokingsföfrågan
                 </li>
               </a>
               <a href="/questionsAndAnswers">
-                <li className="text-slate-800 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                <li className="text-slate-800 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Kontakt
                 </li>
               </a>

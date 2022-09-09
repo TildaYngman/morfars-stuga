@@ -5,7 +5,7 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 shadow-md bg-slate-100 z-10">
+    <nav className="w-full sticky top-0 left-0 shadow-md bg-slate-100 z-10">
       <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between md:block px-4">
@@ -58,7 +58,7 @@ export default function Navbar() {
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex fixed  flex-col w-full bg-slate-50 shadow-xl md:flex-row md:justify-end md:bg-transparent md:relative">
+            <ul className="flex fixed  flex-col w-full bg-slate-50 shadow-xl md:shadow-none md:flex-row md:justify-end md:bg-transparent md:relative">
               <a href="/about">
                 <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Om stugan

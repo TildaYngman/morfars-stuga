@@ -7,7 +7,7 @@ export default function Home({ Component, pageProps }) {
         <Image
           src="/cabin.jpg"
           alt="piucture of the cabin you can rent"
-          height={280}
+          height={270}
           width={500}
           layout="responsive"
           className="absolute top-0 left-0"

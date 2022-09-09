@@ -54,20 +54,26 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex fixed w-full justify-center items-center py-4 shadow-md md:shadow-none md:block md:pb-0 md:mt-0 text-slate-800 bg-slate-50 md:bg-transparent ${
+            className={`fixed w-full flex-1 justify-self-center bg-slate-50 md:block md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col justify-end text-center md:flex-row bg-transparent">
-              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
-                <a href="/about">Om stugan</a>
-              </li>
-              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
-                <a href="/bookingRequest">Bokingsföfrågan</a>
-              </li>
-              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-00 bg-transparent">
-                <a href="/questionsAndAnswers">Kontakt</a>
-              </li>
+            <ul className="flex flex-col w-full md:flex-row md:justify-end bg-transparent">
+              <a href="/about">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Om stugan
+                </li>
+              </a>
+              <a href="/bookingRequest">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Bokingsföfrågan
+                </li>
+              </a>
+              <a href="/questionsAndAnswers">
+                <li className="text-slate-800 md:border-x-2 md:border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Kontakt
+                </li>
+              </a>
             </ul>
           </div>
         </div>

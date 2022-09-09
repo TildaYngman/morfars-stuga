@@ -5,16 +5,16 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full absolute top-0 left-0 bg-black-opacity-300 z-10">
+    <nav className="w-full sticky top-0 left-0 shadow-md bg-slate-100 z-10">
       <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
-          <div className="flex items-center justify-between md:block px-8">
+          <div className="flex items-center justify-between md:block px-4">
             <div>
               <a href="/">
-                <BsHouse size={30} color="#e2e8f0" />
+                <BsHouse size={30} color="#334155" />
               </a>
             </div>
-            <div className="md:hidden pt-1">
+            <div className="md:hidden pt-2">
               <button
                 className="text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
@@ -22,7 +22,7 @@ export default function Navbar() {
                 {navbar ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-slate-100"
+                    className="w-8 h-8 text-slate-800"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -35,7 +35,7 @@ export default function Navbar() {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 slate-100"
+                    className="w-8 h-8 text-slate-800"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -54,20 +54,26 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center mt-8 md:block md:pb-0 md:mt-0 ${
+            className={`flex-1 justify-self-center bg-slate-50 md:bg-slate-100 md:block md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col text-right md:flex-row">
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
-                <a href="/about">Om stugan</a>
-              </li>
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
-                <a href="/bookingRequest">Bokingsföfrågan</a>
-              </li>
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
-                <a href="/questionsAndAnswers">Kontakt</a>
-              </li>
+            <ul className="flex fixed  flex-col w-full bg-slate-50 shadow-xl md:shadow-none md:flex-row md:justify-end md:bg-transparent md:relative">
+              <a href="/about">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Om stugan
+                </li>
+              </a>
+              <a href="/bookingRequest">
+                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Bokingsföfrågan
+                </li>
+              </a>
+              <a href="/questionsAndAnswers">
+                <li className="text-slate-800 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                  Kontakt
+                </li>
+              </a>
             </ul>
           </div>
         </div>

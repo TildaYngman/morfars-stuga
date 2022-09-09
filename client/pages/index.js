@@ -10,7 +10,6 @@ export default function Home({ Component, pageProps }) {
           height={270}
           width={500}
           layout="responsive"
-          className="absolute top-0 left-0"
           priority={true}
         />
       </div>

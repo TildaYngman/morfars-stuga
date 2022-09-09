@@ -6,11 +6,12 @@ export default function Home({ Component, pageProps }) {
       <div>
         <Image
           src="/cabin.jpg"
-          alt="cabin"
+          alt="piucture of the cabin you can rent"
           height={280}
           width={500}
           layout="responsive"
           className="absolute top-0 left-0"
+          priority
         />
       </div>
       <div className="mt-2 p-2 rounded-md flex justify-center items-center flex-col">

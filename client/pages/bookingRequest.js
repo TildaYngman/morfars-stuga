@@ -19,6 +19,17 @@ export default function BookingRequest({
   phoneNumber,
   setPhoneNumber,
 }) {
+  const options = [
+    { value: "", amount: "-" },
+    { value: 1, amount: 1 },
+    { value: 2, amount: 2 },
+    { value: 3, amount: 3 },
+    { value: 4, amount: 4 },
+    { value: 5, amount: 5 },
+    { value: 6, amount: 6 },
+  ];
+
+  const [people, setPeople] = useState(options[0].value);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
@@ -26,6 +37,12 @@ export default function BookingRequest({
   function closeModal() {
     setIsOpenCreate(false);
     setIsOpenInfo(false);
+    setGuestName("");
+    setEmail("");
+    setMessage("");
+    setPhoneNumber("");
+    setMessage("");
+    setPeople(options[0].value);
   }
 
   function openModal(e) {
@@ -36,9 +53,10 @@ export default function BookingRequest({
     if (selectedWeeks.length === 0) return;
     else {
       return (
-        <div className="fixed bottom-0 h-24 w-full bg-slate-400 flex justify-around items-center bg-opacity-80">
+        <div className="fixed bottom-0 h-28 w-full bg-slate-400 flex justify-around items-center bg-opacity-90">
           <button
-            className="disable-btn bg-slate-100 text-black m-4 py-2 px-3 rounded-lg shadow-lg "
+            type="button"
+            className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-md leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             onClick={openModal}
             id="create"
           >
@@ -56,12 +74,16 @@ export default function BookingRequest({
 
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
-      document.getElementById(`${week._id}`).className =
-        "bg-gradient-to-b from-lime-100 to-lime-200 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg";
+      // document.getElementById(`${week._id}`).className =
+      //   "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
+      document
+        .getElementById(`${week._id}`)
+        .classList.add("card-btn-color-green");
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
-      document.getElementById(`${week._id}`).className =
-        "bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md";
+      document
+        .getElementById(`${week._id}`)
+        .classList.remove("card-btn-color-green");
     }
 
     setSelectedWeeks([...clickedWeek]);
@@ -73,11 +95,11 @@ export default function BookingRequest({
       return (
         <button
           onClick={() => handleClickedWeek(week)}
-          className="bg-slate-100 text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md"
+          className="card-btn-color-grey text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-md"
           key={week._id}
           id={week._id}
         >
-          <p className="text-lg mb-2 font-semibold">Vecka {week.Vecka}</p>
+          <p className="text-lg mb-2 font-semibold ">Vecka {week.Vecka}</p>
           <p className=" mb-1 font-medium">Ankomst: {week.Ankomst}</p>
           <p className=" font-medium">Avresa: {week.Avresa}</p>
         </button>
@@ -102,24 +124,33 @@ export default function BookingRequest({
         message={message}
         title={title}
         phoneNumber={phoneNumber}
+        weeks={weeks}
+        setSelectedWeeks={setSelectedWeeks}
+        people={people}
+        setPeople={setPeople}
+        options={options}
       />
+
       <BookingInformation
         temp={items}
         isOpenInfo={isOpenInfo}
         closeModal={closeModal}
       />
 
-      <h1 className=" text-2xl font-bold">Bokningförfrågan</h1>
-      <button
-        className="p-4 bg-primary-orange-700 text-primary-white"
-        onClick={openModal}
-        id="info"
-      >
-        Info
-      </button>
-      <p className=" italic">
-        Obs. detta är en förfrågan och inte en bekräftad bokning
-      </p>
+      <div className=" flex flex-row justify-between items-center px-2 mt-4 mb-3">
+        <h1 className=" text-2xl font-bold pr-2">Bokningförfrågan</h1>
+        <button
+          type="button"
+          className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
+          onClick={openModal}
+          id="info"
+        >
+          Info
+        </button>
+      </div>
+      <div className="px-2">
+        <em>Obs. detta är en förfrågan och inte en bekräftad bokning</em>
+      </div>
       <div className="mb-48 flex flex-col justify-center items-center px-2">
         <h2 className=" text-xl font-bold m-4">Lediga veckor</h2>
         {rows}

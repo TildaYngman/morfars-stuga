@@ -17,7 +17,7 @@ export default function BookingInformationComponent({
     <Transition appear show={isOpenInfo} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto bg-black-opacity-400 h-full w-full"
         onClose={closeModal}
       >
         <div className="min-h-screen px-4 text-center">
@@ -50,19 +50,19 @@ export default function BookingInformationComponent({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <div className="flex justify-end">
+            <div className="inline-block w-full max-w-md p-4 my-8 overflow-hidden align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="flex justify-end items-center">
                 <button
-                  className=" flex justify-center text-xl font-extrabold w-10"
+                  className=" flex justify-center text-xl font-extrabold "
                   onClick={() => closeModal()}
                 >
                   X
                 </button>
               </div>
-              <h1 className="text-2xl font-bold mb-5">Bokningsinformation</h1>
+              <h1 className="text-xl font-bold mb-5">Bokningsinformation</h1>
               {BookingInformationArr.map((item) => {
                 return (
-                  <div className="my-2 " key={item._id}>
+                  <div className="my-5 text-left" key={item._id}>
                     <h3 className="mb-2 text-lg font-semibold">
                       {item.question}
                     </h3>
@@ -71,7 +71,8 @@ export default function BookingInformationComponent({
                 );
               })}
               <button
-                className=" w-24 p-2 flex justify-center items-center m-auto text-xl bg-primary-orange-800 text-primary-white rounded-lg shadow-md"
+                type="button"
+                className="inline-block px-6 py-2.5 mb-4 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
                 onClick={() => closeModal()}
               >
                 Stäng

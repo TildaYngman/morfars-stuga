@@ -5,13 +5,13 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-slate-800 bg-opacity-75 z-10">
+    <nav className="w-full sticky top-0 bg-slate-100 z-10">
       <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between md:block px-4">
             <div>
               <a href="/">
-                <BsHouse size={30} color="#f1f5f9" />
+                <BsHouse size={30} color="#334155" />
               </a>
             </div>
             <div className="md:hidden pt-2">
@@ -22,7 +22,7 @@ export default function Navbar() {
                 {navbar ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-slate-100"
+                    className="w-8 h-8 text-slate-800"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -35,7 +35,7 @@ export default function Navbar() {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 slate-100"
+                    className="w-8 h-8 text-slate-800"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -54,18 +54,18 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center shadow-md md:shadow-none md:block md:pb-0 md:mt-0 text-slate-800 bg-white md:bg-transparent ${
+            className={`flex fixed w-full justify-center items-center py-4 shadow-md md:shadow-none md:block md:pb-0 md:mt-0 text-slate-800 bg-slate-50 md:bg-transparent ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col text-right md:flex-row bg-transparent">
-              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
+            <ul className="flex flex-col justify-end text-center md:flex-row bg-transparent">
+              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                 <a href="/about">Om stugan</a>
               </li>
-              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
+              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                 <a href="/bookingRequest">Bokingsföfrågan</a>
               </li>
-              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
+              <li className="text-slate-800 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 m-2 duration-150 text-xl font-semibold md:text-slate-00 bg-transparent">
                 <a href="/questionsAndAnswers">Kontakt</a>
               </li>
             </ul>

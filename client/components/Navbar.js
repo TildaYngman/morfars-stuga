@@ -5,16 +5,16 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full absolute top-0 left-0 bg-black-opacity-300 z-10">
+    <nav className="w-full fixed top-0 left-0 bg-slate-900 bg-opacity-50 z-10">
       <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
-          <div className="flex items-center justify-between md:block px-8">
+          <div className="flex items-center justify-between md:block px-4">
             <div>
               <a href="/">
-                <BsHouse size={30} color="#e2e8f0" />
+                <BsHouse size={30} color="#f1f5f9" />
               </a>
             </div>
-            <div className="md:hidden pt-1">
+            <div className="md:hidden pt-2">
               <button
                 className="text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
@@ -54,18 +54,18 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center mt-8 md:block md:pb-0 md:mt-0 ${
+            className={`flex-1 justify-self-center shadow-md md:shadow-none md:block md:pb-0 md:mt-0 text-slate-800 bg-white md:bg-transparent ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col text-right md:flex-row">
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
+            <ul className="flex flex-col text-right md:flex-row bg-transparent">
+              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
                 <a href="/about">Om stugan</a>
               </li>
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
+              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
                 <a href="/bookingRequest">Bokingsföfrågan</a>
               </li>
-              <li className="text-slate-200 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-3 p-3 duration-150 text-xl font-semibold">
+              <li className="text-slate-700 border-x-2 border-transparent hover:border-x-2 hover:border-slate-100 hover:p-2 p-2 duration-150 text-xl font-semibold md:text-slate-100 bg-transparent">
                 <a href="/questionsAndAnswers">Kontakt</a>
               </li>
             </ul>

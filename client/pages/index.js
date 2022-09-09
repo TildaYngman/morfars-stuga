@@ -1,23 +1,6 @@
-import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Link from "next/link";
-import { MessageForm, PopUpQandA } from "../components/index";
-import { useState } from "react";
 
-export default function Home({
-  Component,
-  pageProps,
-  setGuestName,
-  setEmail,
-  setMessage,
-  setTitle,
-  guestName,
-  email,
-  message,
-  title,
-  items,
-}) {
+export default function Home({ Component, pageProps }) {
   return (
     <>
       <div>
@@ -29,29 +12,28 @@ export default function Home({
           layout="responsive"
         />
       </div>
-      <div className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200  flex justify-center items-center flex-col">
+      <div className="mt-2 p-2 rounded-md flex justify-center items-center flex-col">
         <h1 className="text-2xl font-semibold">Morfars Stuga</h1>
         <h2 className="text-xl font-semibold">
           Välkommen till vår fjällstuga i vackra Tänndalen
         </h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.
+        </p>
       </div>
-      <PopUpQandA temp={items} />
-      <Link href="/questionsAndAnswers">Questions and Answers</Link>
-      <br />
-      <Link href="/about">About The Cabin</Link>
-      <br />
-      <Link href="/bookingRequest">booking</Link>
-      <br />
-      <MessageForm
-        setGuestName={setGuestName}
-        setEmail={setEmail}
-        setMessage={setMessage}
-        setTitle={setTitle}
-        guestName={guestName}
-        email={email}
-        message={message}
-        title={title}
-      />
     </>
   );
 }

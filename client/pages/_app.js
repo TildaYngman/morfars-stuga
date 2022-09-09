@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { useState } from "react";
-import { Navbar } from "../components/index";
+import { Navbar, Footer } from "../components/index";
 
 function MyApp({ Component, pageProps }) {
   const [guestName, setGuestName] = useState("");
@@ -24,6 +24,16 @@ function MyApp({ Component, pageProps }) {
         message={message}
         title={title}
         phoneNumber={phoneNumber}
+      />
+      <Footer
+        setGuestName={setGuestName}
+        setEmail={setEmail}
+        setMessage={setMessage}
+        setTitle={setTitle}
+        guestName={guestName}
+        email={email}
+        message={message}
+        title={title}
       />
     </>
   );

@@ -5,9 +5,9 @@ export default function Home({ Component, pageProps }) {
     <>
       <div>
         <Image
-          src="/cabinCroped2.jpg"
+          src="/cabin.jpg"
           alt="cabin"
-          height={305}
+          height={280}
           width={500}
           layout="responsive"
           className="absolute top-0 left-0"

@@ -5,7 +5,7 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-slate-900 bg-opacity-50 z-10">
+    <nav className="w-full fixed top-0 left-0 bg-slate-800 bg-opacity-75 z-10">
       <div className="w-full height-full justify-between mx-auto lg:max-w-7xl md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between md:block px-4">

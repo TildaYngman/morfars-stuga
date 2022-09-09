@@ -36,14 +36,15 @@ export default function MessageForm({
 
   return (
     <>
-      <div className="inline-block w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+
+      <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-lg rounded-2xl">
         <form
-          className=" flex flex-col py-8"
+          className=" flex flex-col pt-5 pb-1"
           action="/send-data-here"
           method="post"
           onSubmit={handleSubmit}
         >
-          <label className=" mb-2" htmlFor="name">
+          <label className=" mb-1" htmlFor="name">
             Namn*
           </label>
           <input
@@ -57,7 +58,7 @@ export default function MessageForm({
               setGuestName(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="email">
+          <label className=" mb-1" htmlFor="email">
             E-postadress*
           </label>
           <input
@@ -71,7 +72,7 @@ export default function MessageForm({
               setEmail(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="title">
+          <label className=" mb-1" htmlFor="title">
             Title*
           </label>
           <input
@@ -85,7 +86,7 @@ export default function MessageForm({
               setTitle(e.target.value);
             }}
           />
-          <label className=" mb-2" htmlFor="message">
+          <label className=" mb-1" htmlFor="message">
             Meddelande
           </label>
           <textarea
@@ -100,9 +101,9 @@ export default function MessageForm({
           />
           <div className="flex flex-col justify-center items-center">
             <button
-              className="disable-btn bg-primary-green text-black m-4 py-2 px-3 rounded-lg shadow-lg"
+              className="disable-btn-purple inline-block px-6 py-2.5 m-4 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
               type="submit"
-              disabled={!guestName || !email}
+              disabled={!guestName || !email || !title || !message}
             >
               Skicka
             </button>

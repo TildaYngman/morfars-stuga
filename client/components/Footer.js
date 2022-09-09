@@ -12,7 +12,7 @@ export default function Footer({
 }) {
   return (
     <>
-      <footer className="flex relative bottom-0 bg-slate-100 justify-center w-full rounded-t-3xl">
+      <footer className="flex flex-col bg-slate-700 px-4 justify-center m-auto items-center w-full shadow-lg rounded-t-lg">
         <MessageForm
           setGuestName={setGuestName}
           setEmail={setEmail}
@@ -23,6 +23,7 @@ export default function Footer({
           message={message}
           title={title}
         />
+        <em className="pb-6 text-white">&copy; 2022 morfarsstuga.se</em>
       </footer>
     </>
   );

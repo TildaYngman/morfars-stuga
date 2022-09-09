@@ -11,7 +11,7 @@ export default function Home({ Component, pageProps }) {
           width={500}
           layout="responsive"
           className="absolute top-0 left-0"
-          priority
+          priority={true}
         />
       </div>
       <div className="mt-2 p-2 rounded-md flex justify-center items-center flex-col">

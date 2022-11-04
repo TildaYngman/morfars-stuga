@@ -20,17 +20,6 @@ export default function BookingForm({
   setPeople,
   options,
 }) {
-  // const options = [
-  //   { value: "", amount: "-" },
-  //   { value: 1, amount: 1 },
-  //   { value: 2, amount: 2 },
-  //   { value: 3, amount: 3 },
-  //   { value: 4, amount: 4 },
-  //   { value: 5, amount: 5 },
-  //   { value: 6, amount: 6 },
-  // ];
-
-  // const [people, setPeople] = useState(options[0].value);
   const [showConfirm, setShowConfirm] = useState(false);
 
   function openShowConfirm() {
@@ -51,12 +40,10 @@ export default function BookingForm({
   }
 
   const handleSubmit = async (e) => {
-    // Stop the form from submitting and refreshing the page.
     e.preventDefault();
     closeModal();
     removeClasses();
 
-    // Get data from the form.
     const res = await fetch("/api/sendgridBooking", {
       body: JSON.stringify({
         email: email,
@@ -356,12 +343,3 @@ export default function BookingForm({
     </>
   );
 }
-
-// <div
-//   className={` bg-primary-teal-200 text-primary-black text-sm w-72 m-1 p-2 text-left font-semibold flex flex-row justify-between`}
-//   key={week._id}
-// >
-//   <p>{week.Vecka}</p>
-//   <p>{week.Ankomst}</p>
-//   <p>{week.Avresa}</p>
-// </div>

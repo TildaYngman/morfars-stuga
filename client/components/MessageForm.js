@@ -1,5 +1,3 @@
-import { Dialog, Transition } from "@headlessui/react";
-
 export default function MessageForm({
   setGuestName,
   setEmail,
@@ -36,7 +34,6 @@ export default function MessageForm({
 
   return (
     <>
-
       <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-lg rounded-2xl">
         <form
           className=" flex flex-col pt-5 pb-1"

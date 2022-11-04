@@ -30,14 +30,11 @@ export default function QuestionsCategory({ temp }) {
     items.forEach((item, i) => {
       rows.push(<QuestionsAndAnswersComponent key={item._id} item={item} />);
     });
-    console.log(rows);
     return rows;
   }
 
   useEffect(() => {
-    console.log("Question ARR: ", questionArr);
     rows = renderCategoryQuestions(questionArr);
-    console.log("rows:", rows);
   }, [questionArr]);
 
   let rows = [];
@@ -57,7 +54,7 @@ export default function QuestionsCategory({ temp }) {
           );
         })}
       </section>
-      {renderCategoryQuestions(questionArr)} 
+      {renderCategoryQuestions(questionArr)}
     </>
   );
 }

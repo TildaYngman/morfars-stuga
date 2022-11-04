@@ -5,7 +5,6 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 async function sendBookingRequest(req, res) {
   try {
-    console.log("REQ.BODY", req.body.guestName);
     await sendgrid.send({
       to: "tildayngman@gmail.com", // Your email where you'll receive emails
       from: "matilda.yngman@hyperisland.se", // your website email address here

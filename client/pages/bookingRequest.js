@@ -87,7 +87,6 @@ export default function BookingRequest({
     }
 
     setSelectedWeeks([...clickedWeek]);
-    console.log(selectedWeeks);
   }
 
   const rows = weeks.map((week) => {

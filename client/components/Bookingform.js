@@ -30,7 +30,6 @@ export default function BookingForm({
   }
 
   function removeClasses() {
-    console.log(selectedWeeks);
     const classColor = document.querySelectorAll(".card-btn-color-green");
 
     classColor.forEach((cardColor) => {
@@ -65,7 +64,6 @@ export default function BookingForm({
       console.log(error);
       return;
     }
-    console.log(guestName, email, title, message, phoneNumber, people);
     setSelectedWeeks([]);
     openShowConfirm();
   };
@@ -95,7 +93,6 @@ export default function BookingForm({
       .classList.remove("card-btn-color-green");
 
     setSelectedWeeks([...clickedWeek]);
-    console.log(selectedWeeks);
   }
 
   function removeAllWeeks() {

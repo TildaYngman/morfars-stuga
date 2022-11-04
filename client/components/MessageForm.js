@@ -29,7 +29,6 @@ export default function MessageForm({
       console.log(error);
       return;
     }
-    console.log(guestName, email, title, message);
   };
 
   return (

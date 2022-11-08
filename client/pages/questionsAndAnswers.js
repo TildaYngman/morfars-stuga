@@ -15,7 +15,7 @@ export default function QuestionsAndAnswers({ items }) {
   );
 }
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:28017/QandA");
+  const res = await fetch("http://localhost:5000/QandA");
   const data = await res.json();
 
   return {

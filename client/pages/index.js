@@ -19,27 +19,21 @@ export default function Home({ Component, pageProps }) {
           Välkommen till vår fjällstuga i vackra Tänndalen
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
+          Stugan har gått i arv från vår mormor och morfar till vår mamma och
+          sedan har vi fått ta över förvaltningen av stugan. Storstugan byggdes
+          på 80 talet och har sedan dess skänkt mycket glädje till vår familj.
+          Vi har abitionen att förvalta och vårda vårt arv för att kunna skänka
+          våra barn och deras framtida familjer samma glädje som stugan har
+          skänkt oss under uppväxten. Vår morfar var uppfinnare och entreprenör,
+          han var framåtsträvande och ständigt på jakt efter finurliga lösningar
+          på vardagen.
         </p>
       </div>
     </>
   );
 }
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:28017/QandA");
+  const res = await fetch("http://localhost:5000/QandA");
   const data = await res.json();
 
   return {

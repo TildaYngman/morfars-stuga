@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navbar, Footer } from "../components/index";
 
 function MyApp({ Component, pageProps }) {
+  const [guestInfo, setGuestInfo] = useState({});
   const [guestName, setGuestName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -14,6 +15,8 @@ function MyApp({ Component, pageProps }) {
       <Navbar />
       <Component
         {...pageProps}
+        guestInfo={guestInfo}
+        setGuestInfo={setGuestInfo}
         setGuestName={setGuestName}
         setEmail={setEmail}
         setMessage={setMessage}
@@ -26,6 +29,8 @@ function MyApp({ Component, pageProps }) {
         phoneNumber={phoneNumber}
       />
       <Footer
+        guestInfo={guestInfo}
+        setGuestInfo={setGuestInfo}
         setGuestName={setGuestName}
         setEmail={setEmail}
         setMessage={setMessage}

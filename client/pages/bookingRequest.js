@@ -7,7 +7,7 @@ import {
 
 export default function BookingRequest({
   items,
-  weeks,
+  allWeeks,
   setGuestName,
   setEmail,
   setMessage,
@@ -89,7 +89,7 @@ export default function BookingRequest({
     setSelectedWeeks([...clickedWeek]);
   }
 
-  const rows = weeks.map((week) => {
+  const rows = allWeeks.map((week) => {
     if (week.isAvailable === true) {
       return (
         <button
@@ -123,7 +123,7 @@ export default function BookingRequest({
         message={message}
         title={title}
         phoneNumber={phoneNumber}
-        weeks={weeks}
+        allWeeks={allWeeks}
         setSelectedWeeks={setSelectedWeeks}
         people={people}
         setPeople={setPeople}
@@ -169,12 +169,12 @@ export async function getStaticProps() {
   const data = await res.json();
 
   const resTwo = await fetch("http://localhost:5000/bookableWeeks");
-  const weeks = await resTwo.json();
+  const allWeeks = await resTwo.json();
 
   return {
     props: {
       items: data,
-      weeks: weeks,
+      allWeeks: allWeeks,
     },
     revalidate: 1,
   };

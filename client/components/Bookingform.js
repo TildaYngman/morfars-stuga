@@ -38,7 +38,6 @@ export default function BookingForm({
   function addGuestMessage(e) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
-    console.log(guestInfo);
   }
 
   function checkPeople(e) {

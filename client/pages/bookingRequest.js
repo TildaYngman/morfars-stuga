@@ -165,10 +165,10 @@ export default function BookingRequest({
 // - When a request comes in
 // - At most once every 10 seconds
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:28017/QandA");
+  const res = await fetch("http://localhost:5000/QandA");
   const data = await res.json();
 
-  const resTwo = await fetch("http://localhost:28017/bookableWeeks");
+  const resTwo = await fetch("http://localhost:5000/bookableWeeks");
   const weeks = await resTwo.json();
 
   return {

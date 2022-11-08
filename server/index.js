@@ -4,9 +4,7 @@ import mongodb from "mongodb";
 import cors from "cors";
 
 //Configure MongoDB
-const MONGODB_URL =
-  process.env.MONGODB_URL ||
-  "mongodb+srv://admin:eoiAjqS8s5JGlTj9@cluster0.qyz0gie.mongodb.net";
+const MONGODB_URL = process.env.DATABASE_URI;
 
 const mongoClient = new mongodb.MongoClient(MONGODB_URL);
 mongoClient.connect();
@@ -15,7 +13,7 @@ const db = mongoClient.db("cabin");
 const QandAcollection = db.collection("QandA");
 const weeksCollection = db.collection("bookableWeeks");
 
-const PORT = process.env.PORT || 28017;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(cors({ origin: "*" }));

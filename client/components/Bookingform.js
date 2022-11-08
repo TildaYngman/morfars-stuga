@@ -1,26 +1,19 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { useStore } from "../pages/zustandStore";
 
 export default function BookingForm({
-  guestInfo,
-  setGuestInfo,
   selectedWeeks,
   closeModal,
   isOpenCreate,
-  setGuestName,
-  setEmail,
-  setMessage,
-  setPhoneNumber,
-  guestName,
-  email,
-  message,
-  title,
-  phoneNumber,
   setSelectedWeeks,
-  people,
-  setPeople,
   options,
 }) {
+  const { guestInfo, setGuestInfo } = useStore((state) => ({
+    guestInfo: state.guestInfo,
+    setGuestInfo: state.setGuestInfo,
+  }));
+
   const [showConfirm, setShowConfirm] = useState(false);
 
   function openShowConfirm() {
@@ -45,6 +38,7 @@ export default function BookingForm({
   function addGuestMessage(e) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
+    console.log(guestInfo);
   }
 
   function checkPeople(e) {
@@ -52,9 +46,8 @@ export default function BookingForm({
     if (isNaN(e.target.value)) {
       return;
     } else {
-      setPeople(e.target.value);
+      setGuestInfo({ ...guestInfo, people: amount });
     }
-    setGuestInfo({ ...guestInfo, numberOfPeople: amount });
   }
 
   function removeClasses() {
@@ -75,12 +68,7 @@ export default function BookingForm({
 
     const res = await fetch("/api/sendgridBooking", {
       body: JSON.stringify({
-        email: email,
-        guestName: guestName,
-        title: title,
-        message: message,
-        phoneNumber: phoneNumber,
-        people: people,
+        guestInfo: guestInfo,
         vecka: newArr,
       }),
       headers: {
@@ -273,7 +261,6 @@ export default function BookingForm({
                     placeholder="Förnamn och Efternamn"
                     required
                     onChange={(e) => {
-                      setGuestName(e.target.value);
                       addGuestName(e);
                     }}
                   />
@@ -288,7 +275,6 @@ export default function BookingForm({
                     placeholder="exempel@exempel.se"
                     required
                     onChange={(e) => {
-                      setEmail(e.target.value);
                       addGuestEmail(e);
                     }}
                   />
@@ -303,7 +289,6 @@ export default function BookingForm({
                     placeholder="0701234567"
                     required
                     onChange={(e) => {
-                      setPhoneNumber(e.target.value);
                       addGuestPhone(e);
                     }}
                   ></input>
@@ -315,7 +300,7 @@ export default function BookingForm({
                       className=" border border-slate-400 py-1 px-2 rounded-md"
                       id="people"
                       name="people"
-                      value={people}
+                      value={guestInfo.people}
                       onChange={(e) => {
                         checkPeople(e);
                       }}
@@ -337,7 +322,6 @@ export default function BookingForm({
                     name="message"
                     placeholder="Övrig information till oss"
                     onChange={(e) => {
-                      setMessage(e.target.value);
                       addGuestMessage(e);
                     }}
                   />
@@ -345,7 +329,6 @@ export default function BookingForm({
                     <button
                       className=" disable-btn inline-block mt-2 mb-4 px-6 py-3 bg-green-500 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md"
                       type="submit"
-                      disabled={!guestName || !phoneNumber || !email || !people}
                     >
                       Skicka Bokningsförfrågan
                     </button>

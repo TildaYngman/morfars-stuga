@@ -1,15 +1,11 @@
-export default function MessageForm({
-  guestInfo,
-  setGuestInfo,
-  setGuestName,
-  setEmail,
-  setTitle,
-  setMessage,
-  guestName,
-  email,
-  message,
-  title,
-}) {
+import { useStore } from "../pages/zustandStore";
+
+export default function MessageForm() {
+  const { guestInfo, setGuestInfo } = useStore((state) => ({
+    guestInfo: state.guestInfo,
+    setGuestInfo: state.setGuestInfo,
+  }));
+
   function addGuestName(e) {
     const nameValue = e.target.value;
     setGuestInfo({ ...guestInfo, name: nameValue });
@@ -28,6 +24,8 @@ export default function MessageForm({
   function addGuestMessage(e) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
+
+    console.log(guestInfo);
   }
 
   const handleSubmit = async (e) => {
@@ -35,10 +33,7 @@ export default function MessageForm({
 
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
-        email: email,
-        guestName: guestName,
-        title: title,
-        message: message,
+        guestInfo: guestInfo,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +68,6 @@ export default function MessageForm({
             placeholder="Förnamn och Efternamn"
             required
             onChange={(e) => {
-              setGuestName(e.target.value);
               addGuestName(e);
             }}
           />
@@ -88,7 +82,6 @@ export default function MessageForm({
             placeholder="exempel@exempel.se"
             required
             onChange={(e) => {
-              setEmail(e.target.value);
               addGuestEmail(e);
             }}
           />
@@ -103,7 +96,6 @@ export default function MessageForm({
             placeholder="Titel"
             required
             onChange={(e) => {
-              setTitle(e.target.value);
               addGuestTitle(e);
             }}
           />
@@ -117,7 +109,6 @@ export default function MessageForm({
             name="message"
             placeholder="Övrig information till oss"
             onChange={(e) => {
-              setMessage(e.target.value);
               addGuestMessage(e);
             }}
           />
@@ -125,7 +116,6 @@ export default function MessageForm({
             <button
               className="disable-btn-purple inline-block px-6 py-2.5 m-4 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
               type="submit"
-              disabled={!guestName || !email || !title || !message}
             >
               Skicka
             </button>

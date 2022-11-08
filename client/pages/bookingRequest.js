@@ -4,23 +4,14 @@ import {
   PopUpQandA,
   BookingInformation,
 } from "../components/index";
+import { useStore } from "../pages/zustandStore";
 
-export default function BookingRequest({
-  items,
-  guestInfo,
-  setGuestInfo,
-  allWeeks,
-  setGuestName,
-  setEmail,
-  setMessage,
-  setTitle,
-  guestName,
-  email,
-  message,
-  title,
-  phoneNumber,
-  setPhoneNumber,
-}) {
+export default function BookingRequest({ items, allWeeks }) {
+  const { guestInfo, setGuestInfo } = useStore((state) => ({
+    guestInfo: state.guestInfo,
+    setGuestInfo: state.setGuestInfo,
+  }));
+
   const options = [
     { value: "", amount: "-" },
     { value: 1, amount: 1 },
@@ -31,7 +22,6 @@ export default function BookingRequest({
     { value: 6, amount: 6 },
   ];
 
-  const [people, setPeople] = useState(options[0].value);
   const [selectedWeeks, setSelectedWeeks] = useState([]);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
@@ -39,12 +29,14 @@ export default function BookingRequest({
   function closeModal() {
     setIsOpenCreate(false);
     setIsOpenInfo(false);
-    setGuestName("");
-    setEmail("");
-    setMessage("");
-    setPhoneNumber("");
-    setMessage("");
-    setPeople(options[0].value);
+    setGuestInfo({
+      ...guestInfo,
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      people: options[0].value,
+    });
   }
 
   function openModal(e) {
@@ -112,25 +104,11 @@ export default function BookingRequest({
     <main className="mt-16">
       <PopUpQandA temp={items} />
       <Bookingform
-        guestInfo={guestInfo}
-        setGuestInfo={setGuestInfo}
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
         selectedWeeks={selectedWeeks}
-        setGuestName={setGuestName}
-        setEmail={setEmail}
-        setMessage={setMessage}
-        setTitle={setTitle}
-        setPhoneNumber={setPhoneNumber}
-        guestName={guestName}
-        email={email}
-        message={message}
-        title={title}
-        phoneNumber={phoneNumber}
         allWeeks={allWeeks}
         setSelectedWeeks={setSelectedWeeks}
-        people={people}
-        setPeople={setPeople}
         options={options}
       />
 

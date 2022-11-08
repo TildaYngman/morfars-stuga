@@ -1,4 +1,6 @@
 export default function MessageForm({
+  guestInfo,
+  setGuestInfo,
   setGuestName,
   setEmail,
   setTitle,
@@ -8,6 +10,26 @@ export default function MessageForm({
   message,
   title,
 }) {
+  function addGuestName(e) {
+    const nameValue = e.target.value;
+    setGuestInfo({ ...guestInfo, name: nameValue });
+  }
+
+  function addGuestEmail(e) {
+    const emailValue = e.target.value;
+    setGuestInfo({ ...guestInfo, email: emailValue });
+  }
+
+  function addGuestTitle(e) {
+    const titleValue = e.target.value;
+    setGuestInfo({ ...guestInfo, title: titleValue });
+  }
+
+  function addGuestMessage(e) {
+    const messageValue = e.target.value;
+    setGuestInfo({ ...guestInfo, message: messageValue });
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -52,6 +74,7 @@ export default function MessageForm({
             required
             onChange={(e) => {
               setGuestName(e.target.value);
+              addGuestName(e);
             }}
           />
           <label className=" mb-1" htmlFor="email">
@@ -66,6 +89,7 @@ export default function MessageForm({
             required
             onChange={(e) => {
               setEmail(e.target.value);
+              addGuestEmail(e);
             }}
           />
           <label className=" mb-1" htmlFor="title">
@@ -80,6 +104,7 @@ export default function MessageForm({
             required
             onChange={(e) => {
               setTitle(e.target.value);
+              addGuestTitle(e);
             }}
           />
           <label className=" mb-1" htmlFor="message">
@@ -93,6 +118,7 @@ export default function MessageForm({
             placeholder="Övrig information till oss"
             onChange={(e) => {
               setMessage(e.target.value);
+              addGuestMessage(e);
             }}
           />
           <div className="flex flex-col justify-center items-center">

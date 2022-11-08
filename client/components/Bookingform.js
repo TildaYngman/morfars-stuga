@@ -46,6 +46,7 @@ export default function BookingForm({
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
   }
+
   function checkPeople(e) {
     const amount = e.target.value;
     if (isNaN(e.target.value)) {
@@ -69,6 +70,8 @@ export default function BookingForm({
     e.preventDefault();
     closeModal();
     removeClasses();
+
+    //Change to send the body of the guestInfo State.
 
     const res = await fetch("/api/sendgridBooking", {
       body: JSON.stringify({

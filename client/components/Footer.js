@@ -1,6 +1,8 @@
 import { MessageForm } from "./index";
 
 export default function Footer({
+  guestInfo,
+  setGuestInfo,
   setGuestName,
   setEmail,
   setMessage,
@@ -14,6 +16,8 @@ export default function Footer({
     <>
       <footer className="flex flex-col bg-slate-700 px-4 justify-center m-auto items-center w-full shadow-lg">
         <MessageForm
+          guestInfo={guestInfo}
+          setGuestInfo={setGuestInfo}
           setGuestName={setGuestName}
           setEmail={setEmail}
           setMessage={setMessage}

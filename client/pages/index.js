@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Home({ Component, pageProps }) {
+export default function Home() {
   return (
     <>
       <div>
@@ -32,13 +32,13 @@ export default function Home({ Component, pageProps }) {
     </>
   );
 }
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:5000/QandA");
-  const data = await res.json();
+export const getServerSideProps = async () => {
+  const response = await fetch("http://localhost:5000/QandA");
+  const qAndA = await response.json();
 
   return {
     props: {
-      items: data,
+      qAndA,
     },
   };
-}
+};

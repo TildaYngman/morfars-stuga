@@ -2,6 +2,8 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 export default function BookingForm({
+  guestInfo,
+  setGuestInfo,
   selectedWeeks,
   closeModal,
   isOpenCreate,
@@ -9,7 +11,6 @@ export default function BookingForm({
   setEmail,
   setMessage,
   setPhoneNumber,
-  setTitle,
   guestName,
   email,
   message,
@@ -27,6 +28,32 @@ export default function BookingForm({
   }
   function closeShowConfirm() {
     setShowConfirm(false);
+  }
+
+  function addGuestName(e) {
+    const nameValue = e.target.value;
+    setGuestInfo({ ...guestInfo, name: nameValue });
+  }
+  function addGuestEmail(e) {
+    const emailValue = e.target.value;
+    setGuestInfo({ ...guestInfo, email: emailValue });
+  }
+  function addGuestPhone(e) {
+    const phoneValue = e.target.value;
+    setGuestInfo({ ...guestInfo, phone: phoneValue });
+  }
+  function addGuestMessage(e) {
+    const messageValue = e.target.value;
+    setGuestInfo({ ...guestInfo, message: messageValue });
+  }
+  function checkPeople(e) {
+    const amount = e.target.value;
+    if (isNaN(e.target.value)) {
+      return;
+    } else {
+      setPeople(e.target.value);
+    }
+    setGuestInfo({ ...guestInfo, numberOfPeople: amount });
   }
 
   function removeClasses() {
@@ -75,14 +102,6 @@ export default function BookingForm({
       `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
   });
-
-  function checkPeople(e) {
-    if (isNaN(e.target.value)) {
-      return;
-    } else {
-      setPeople(e.target.value);
-    }
-  }
 
   function removeWeek(week) {
     const clickedWeek = selectedWeeks;
@@ -252,6 +271,7 @@ export default function BookingForm({
                     required
                     onChange={(e) => {
                       setGuestName(e.target.value);
+                      addGuestName(e);
                     }}
                   />
                   <label className=" mb-2" htmlFor="email">
@@ -266,6 +286,7 @@ export default function BookingForm({
                     required
                     onChange={(e) => {
                       setEmail(e.target.value);
+                      addGuestEmail(e);
                     }}
                   />
                   <label className=" mb-2" htmlFor="phoneNumber">
@@ -280,6 +301,7 @@ export default function BookingForm({
                     required
                     onChange={(e) => {
                       setPhoneNumber(e.target.value);
+                      addGuestPhone(e);
                     }}
                   ></input>
                   <label className="mb-2" htmlFor="people">
@@ -313,6 +335,7 @@ export default function BookingForm({
                     placeholder="Övrig information till oss"
                     onChange={(e) => {
                       setMessage(e.target.value);
+                      addGuestMessage(e);
                     }}
                   />
                   <div className="flex flex-col justify-center items-center">

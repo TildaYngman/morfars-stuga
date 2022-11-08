@@ -7,6 +7,8 @@ import {
 
 export default function BookingRequest({
   items,
+  guestInfo,
+  setGuestInfo,
   allWeeks,
   setGuestName,
   setEmail,
@@ -110,6 +112,8 @@ export default function BookingRequest({
     <main className="mt-16">
       <PopUpQandA temp={items} />
       <Bookingform
+        guestInfo={guestInfo}
+        setGuestInfo={setGuestInfo}
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
         selectedWeeks={selectedWeeks}
@@ -155,7 +159,6 @@ export default function BookingRequest({
         {rows}
       </div>
       {checkIfEmpty()}
-      {/* <Bookingform /> */}
     </main>
   );
 }

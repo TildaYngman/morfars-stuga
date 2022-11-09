@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useStore } from "../pages/zustandStore";
 
@@ -9,12 +9,14 @@ export default function BookingForm({
   setSelectedWeeks,
   options,
 }) {
-  const { guestInfo, setGuestInfo } = useStore((state) => ({
-    guestInfo: state.guestInfo,
-    setGuestInfo: state.setGuestInfo,
-  }));
-
-  const [showConfirm, setShowConfirm] = useState(false);
+  const { guestInfo, setGuestInfo, showConfirm, setShowConfirm } = useStore(
+    (state) => ({
+      guestInfo: state.guestInfo,
+      setGuestInfo: state.setGuestInfo,
+      showConfirm: state.showConfirm,
+      setShowConfirm: state.setShowConfirm,
+    })
+  );
 
   function openShowConfirm() {
     setShowConfirm(true);
@@ -62,8 +64,6 @@ export default function BookingForm({
     e.preventDefault();
     closeModal();
     removeClasses();
-
-    //Change to send the body of the guestInfo State.
 
     const res = await fetch("/api/sendgridBooking", {
       body: JSON.stringify({

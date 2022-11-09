@@ -67,7 +67,11 @@ export default function BookingForm({
 
     const res = await fetch("/api/sendgridBooking", {
       body: JSON.stringify({
-        guestInfo: guestInfo,
+        name: guestInfo.name,
+        email: guestInfo.email,
+        phone: guestInfo.phone,
+        message: guestInfo.message,
+        people: guestInfo.people,
         vecka: newArr,
       }),
       headers: {
@@ -75,10 +79,10 @@ export default function BookingForm({
       },
       method: "POST",
     });
-
     const { error } = await res.json();
     if (error) {
       console.log(error);
+      console.log(res.body);
       return;
     }
     setSelectedWeeks([]);

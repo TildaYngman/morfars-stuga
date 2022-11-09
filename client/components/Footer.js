@@ -1,6 +1,6 @@
 import { MessageForm } from "./index";
 
-export default function Footer({}) {
+export default function Footer() {
   return (
     <>
       <footer className="flex flex-col bg-slate-700 px-4 justify-center m-auto items-center w-full shadow-lg">

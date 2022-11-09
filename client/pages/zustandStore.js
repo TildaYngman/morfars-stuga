@@ -6,5 +6,8 @@ export const useStore = create(
     guestInfo: {},
     setGuestInfo: (guestInfo) =>
       set(() => ({ guestInfo }), false, "setGuestInfo"),
+    showConfirm: false,
+    setShowConfirm: (showConfirm) =>
+      set(() => ({ showConfirm }), false, "setLevelUp"),
   }))
 );

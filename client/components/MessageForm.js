@@ -24,8 +24,6 @@ export default function MessageForm() {
   function addGuestMessage(e) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
-
-    console.log(guestInfo);
   }
 
   const handleSubmit = async (e) => {
@@ -33,7 +31,10 @@ export default function MessageForm() {
 
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
-        guestInfo: guestInfo,
+        name: guestInfo.name,
+        email: guestInfo.email,
+        title: guestInfo.title,
+        message: guestInfo.message,
       }),
       headers: {
         "Content-Type": "application/json",

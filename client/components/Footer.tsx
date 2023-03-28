@@ -1,3 +1,4 @@
+import React from "react";
 import { MessageForm } from "./index";
 
 export default function Footer() {

@@ -1,14 +1,23 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import React from "react";
+import { IQandAData } from "../pages/zustandStore";
+
+interface IBokingInformationProps {
+  closeModal: () => void;
+  temp: IQandAData[];
+  isOpenInfo: boolean;
+}
 
 export default function BookingInformationComponent({
   temp,
   closeModal,
   isOpenInfo,
-}) {
-  const BookingInformationArr = [];
+}:IBokingInformationProps) {
+  
+  const BookingInformationArr:IQandAData[] = [];
 
-  temp.forEach((item) => {
+  temp.forEach((item: IQandAData) => {
     if (item.category === "Bokningsinformation")
       BookingInformationArr.push(item);
   });

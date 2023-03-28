@@ -1,6 +1,7 @@
 import { useStore } from "../pages/zustandStore";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import React from "react";
 
 export default function MessageForm() {
   const { guestInfo, setGuestInfo, showConfirm, setShowConfirm } = useStore(
@@ -20,27 +21,27 @@ export default function MessageForm() {
     setShowConfirm(false);
   }
 
-  function addGuestName(e) {
+  function addGuestName(e: React.ChangeEvent<HTMLInputElement>) {
     const nameValue = e.target.value;
     setGuestInfo({ ...guestInfo, name: nameValue });
   }
 
-  function addGuestEmail(e) {
+  function addGuestEmail(e: React.ChangeEvent<HTMLInputElement>) {
     const emailValue = e.target.value;
     setGuestInfo({ ...guestInfo, email: emailValue });
   }
 
-  function addGuestTitle(e) {
+  function addGuestTitle(e: React.ChangeEvent<HTMLInputElement>) {
     const titleValue = e.target.value;
     setGuestInfo({ ...guestInfo, title: titleValue });
   }
 
-  function addGuestMessage(e) {
+  function addGuestMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     const res = await fetch("/api/sendgrid", {
@@ -62,7 +63,7 @@ export default function MessageForm() {
       return;
     }
     openShowConfirm();
-    document.getElementById("form").reset();
+    /* document.getElementById("form").reset(); */
   };
 
   return (
@@ -174,7 +175,7 @@ export default function MessageForm() {
           </label>
           <textarea
             className=" border border-slate-400 p-1 rounded-md"
-            type="text"
+
             id="message"
             name="message"
             placeholder="Övrig information till oss"

@@ -1,7 +1,13 @@
 import QueststionCategory from "../components/QuestionCategory";
 import Link from "next/link";
+import React from "react";
+import { IQandAData } from "./zustandStore";
 
-export default function QuestionsAndAnswers({ items }) {
+interface IQuestionsAndAnswersProps {
+  items: IQandAData[];
+}
+
+export default function QuestionsAndAnswers({ items }: IQuestionsAndAnswersProps ) {
   return (
     <>
       <Link href="/">Home</Link>

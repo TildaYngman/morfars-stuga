@@ -1,10 +1,17 @@
+import React from "react";
 import { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
+import { IQandAData } from "../pages/zustandStore";
+import { IQandADataProps } from "./PopUpQandA";
 
-export default function QuestionsAndAnswersComponent({ item }) {
+export interface IQuestionsAndAnswersComponent {
+  item: IQandAData;
+}
+
+export default function QuestionsAndAnswersComponent({ item }: IQuestionsAndAnswersComponent) {
   const [isShown, setIsShown] = useState(false);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     setIsShown((current) => !current);
   };
 

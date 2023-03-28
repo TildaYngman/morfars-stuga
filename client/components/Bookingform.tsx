@@ -1,20 +1,36 @@
-import { Fragment } from "react";
+import { ChangeEvent, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { useStore } from "../pages/zustandStore";
+import  { IWeeks, useStore } from "../pages/zustandStore";
+import React from "react";
+
+interface IOptions {
+  value: number;
+  amount: number;
+}
+
+interface IBookingFormProps{
+  closeModal: () => void;
+  isOpenCreate: boolean;
+  options: IOptions[];
+  allWeeks: IWeeks[];
+}
 
 export default function BookingForm({
-  selectedWeeks,
   closeModal,
   isOpenCreate,
-  setSelectedWeeks,
   options,
-}) {
-  const { guestInfo, setGuestInfo, showConfirm, setShowConfirm } = useStore(
+}: IBookingFormProps) {
+  const { guestInfo, setGuestInfo, 
+    showConfirm, setShowConfirm, 
+    selectedWeeks, setSelectedWeeks } = useStore(
     (state) => ({
       guestInfo: state.guestInfo,
       setGuestInfo: state.setGuestInfo,
       showConfirm: state.showConfirm,
       setShowConfirm: state.setShowConfirm,
+      selectedWeeks: state.selectedWeeks,
+      setSelectedWeeks: state.setSelectedWeeks,
+
     })
   );
 
@@ -25,26 +41,27 @@ export default function BookingForm({
     setShowConfirm(false);
   }
 
-  function addGuestName(e) {
+  function addGuestName(e: ChangeEvent<HTMLInputElement>) {
     const nameValue = e.target.value;
     setGuestInfo({ ...guestInfo, name: nameValue });
   }
-  function addGuestEmail(e) {
+  function addGuestEmail(e: ChangeEvent<HTMLInputElement>) {
     const emailValue = e.target.value;
     setGuestInfo({ ...guestInfo, email: emailValue });
   }
-  function addGuestPhone(e) {
+  function addGuestPhone(e: ChangeEvent<HTMLInputElement>) {
     const phoneValue = e.target.value;
     setGuestInfo({ ...guestInfo, phone: phoneValue });
   }
-  function addGuestMessage(e) {
+  function addGuestMessage(e: ChangeEvent<HTMLTextAreaElement>) {
     const messageValue = e.target.value;
     setGuestInfo({ ...guestInfo, message: messageValue });
   }
 
-  function checkPeople(e) {
+  function checkPeople(e: ChangeEvent<HTMLSelectElement>) {
     const amount = e.target.value;
-    if (isNaN(e.target.value)) {
+    const amountInt = parseInt(amount)
+    if (amountInt === 0 ) {
       return;
     } else {
       setGuestInfo({ ...guestInfo, people: amount });
@@ -60,7 +77,7 @@ export default function BookingForm({
     closeModal();
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     closeModal();
     removeClasses();
@@ -89,21 +106,23 @@ export default function BookingForm({
     openShowConfirm();
   };
 
-  const newArr = [];
+  const newArr: string[] = [];
 
-  selectedWeeks.forEach((object) => {
+  selectedWeeks.forEach((object:IWeeks) => {
     newArr.push(
       `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
   });
 
-  function removeWeek(week) {
+  function removeWeek(week: IWeeks) {
     const clickedWeek = selectedWeeks;
     clickedWeek.splice(clickedWeek.indexOf(week), 1);
 
-    document
-      .getElementById(`${week._id}`)
-      .classList.remove("card-btn-color-green");
+    const bookingButton =  document
+      .getElementById(`${week._id}`) as HTMLButtonElement
+
+    
+      bookingButton.classList.remove("card-btn-color-green");
 
     setSelectedWeeks([...clickedWeek]);
   }
@@ -113,7 +132,7 @@ export default function BookingForm({
     removeClasses();
   }
 
-  const rows = selectedWeeks.map((week) => {
+  const rows = selectedWeeks.map((week: IWeeks) => {
     return (
       <tbody key={week._id} className="border-spacing-2">
         <tr className=" border-b-4 border-white bg-primary-green text-black my-2">
@@ -308,7 +327,7 @@ export default function BookingForm({
                         checkPeople(e);
                       }}
                     >
-                      {options.map((option) => (
+                      {options.map((option: IOptions) => (
                         <option key={option.value} value={option.value}>
                           {option.amount}
                         </option>
@@ -320,7 +339,6 @@ export default function BookingForm({
                   </label>
                   <textarea
                     className=" border border-slate-400 py-1 px-2  rounded-md mb-4"
-                    type="text"
                     id="message"
                     name="message"
                     placeholder="Övrig information till oss"

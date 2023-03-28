@@ -1,7 +1,14 @@
+import React from "react";
 import { useState } from "react";
+import { IQandAData } from "../pages/zustandStore";
 import { QuestionCategory } from "./index";
 
-export default function PopUpQandA({ temp }) {
+export interface IQandADataProps {
+  temp: IQandAData[];
+}
+
+
+export default function PopUpQandA({ temp }: IQandADataProps) {
   const [displayContent, setDisplayContent] = useState(false);
   function handleClick() {
     setDisplayContent((current) => !current);

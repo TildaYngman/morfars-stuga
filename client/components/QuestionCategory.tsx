@@ -1,11 +1,16 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import QuestionsAndAnswersComponent from "./QuestionsAndAnswersComponent";
+import { IQandAData } from "../pages/zustandStore";
+import { IQandADataProps } from "./PopUpQandA";
+import QuestionsAndAnswersComponent from "./questionsAndAnswersComponent";
 
-export default function QuestionsCategory({ temp }) {
-  const [questionArr, setQuestionArr] = useState([]);
 
-  const categoryArray = [];
-  const firstObjectOfCategories = [];
+
+export default function QuestionsCategory({ temp }: IQandADataProps) {
+  const [questionArr, setQuestionArr] = useState<IQandAData[]>([]);
+
+  const categoryArray:string[] = [];
+  const firstObjectOfCategories:IQandAData[] = [];
 
   temp.forEach((object) => {
     if (!categoryArray.includes(object.category)) {
@@ -14,19 +19,20 @@ export default function QuestionsCategory({ temp }) {
     }
   });
 
-  function handleClick(e) {
-    const newArray = [];
+  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+    const newArray:IQandAData[] = [];
+    const target = e.target as Element
     temp.forEach((element) => {
-      if (e.target.id === element.category) {
+      if (target.id === element.category) {
         newArray.push(element);
       }
     });
     setQuestionArr([...newArray]);
   }
 
-  function renderCategoryQuestions(items) {
-    let rows = [];
-    items.forEach((item, i) => {
+  function renderCategoryQuestions(items: IQandAData[]) {
+    let rows: JSX.Element[] = [];
+    items.forEach((item) => {
       rows.push(<QuestionsAndAnswersComponent key={item._id} item={item} />);
     });
     return rows;
@@ -44,7 +50,7 @@ export default function QuestionsCategory({ temp }) {
           return (
             <button
               className=" bg-primary-green-800 text-primary-green-100 text-lg w-72 m-1 p-2"
-              onClick={handleClick}
+              onClick={ (e) => handleClick(e)}
               id={e.category}
               key={e._id}
             >

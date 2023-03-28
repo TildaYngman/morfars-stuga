@@ -1,5 +1,13 @@
+import React from "react";
 import { PopUpQandA } from "../components/index";
-export default function about({ items }) {
+import { IQandADataProps } from "../components/PopUpQandA";
+import { IQandAData } from "./zustandStore";
+
+interface IAboutProps {
+  items: IQandAData[]
+}
+
+export default function about({ items }: IAboutProps) {
   return (
     <>
       <PopUpQandA temp={items} />

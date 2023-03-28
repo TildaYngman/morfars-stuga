@@ -1,19 +1,27 @@
+import React from "react";
 import { useState } from "react";
 import {
   Bookingform,
   PopUpQandA,
   BookingInformation,
 } from "../components/index";
-import { useStore } from "../pages/zustandStore";
+import { IQandAData, IWeeks, useStore } from "./zustandStore";
 
-export default function BookingRequest({ items, allWeeks }) {
-  const { guestInfo, setGuestInfo } = useStore((state) => ({
+interface IBookingRequestProps {
+  items: IQandAData[];
+  allWeeks: IWeeks[];
+}
+
+export default function BookingRequest({ items, allWeeks }: IBookingRequestProps) {
+  const { guestInfo, setGuestInfo, selectedWeeks, setSelectedWeeks } = useStore((state) => ({
     guestInfo: state.guestInfo,
     setGuestInfo: state.setGuestInfo,
+    selectedWeeks: state.selectedWeeks,
+    setSelectedWeeks: state.setSelectedWeeks,
   }));
 
   const options = [
-    { value: "", amount: "-" },
+    { value: 0, amount: 0 },
     { value: 1, amount: 1 },
     { value: 2, amount: 2 },
     { value: 3, amount: 3 },
@@ -22,7 +30,6 @@ export default function BookingRequest({ items, allWeeks }) {
     { value: 6, amount: 6 },
   ];
 
-  const [selectedWeeks, setSelectedWeeks] = useState([]);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
 
@@ -39,8 +46,9 @@ export default function BookingRequest({ items, allWeeks }) {
     });
   }
 
-  function openModal(e) {
-    e.target.id === "create" ? setIsOpenCreate(true) : setIsOpenInfo(true);
+  function openModal(e: React.MouseEvent<HTMLButtonElement>) {
+    const target = e.target as Element
+    target.id === 'create' ?   setIsOpenCreate(true) : setIsOpenInfo(true)
   }
 
   function checkIfEmpty() {
@@ -51,7 +59,7 @@ export default function BookingRequest({ items, allWeeks }) {
           <button
             type="button"
             className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-md leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            onClick={openModal}
+            onClick={ (e) => openModal(e)}
             id="create"
           >
             Skapa Bokningförfrågan
@@ -63,20 +71,20 @@ export default function BookingRequest({ items, allWeeks }) {
 
   //the three dots is making the the state update when adding something to the new array
   //... means copy all of the content to a new array
-  function handleClickedWeek(week) {
+  function handleClickedWeek(week: IWeeks) {
     const clickedWeek = selectedWeeks;
+    const updateColor = document
+        .getElementById(`${week._id}`) as HTMLButtonElement
 
     if (!clickedWeek.includes(week)) {
       clickedWeek.push(week);
       // document.getElementById(`${week._id}`).className =
       //   "bg-gradient-to-b from-primary-green-t to-primary-green-b text-primary-black w-full sm:w-96 mb-3 pl-4 py-5 text-left font-semibold rounded-md shadow-lg ";
-      document
-        .getElementById(`${week._id}`)
+updateColor
         .classList.add("card-btn-color-green");
     } else {
       clickedWeek.splice(clickedWeek.indexOf(week), 1);
-      document
-        .getElementById(`${week._id}`)
+updateColor
         .classList.remove("card-btn-color-green");
     }
 
@@ -106,9 +114,7 @@ export default function BookingRequest({ items, allWeeks }) {
       <Bookingform
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
-        selectedWeeks={selectedWeeks}
         allWeeks={allWeeks}
-        setSelectedWeeks={setSelectedWeeks}
         options={options}
       />
 
@@ -123,7 +129,7 @@ export default function BookingRequest({ items, allWeeks }) {
         <button
           type="button"
           className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
-          onClick={openModal}
+          onClick={ (e) => openModal(e)}
           id="info"
         >
           Info

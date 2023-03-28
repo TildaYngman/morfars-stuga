@@ -1,5 +1,6 @@
 import { BsHouse } from "react-icons/bs";
 import { useState } from "react";
+import React from "react";
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);

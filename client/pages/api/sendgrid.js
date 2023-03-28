@@ -1,6 +1,7 @@
 //Any file inside of the pages/api folder is treated as an API endpoint.
 import sendgrid from "@sendgrid/mail";
 
+
 sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 
 async function sendEmail(req, res) {

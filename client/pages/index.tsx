@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <HeroImage />
-      <div className="flex flex-col py-6 m-0 items-center w-full">
+      <main className="flex flex-col py-6 m-0 items-center w-full">
         <div className="max-w-xl p-2">
           <h1 className="text-4xl text-slate-800 font-semibold">
             Morfars Stuga
@@ -30,7 +30,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

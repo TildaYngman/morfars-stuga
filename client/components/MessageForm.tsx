@@ -41,7 +41,7 @@ export default function MessageForm() {
     setGuestInfo({ ...guestInfo, message: messageValue });
   }
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     const res = await fetch("/api/sendgrid", {
@@ -120,7 +120,7 @@ export default function MessageForm() {
           </div>
         </Dialog>
       </Transition>
-      <div className="w-full max-w-md px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-lg rounded-2xl">
+      <div className="w-full max-w-lg px-6 my-8 overflow-hidden text-left align-middle  transition-all transform bg-white shadow-lg rounded-2xl">
         <form
           className=" flex flex-col pt-5 pb-1"
           action="/send-data-here"
@@ -175,7 +175,6 @@ export default function MessageForm() {
           </label>
           <textarea
             className=" border border-slate-400 p-1 rounded-md"
-
             id="message"
             name="message"
             placeholder="Övrig information till oss"

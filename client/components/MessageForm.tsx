@@ -120,7 +120,7 @@ export default function MessageForm() {
           </div>
         </Dialog>
       </Transition>
-      <div className="w-full max-w-lg px-6 my-8 overflow-hidden text-left align-middle  transition-all transform bg-white shadow-lg rounded-2xl">
+      <div className="w-full max-w-lg px-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-lg rounded-2xl">
         <form
           className=" flex flex-col pt-5 pb-1"
           action="/send-data-here"

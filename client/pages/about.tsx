@@ -4,29 +4,24 @@ import { IQandADataProps } from "../components/PopUpQandA";
 import { IQandAData } from "./zustandStore";
 
 interface IAboutProps {
-  items: IQandAData[]
+  items: IQandAData[];
 }
 
 export default function about({ items }: IAboutProps) {
   return (
     <>
       <PopUpQandA temp={items} />
-      <div className="mt-2 p-2 rounded-md bg-slate-200 sm:bg-red-200 md:bg-green-200 lg:bg-blue-100 xl:bg-orange-200 flex flex-col max-w-md">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
+      <div className="max-w-xl p-2">
+        <h1 className="text-4xl text-slate-800 font-semibold">
+          Om Morfars Stuga
+        </h1>
+        <h2 className="text-2xl text-slate-800 pt-2 font-semibold text-opacity-75">
+          Fjällstugan i vackra Tänndalen
+        </h2>
+        <p className="pt-2 text-slate-800">
+          Välkommen till stugan vid fjällets fot! Här njuter vi av underbara
+          dagar i den allra vackraste miljön som Härjedalen har att erbjuda. Vi
+          önskar er krispiga dagar på fjället och varma kvällar i bastun.
         </p>
       </div>
     </>

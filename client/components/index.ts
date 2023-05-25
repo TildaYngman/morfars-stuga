@@ -6,3 +6,4 @@ export { default as QuestionCategory } from "./QuestionCategory";
 export { default as BookingInformation } from "./BookingInformation";
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
+export { default as HeroImage } from "./HeroImage";

@@ -1,21 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Bookingform,
-  PopUpQandA,
-  BookingInformation,
-} from "../components/index";
-import { IQandAData, IWeeks, useStore } from "./zustandStore";
+import { Bookingform } from "../components/index";
+import { IWeeks, useStore } from "./zustandStore";
 
 interface IBookingRequestProps {
-  items: IQandAData[];
   allWeeks: IWeeks[];
 }
 
-export default function BookingRequest({
-  items,
-  allWeeks,
-}: IBookingRequestProps) {
+export default function BookingRequest({ allWeeks }: IBookingRequestProps) {
   const { guestInfo, setGuestInfo, selectedWeeks, setSelectedWeeks } = useStore(
     (state) => ({
       guestInfo: state.guestInfo,
@@ -114,7 +106,6 @@ export default function BookingRequest({
 
   return (
     <>
-      <PopUpQandA temp={items} />
       <Bookingform
         isOpenCreate={isOpenCreate}
         closeModal={closeModal}
@@ -122,26 +113,10 @@ export default function BookingRequest({
         options={options}
       />
 
-      <BookingInformation
-        temp={items}
-        isOpenInfo={isOpenInfo}
-        closeModal={closeModal}
-      />
-
       <main className="flex flex-col py-6 m-0 items-center w-full">
-        <div className="flex flex-row p-2">
-          <h1 className="text-3xl text-slate-800 font-semibold">
-            Bokningförfrågan
-          </h1>
-          <button
-            type="button"
-            className="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
-            onClick={(e) => openModal(e)}
-            id="info"
-          >
-            Info
-          </button>
-        </div>
+        <h1 className="text-3xl text-slate-800 font-semibold">
+          Bokningförfrågan
+        </h1>
 
         <div className="max-w-xl p-2">
           <em>Obs. detta är en förfrågan och inte en bekräftad bokning</em>
@@ -161,17 +136,12 @@ export default function BookingRequest({
 // - When a request comes in
 // - At most once every 10 seconds
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:5000/QandA");
-  const data = await res.json();
-
   const resTwo = await fetch("http://localhost:5000/bookableWeeks");
   const allWeeks = await resTwo.json();
 
   return {
     props: {
-      items: data,
       allWeeks: allWeeks,
     },
-    revalidate: 1,
   };
 }

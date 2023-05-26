@@ -1,13 +1,6 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 
-export interface IQandAData {
-  _id: string;
-  question: string;
-  answer: string;
-  category: string;
-}
-
 export interface IGuestInfo {
   name: string;
   email: string;

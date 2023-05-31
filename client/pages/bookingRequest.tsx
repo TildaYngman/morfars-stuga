@@ -113,12 +113,12 @@ export default function BookingRequest({ allWeeks }: IBookingRequestProps) {
         options={options}
       />
 
-      <main className="flex flex-col py-6 m-0 items-center w-full">
+      <main className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
         <h1 className="text-3xl text-slate-800 font-semibold">
           Bokningförfrågan
         </h1>
 
-        <div className="max-w-xl p-2">
+        <div className="max-w-xl py-2">
           <em>Obs. detta är en förfrågan och inte en bekräftad bokning</em>
         </div>
         <div className="mb-48 flex flex-col justify-center items-center px-2">

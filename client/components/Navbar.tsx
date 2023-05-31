@@ -70,9 +70,9 @@ export default function Navbar() {
                   Bokingsföfrågan
                 </li>
               </a>
-              <a href="/questionsAndAnswers">
+              <a href="/faq">
                 <li className="text-slate-800 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
-                  Kontakt
+                  FAQ
                 </li>
               </a>
             </ul>

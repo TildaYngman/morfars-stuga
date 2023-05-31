@@ -1,16 +1,10 @@
 import React from "react";
-import { PopUpQandA } from "../components/index";
-import { IQandADataProps } from "../components/PopUpQandA";
-import { IQandAData } from "./zustandStore";
+import { FaqWidget } from "../components/index"
 
-interface IAboutProps {
-  items: IQandAData[];
-}
 
-export default function about({ items }: IAboutProps) {
+export default function about() {
   return (
     <>
-      <PopUpQandA temp={items} />
       <div className="max-w-xl p-2">
         <h1 className="text-4xl text-slate-800 font-semibold">
           Om Morfars Stuga
@@ -24,17 +18,7 @@ export default function about({ items }: IAboutProps) {
           önskar er krispiga dagar på fjället och varma kvällar i bastun.
         </p>
       </div>
+      <FaqWidget />
     </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:5000/QandA");
-  const data = await res.json();
-
-  return {
-    props: {
-      items: data,
-    },
-  };
 }

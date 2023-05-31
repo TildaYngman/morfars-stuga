@@ -10,7 +10,6 @@
     @apply disabled:cursor-not-allowed;
   }
 
-  ,
   .disable-btn-purple {
     @apply disabled:bg-purple-200;
     @apply disabled:text-purple-400;

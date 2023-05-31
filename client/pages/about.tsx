@@ -19,13 +19,7 @@ export default function about() {
           njuter vi av underbara dagar i den allra vackraste miljön som
           Härjedalen har att erbjuda. Vi önskar er krispiga dagar på fjället och
           varma kvällar i bastun.Här njuter vi av underbara dagar i den allra
-          vackraste miljön som Härjedalen har att erbjuda. Vi önskar er krispiga
-          dagar på fjället och varma kvällar i bastun.Här njuter vi av underbara
-          dagar i den allra vackraste miljön som Härjedalen har att erbjuda. Vi
-          önskar er krispiga dagar på fjället och varma kvällar i bastun.Här
-          njuter vi av underbara dagar i den allra vackraste miljön som
-          Härjedalen har att erbjuda. Vi önskar er krispiga dagar på fjället och
-          varma kvällar i bastun.
+          vackraste miljön som Härjedalen har att erbjuda.
         </p>
       </div>
       <ImageGallery />

@@ -131,10 +131,6 @@ export default function BookingRequest({ allWeeks }: IBookingRequestProps) {
   );
 }
 
-//Added the revaidate: 1
-//Next.js will attempt to re-generate the page:
-// - When a request comes in
-// - At most once every 10 seconds
 export async function getStaticProps() {
   const resTwo = await fetch("http://localhost:5000/bookableWeeks");
   const allWeeks = await resTwo.json();

@@ -5,12 +5,12 @@ export default function Home() {
   return (
     <>
       <HeroImage />
-      <main className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
+      <main className="container mx-auto px-5 lg:px-32 lg:pt-24">
         <h1 className="text-4xl text-slate-800 font-semibold">Morfars Stuga</h1>
         <h2 className="text-2xl text-slate-800 pt-2 font-semibold text-opacity-75">
           Välkommen till stugan vid fjällets fot!
         </h2>
-        <p className="pt-2 text-slate-800">
+        <p className="py-2 text-slate-800">
           Här njuter vi av underbara dagar i den allra vackraste miljön som
           Härjedalen har att erbjuda. Vi önskar er krispiga dagar på fjället och
           varma kvällar i bastun.

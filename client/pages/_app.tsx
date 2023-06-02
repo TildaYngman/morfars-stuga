@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
+        <title>Morfars Stuga</title>
       </Head>
       <Navbar />
       <Component {...pageProps} />

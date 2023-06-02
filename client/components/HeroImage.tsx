@@ -6,12 +6,7 @@ export default function HeroImage() {
   return (
     <>
       <div>
-        <Image
-          src={cabin}
-          alt="piucture of the cabin you can rent"
-          placeholder="blur"
-          className="rounded"
-        />
+        <Image src={cabin} alt="" placeholder="blur" className="rounded" />
       </div>
     </>
   );

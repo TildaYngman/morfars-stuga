@@ -63,7 +63,6 @@ export default function MessageForm() {
       return;
     }
     openShowConfirm();
-    /* document.getElementById("form").reset(); */
   };
 
   return (

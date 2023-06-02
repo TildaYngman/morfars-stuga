@@ -13,13 +13,18 @@ export default function Navbar() {
             <div>
               <a href="/">
                 <BsHouse size={30} color="#334155" />
+                <i aria-hidden="true"></i>
+                <span className="sr-only">Home</span>
               </a>
             </div>
             <div className="md:hidden pt-2">
               <button
+                type="button"
                 className="text-slate-100 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
+                <i aria-hidden="true"></i>
+                <span className="sr-only">Meny knapp</span>
                 {navbar ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

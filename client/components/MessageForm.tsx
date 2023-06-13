@@ -44,7 +44,7 @@ export default function MessageForm() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    const res = await fetch("/api/sendgrid", {
+    const res = await fetch("http://localhost:5000/send-email", {
       body: JSON.stringify({
         name: guestInfo.name,
         email: guestInfo.email,

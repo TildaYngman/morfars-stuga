@@ -60,13 +60,3 @@ export default function Home() {
     </>
   );
 }
-export const getServerSideProps = async () => {
-  const response = await fetch("http://localhost:5000/QandA");
-  const qAndA = await response.json();
-
-  return {
-    props: {
-      qAndA,
-    },
-  };
-};

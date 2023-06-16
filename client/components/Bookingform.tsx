@@ -1,6 +1,6 @@
 import { ChangeEvent, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import  { IWeeks, useStore } from "../pages/zustandStore";
+import { IWeeks, useStore } from "../pages/zustandStore";
 import React from "react";
 
 interface IOptions {
@@ -8,7 +8,7 @@ interface IOptions {
   amount: number;
 }
 
-interface IBookingFormProps{
+interface IBookingFormProps {
   closeModal: () => void;
   isOpenCreate: boolean;
   options: IOptions[];
@@ -20,19 +20,21 @@ export default function BookingForm({
   isOpenCreate,
   options,
 }: IBookingFormProps) {
-  const { guestInfo, setGuestInfo, 
-    showConfirm, setShowConfirm, 
-    selectedWeeks, setSelectedWeeks } = useStore(
-    (state) => ({
-      guestInfo: state.guestInfo,
-      setGuestInfo: state.setGuestInfo,
-      showConfirm: state.showConfirm,
-      setShowConfirm: state.setShowConfirm,
-      selectedWeeks: state.selectedWeeks,
-      setSelectedWeeks: state.setSelectedWeeks,
-
-    })
-  );
+  const {
+    guestInfo,
+    setGuestInfo,
+    showConfirm,
+    setShowConfirm,
+    selectedWeeks,
+    setSelectedWeeks,
+  } = useStore((state) => ({
+    guestInfo: state.guestInfo,
+    setGuestInfo: state.setGuestInfo,
+    showConfirm: state.showConfirm,
+    setShowConfirm: state.setShowConfirm,
+    selectedWeeks: state.selectedWeeks,
+    setSelectedWeeks: state.setSelectedWeeks,
+  }));
 
   function openShowConfirm() {
     setShowConfirm(true);
@@ -60,8 +62,8 @@ export default function BookingForm({
 
   function checkPeople(e: ChangeEvent<HTMLSelectElement>) {
     const amount = e.target.value;
-    const amountInt = parseInt(amount)
-    if (amountInt === 0 ) {
+    const amountInt = parseInt(amount);
+    if (amountInt === 0) {
       return;
     } else {
       setGuestInfo({ ...guestInfo, people: amount });
@@ -77,12 +79,12 @@ export default function BookingForm({
     closeModal();
   }
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     closeModal();
     removeClasses();
 
-    const res = await fetch("/api/sendgridBooking", {
+    const res = await fetch("http://localhost:5000/send-request", {
       body: JSON.stringify({
         name: guestInfo.name,
         email: guestInfo.email,
@@ -108,7 +110,7 @@ export default function BookingForm({
 
   const newArr: string[] = [];
 
-  selectedWeeks.forEach((object:IWeeks) => {
+  selectedWeeks.forEach((object: IWeeks) => {
     newArr.push(
       `Vecka: ${object.Vecka}, mellan datumen ${object.Ankomst} och ${object.Avresa}<br />`
     );
@@ -118,11 +120,11 @@ export default function BookingForm({
     const clickedWeek = selectedWeeks;
     clickedWeek.splice(clickedWeek.indexOf(week), 1);
 
-    const bookingButton =  document
-      .getElementById(`${week._id}`) as HTMLButtonElement
+    const bookingButton = document.getElementById(
+      `${week._id}`
+    ) as HTMLButtonElement;
 
-    
-      bookingButton.classList.remove("card-btn-color-green");
+    bookingButton.classList.remove("card-btn-color-green");
 
     setSelectedWeeks([...clickedWeek]);
   }

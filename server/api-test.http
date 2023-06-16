@@ -1,6 +1,30 @@
 GET http://localhost:5000/bookableWeeks
 Content-Type: application/json
 
+###
+POST http://localhost:5000/send-email
+Content-Type: application/json
+
+{
+    "name": "john",
+    "email": "john@john.com",
+    "title": "blä",
+    "message": "bla bla bla"
+}
+###
+POST http://localhost:5000/send-request
+Content-Type: application/json
+
+{
+    "name": "john",
+    "email": "john@john.com",
+    "title": "bla",
+    "message": "bla bla bla",
+    "phone": "0704199928", 
+    "people": "1", 
+    "vecka": "52"
+}
+
 # ###
 # POST http://localhost:5000/test
 # Content-Type: application/json

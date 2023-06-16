@@ -25,8 +25,6 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-//get collections
-
 app.get("/bookableWeeks", async (request, response) => {
   const products = await weeksCollection.find({}).toArray();
   response.json(products);
@@ -65,7 +63,48 @@ app.post("/send-email", (req, res) => {
     });
 });
 
-//Keep server running
+app.post("/send-request", (req, res) => {
+  const { name, email, phone, message, people, vecka } = req.body;
+
+  const msg = {
+    to: "tilda.yngman@gmail.com",
+    from: "Matilda.yngman@hyperisland.se",
+    subject: "Bokningsföfrågan",
+    html: `
+      <body>
+        <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              
+              </div>
+              <div class="container" style="margin-left: 20px;margin-right: 20px;">
+              <h3>You've got a new booking request from ${name}, their email is: ✉️${email} </h3>
+              <div style="font-size: 16px;">
+              <p>Message:</p>
+              <p>${message}</p>
+              <p>Phone number to guest:</p>
+              <p>${phone}</p>
+              <p>Number of people:</p>
+              <p>${people}</p>
+              <br>
+              <p>Vecka:</p>
+              <p>${vecka}</p>
+              <br>
+              </div>
+      </body>
+      </html>`,
+  };
+
+  console.log(msg);
+
+  sgMail
+    .send(msg)
+    .then(() => {
+      res.status(200).json({ message: "Email sent successfully!" });
+    })
+    .catch((error) => {
+      console.error(error.response.body);
+      res.status(500).json({ error: "Error sending email" });
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`);
 });

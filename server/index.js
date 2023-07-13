@@ -69,7 +69,8 @@ app.post("/send-request", (req, res) => {
   const msg = {
     to: "tilda.yngman@gmail.com",
     from: "Matilda.yngman@hyperisland.se",
-    subject: "Bokningsföfrågan",
+    subject: "Bokningsföfrågan från ",
+    name,
     html: `
       <body>
         <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              

@@ -84,7 +84,7 @@ export default function BookingForm({
     closeModal();
     removeClasses();
 
-    const res = await fetch("http://localhost:5000/send-request", {
+    const res = await fetch("https://morfars-stuga.fly.dev/send-request", {
       body: JSON.stringify({
         name: guestInfo.name,
         email: guestInfo.email,

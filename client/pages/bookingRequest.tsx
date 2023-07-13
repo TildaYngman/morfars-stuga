@@ -132,7 +132,7 @@ export default function BookingRequest({ allWeeks }: IBookingRequestProps) {
 }
 
 export async function getStaticProps() {
-  const resTwo = await fetch("http://localhost:5000/bookableWeeks");
+  const resTwo = await fetch("https://morfars-stuga.fly.dev/bookableWeeks");
   const allWeeks = await resTwo.json();
 
   return {

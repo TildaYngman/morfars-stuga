@@ -44,7 +44,7 @@ export default function MessageForm() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/send-email", {
+    const res = await fetch("https://morfars-stuga.fly.dev/send-email", {
       body: JSON.stringify({
         name: guestInfo.name,
         email: guestInfo.email,

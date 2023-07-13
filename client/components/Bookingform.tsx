@@ -1,6 +1,6 @@
 import { ChangeEvent, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { IWeeks, useStore } from "../pages/zustandStore";
+import { IWeeks, useStore } from "../zustandStore";
 import React from "react";
 
 interface IOptions {

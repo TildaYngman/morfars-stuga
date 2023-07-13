@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Bookingform } from "../components/index";
-import { IWeeks, useStore } from "./zustandStore";
+import { IWeeks, useStore } from "../zustandStore";
 
 interface IBookingRequestProps {
   allWeeks: IWeeks[];

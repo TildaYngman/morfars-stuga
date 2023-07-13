@@ -1,5 +1,5 @@
-import create from "zustand";
-import { devtools } from "zustand/middleware";
+import create from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 export interface IGuestInfo {
   name: string;
@@ -7,7 +7,7 @@ export interface IGuestInfo {
   title: string;
   message: string;
   phone?: string | number;
-  people?: string |number;
+  people?: string | number;
 }
 
 export interface IWeeks {
@@ -28,15 +28,19 @@ interface IUserState {
   setSelectedWeeks: (selectedWeeks: IWeeks[]) => void;
 }
 
-
 export const useStore = create<IUserState>()(
   devtools((set) => ({
-    guestInfo: <IGuestInfo>{},
+    guestInfo: {
+      name: '',
+      email: '',
+      title: '',
+      message: ''
+    },
     setGuestInfo: (guestInfo: IGuestInfo) =>
-      set(() => ({ guestInfo }), false, "setGuestInfo"),
+      set(() => ({ guestInfo }), false, 'setGuestInfo'),
     showConfirm: false,
     setShowConfirm: (showConfirm: boolean) =>
-      set(() => ({ showConfirm }), false, "selectedWeeks"),
+      set(() => ({ showConfirm }), false, 'selectedWeeks'),
     selectedWeeks: [],
     setSelectedWeeks: (selectedWeeks) =>
       set((state) => ({ ...state, selectedWeeks })),

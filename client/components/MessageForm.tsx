@@ -1,4 +1,4 @@
-import { useStore } from "../pages/zustandStore";
+import { useStore } from "../zustandStore";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import React from "react";

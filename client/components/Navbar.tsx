@@ -1,6 +1,7 @@
 import { BsHouse } from "react-icons/bs";
 import { useState } from "react";
 import React from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -11,11 +12,13 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between md:block px-4">
             <div>
-              <a href="/">
-                <BsHouse size={30} color="#334155" />
-                <i aria-hidden="true"></i>
-                <span className="sr-only">Home</span>
-              </a>
+              <Link href="/">
+                <a>
+                  <BsHouse size={30} color="#334155" />
+                  <i aria-hidden="true"></i>
+                  <span className="sr-only">Home</span>
+                </a>
+              </Link>
             </div>
             <div className="md:hidden pt-2">
               <button
@@ -65,21 +68,21 @@ export default function Navbar() {
             }`}
           >
             <ul className="flex fixed  flex-col w-full bg-slate-50 shadow-xl md:shadow-none md:flex-row md:justify-end md:bg-transparent md:relative">
-              <a href="/about">
-                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+              <Link href="/about">
+                <a className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Om stugan
-                </li>
-              </a>
-              <a href="/bookingRequest">
-                <li className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                </a>
+              </Link>
+              <Link href="/bookingRequest">
+                <a className="text-slate-800 border-b-2 border-slate-200 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   Bokingsföfrågan
-                </li>
-              </a>
-              <a href="/faq">
-                <li className="text-slate-800 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
+                </a>
+              </Link>
+              <Link href="/faq">
+                <a className="text-slate-800 md:border-x-2 md:border-transparent md:hover:border-x-2 md:hover:border-slate-100 md:hover:p-2 md:p-2 py-5 pl-4 md:m-2 duration-150 text-xl font-semibold md:text-slate-800 bg-transparent">
                   FAQ
-                </li>
-              </a>
+                </a>
+              </Link>
             </ul>
           </div>
         </div>
